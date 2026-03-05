@@ -132,20 +132,20 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="footx-desc">
+            {/* <p className="footx-desc">
               A modern university shaping future leaders through world-class
               education, research, and innovation.
-            </p>
+            </p> */}
 
-            <div className="footx-badges">
+            {/* <div className="footx-badges">
               <span className="footx-badge">Innovation</span>
               <span className="footx-badge">Research</span>
               <span className="footx-badge">Global</span>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Quick links */}
-          <motion.div className="footx-col" variants={fadeUp}>
+          {/* <motion.div className="footx-col" variants={fadeUp}>
             <h4 className="footx-h4">Quick Links</h4>
             <ul className="footx-links">
               <li>
@@ -164,26 +164,26 @@ export default function Footer() {
                 <a href="#">Contact</a>
               </li>
             </ul>
-          </motion.div>
+          </motion.div> */}
 
           {/* Academics */}
           <motion.div className="footx-col" variants={fadeUp}>
             <h4 className="footx-h4">Academics</h4>
             <ul className="footx-links">
               <li>
+                <a href="#">Pre-Foundation</a>
+              </li>
+              <li>
+                <a href="#">Foundation</a>
+              </li>
+              <li>
                 <a href="#">Undergraduate</a>
               </li>
               <li>
-                <a href="#">Graduate</a>
+                <a href="#">Postgarduate</a>
               </li>
               <li>
                 <a href="#">PhD & DSc</a>
-              </li>
-              <li>
-                <a href="#">Courses</a>
-              </li>
-              <li>
-                <a href="#">Research Centers</a>
               </li>
             </ul>
           </motion.div>
@@ -197,14 +197,14 @@ export default function Footer() {
                 <span className="footx-ic">
                   <IoMailOutline />
                 </span>
-                <span>info@newuu.uz</span>
+                <span>info@iau.uz</span>
               </a>
 
               <a className="footx-contactRow" href="tel:+998712024111">
                 <span className="footx-ic">
                   <IoCallOutline />
                 </span>
-                <span>+998 (71) 202-41-11</span>
+                <span>+998 (99) 981-09-19</span>
               </a>
 
               <div className="footx-contactRow noLink">
@@ -226,24 +226,11 @@ export default function Footer() {
         {/* Bottom */}
         <motion.div className="footx-shell footx-bottom" variants={fadeUp}>
           <span className="footx-copy">
-            © {new Date().getFullYear()} New Uzbekistan University. All rights
+            © {new Date().getFullYear()} International Agriculture University. All rights
             reserved.
           </span>
 
-          <div className="footx-social">
-            <a href="#" aria-label="Instagram">
-              IG
-            </a>
-            <a href="#" aria-label="Telegram">
-              TG
-            </a>
-            <a href="#" aria-label="YouTube">
-              YT
-            </a>
-            <a href="#" aria-label="Facebook">
-              FB
-            </a>
-          </div>
+          
         </motion.div>
       </motion.section>
     </motion.footer>

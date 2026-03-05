@@ -1,121 +1,222 @@
-*{ box-sizing:border-box; font-family: "MuseoSansCyrl-500", sans-serif;}
+* {
+  box-sizing: border-box;
+  font-family: "MuseoSansCyrl-500", sans-serif;
+}
 
-.vision-section{
+.vision-section {
   padding: 100px 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  font-family: "MuseoSansCyrl-500", sans-serif;
+  font-family: inherit;
 }
 
-.vision-logo{
-  height: 50px;     /* xohlasang o‘zgartir */
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 15px;
-}
-
-.vision-container{
+.vision-container {
   width: min(1440px, 100%);
   margin: 0 auto;
   padding: 0 40px;
 }
 
-.vision-card{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-radius: 20px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 40px 100px rgba(0,0,0,.08);
-}
-
-/* LEFT */
-.vision-left img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* RIGHT */
-.vision-right{
-  position: relative;
-  background-size: cover;
-  background-position: center;
+.vision-card {
   display: flex;
+  background: white;
+  border-radius: 0;
   align-items: center;
-  padding: 60px;
-  color: white;
+  position: relative;
 }
 
-.vision-overlay{
+/* LEFT SIDE */
+.vision-left {
+  flex: 1;
+  padding: 60px 80px 60px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote-icon {
+  font-size: 80px;
+  color: #009dbb;
+  font-family: Georgia, serif;
+  line-height: 1;
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(20,40,70,.85),
-    rgba(20,40,70,.65)
-  );
 }
 
-.vision-content{
+.quote-top {
+  top: 40px;
+  left: -40px;
+  /* pull quote marks out slightly */
+}
+
+.quote-bottom {
+  bottom: 80px;
+  right: 60px;
+  transform: scaleY(-1) scaleX(-1);
+  /* flip vertically and horizontally */
+}
+
+.vision-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1a202c;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.vision-desc {
+  font-size: 18px;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 40px;
   position: relative;
   z-index: 2;
-  max-width: 500px;
-  font-family: "MuseoSansCyrl-500", sans-serif;
 }
 
-.vision-content h2{
-  font-size: 32px;
-  margin-bottom: 20px;
-  font-weight: 700;
-  font-family: "MuseoSansCyrl-500", sans-serif;
+.vision-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.vision-content p{
-  font-size: 16px;
-  line-height: 1.7;
-  opacity: .9;
-  margin-bottom: 30px;
-  font-family: "MuseoSansCyrl-500", sans-serif;
+.vision-gerb {
+  width: 50px;
+  height: auto;
 }
 
-.vision-content h4{
+.vision-author-info h4 {
   font-size: 20px;
-  margin-bottom: 6px;
-  font-weight: 600;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 4px 0;
 }
 
-.vision-content span{
+.vision-author-info span {
   font-size: 14px;
-  opacity: .8;
+  color: #718096;
+}
+
+/* RIGHT SIDE */
+.vision-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.vision-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 500px;
+}
+
+/* Flag gradient border */
+.flag-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Align left edge */
+  bottom: 0;
+  width: 100px;
+  /* Striped background starting from right */
+  background: linear-gradient(to right,
+      #009dbb 0%, #009dbb 33%,
+      #d52d27 33%, #d52d27 38%,
+      #ffffff 38%, #ffffff 62%,
+      #d52d27 62%, #d52d27 67%,
+      #1eb53a 67%, #1eb53a 100%);
+  transform: skewX(-9deg);
+  /* Angle matching the image's clip-path */
+  transform-origin: bottom left;
+  z-index: 1;
+}
+
+.vision-image-wrapper img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 95%;
+  /* Make room for flag stripes on left */
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+  z-index: 2;
 }
 
 /* RESPONSIVE */
-@media(max-width: 992px){
-  .vision-card{
-    grid-template-columns: 1fr;
+@media(max-width: 992px) {
+  .vision-card {
+    flex-direction: column-reverse;
   }
 
-  .vision-right{
-    padding: 40px;
+  .vision-left {
+    padding: 40px 0;
+  }
+
+  .vision-right {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .vision-image-wrapper {
+    max-width: 100%;
+    height: 400px;
   }
 }
 
-@media(max-width: 560px){
-  .vision-section{
+@media(max-width: 560px) {
+  .vision-section {
     padding: 60px 0;
   }
 
-  .vision-container{
+  .vision-container {
     padding: 0 16px;
   }
 
-  .vision-right{
-    padding: 30px;
+  .vision-title {
+    font-size: 28px;
   }
 
-  .vision-content h2{
+  .vision-desc {
+    font-size: 16px;
+  }
+
+  .quote-top {
+    left: -10px;
+    top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vision-section {
+    padding: 40px 0;
+  }
+
+  .vision-left {
+    padding: 30px 0;
+  }
+
+  .vision-title {
     font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .vision-desc {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .vision-image-wrapper {
+    height: 300px;
+  }
+
+  .quote-icon {
+    font-size: 50px;
+  }
+
+  .quote-top {
+    left: -5px;
+    top: 10px;
   }
 }

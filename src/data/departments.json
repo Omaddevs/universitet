@@ -4,6 +4,12 @@
     "title": "Rectorate",
     "members": [
       {
+        "name": "Munira Aminova",
+        "position": "Rector",
+        "email": "",
+        "photoUrl": "https://iau.uz/wp-content/uploads/2023/05/Munira-Aminova.png"
+      },
+      {
         "name": "Abdulla Primov",
         "position": "Vice Rector for Scientific Research, Innovation and Spirituality",
         "email": "",
@@ -14,12 +20,6 @@
         "position": "Vice Rector for Academic affairs",
         "email": "",
         "photoUrl": "https://iau.uz/wp-content/uploads/2025/03/IMG_8356-scaled.jpg"
-      },
-      {
-        "name": "Munira Aminova",
-        "position": "Rector",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2023/05/Munira-Aminova.png"
       },
       {
         "name": "Sunnatilla Rashidov",
@@ -34,12 +34,6 @@
     "title": "Deans",
     "members": [
       {
-        "name": "Farkhod Egamberdiyev",
-        "position": "Deputy Dean",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/03/Farkhod-scaled-e1745925230390.jpg"
-      },
-      {
         "name": "Jakhongir Alimov",
         "position": "Dean of Faculty of Agro-Science and Business",
         "email": "",
@@ -50,6 +44,12 @@
         "position": "Dean of the Faculty of Agro-Economics",
         "email": "",
         "photoUrl": "https://iau.uz/wp-content/uploads/2026/01/DSC01318.jpg"
+      },
+      {
+        "name": "Farkhod Egamberdiyev",
+        "position": "Deputy Dean",
+        "email": "",
+        "photoUrl": "https://iau.uz/wp-content/uploads/2025/03/Farkhod-scaled-e1745925230390.jpg"
       }
     ]
   },
@@ -57,6 +57,12 @@
     "id": "heads",
     "title": "Heads of Departments",
     "members": [
+      {
+        "name": "Sa’dullayeva Asalxon Muzaffarovna",
+        "position": "Head of HR Department",
+        "email": "",
+        "photoUrl": "https://iau.uz/wp-content/uploads/2024/10/Asalkhon-Sadullayeva.jpg"
+      },
       {
         "name": "Bekhzod Kodirkhonov",
         "position": "Head of Agriculture Department",

@@ -1,0 +1,234 @@
+/* src/components/SocialNetworks.css */
+.social-networks-section {
+     position: relative;
+     background-color: #1a2a4b;
+     /* Deep blue background matching design */
+     padding: 60px 40px;
+     overflow: hidden;
+     color: white;
+     font-family: 'DM Sans', sans-serif;
+     display: flex;
+     justify-content: center;
+     border-top: 1px solid rgba(255, 255, 255, 0.05);
+     /* Optional subtile border */
+     margin: 40px 0;
+     /* Add some spacing above and below if needed, or stick to Footer */
+}
+
+/* Faded Background Icons */
+.sn-bg-icons {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     pointer-events: none;
+     z-index: 1;
+}
+
+.sn-bg-icon {
+     position: absolute;
+     color: rgba(255, 255, 255, 0.04);
+     font-size: 60px;
+}
+
+.sn-icon-1 {
+     top: 20%;
+     left: 5%;
+     font-size: 80px;
+}
+
+.sn-icon-2 {
+     top: 60%;
+     left: 15%;
+     font-size: 50px;
+}
+
+.sn-icon-3 {
+     top: 30%;
+     left: 25%;
+     font-size: 40px;
+}
+
+.sn-icon-4 {
+     bottom: 20%;
+     left: 8%;
+     font-size: 70px;
+}
+
+.sn-icon-5 {
+     top: 20%;
+     right: 10%;
+     font-size: 90px;
+}
+
+.sn-icon-6 {
+     bottom: 30%;
+     right: 5%;
+     font-size: 60px;
+}
+
+.sn-icon-7 {
+     top: 40%;
+     right: 20%;
+     font-size: 45px;
+}
+
+/* Main Content Container */
+.sn-container {
+     position: relative;
+     z-index: 2;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     max-width: 1440px;
+     width: 100%;
+     gap: 40px;
+}
+
+/* Left Text Side */
+.sn-text-content {
+     flex: 1;
+     max-width: 450px;
+}
+
+.sn-title {
+     font-size: 38px;
+     font-weight: 700;
+     line-height: 1.3;
+     margin: 0 0 15px 0;
+     color: #ffffff;
+}
+
+.sn-highlight {
+     color: #34d399;
+     /* Green/teal text */
+}
+
+.sn-subtitle {
+     font-size: 18px;
+     color: #cbd5e1;
+     margin: 0;
+     font-weight: 400;
+}
+
+/* Right Phones Side */
+.sn-phones-wrapper {
+     display: flex;
+     align-items: center;
+     gap: 15px;
+     /* Spacing between phones */
+}
+
+.sn-phone-card {
+     transition: transform 0.3s ease;
+}
+
+.sn-phone-screen {
+     position: relative;
+     width: 150px;
+     /* Adjust according to design */
+     height: 290px;
+     background: #000;
+     border-radius: 20px;
+     border: 4px solid #111;
+     /* Simulating phone casing */
+     overflow: hidden;
+     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+     display: flex;
+     flex-direction: column;
+}
+
+/* Subtle inner shadow to make it more realistic */
+.sn-phone-screen::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     border-radius: 16px;
+     box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.4);
+     z-index: 5;
+     pointer-events: none;
+}
+
+.sn-screen-img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: top center;
+}
+
+/* Button Overlays inside phone */
+.sn-button-overlay {
+     position: absolute;
+     bottom: 20px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 85%;
+     z-index: 10;
+}
+
+.sn-action-btn {
+     width: 100%;
+     padding: 10px 0;
+     border: none;
+     border-radius: 8px;
+     background: linear-gradient(135deg, #4fd1c5, #38b2ac);
+     /* Teal gradient */
+     color: white;
+     font-weight: 600;
+     font-size: 13px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+     cursor: pointer;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+     transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sn-action-btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.sn-action-btn svg {
+     font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+     .sn-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+     }
+
+     .sn-text-content {
+          margin-bottom: 40px;
+     }
+
+     .sn-phones-wrapper {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+     }
+
+     .sn-phone-card {
+          transform: translateY(0) !important;
+          /* Reset transform on mobile */
+     }
+}
+
+@media (max-width: 600px) {
+     .sn-phone-screen {
+          width: 130px;
+          height: 250px;
+     }
+
+     .sn-title {
+          font-size: 28px;
+     }
+}

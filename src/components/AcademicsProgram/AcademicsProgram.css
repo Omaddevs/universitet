@@ -6,38 +6,24 @@
 }
 
 .apg::before {
-  content: none;
+  content: "";
   position: absolute;
-  width: min(58vw, 760px);
+  width: min(80vw, 900px);
   aspect-ratio: 1;
   left: 50%;
-  top: -240px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--brand-blue, #3e74c9) 10%, transparent) 0%,
-    color-mix(in srgb, var(--brand-green, #3f8f6c) 7%, transparent) 40%,
-    transparent 72%
-  );
-  opacity: 0.55;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../images/bg-images.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 35%;
   pointer-events: none;
   z-index: 0;
 }
 
 .apg::after {
   content: none;
-  position: absolute;
-  left: 50%;
-  top: 32px;
-  transform: translateX(-50%);
-  color: color-mix(in srgb, var(--brand-blue, #3e74c9) 14%, transparent);
-  font-size: clamp(72px, 14vw, 196px);
-  font-weight: 900;
-  letter-spacing: 0.28em;
-  filter: blur(1.4px);
-  pointer-events: none;
-  z-index: 0;
 }
 
 .apg__container {
@@ -70,12 +56,10 @@
   width: min(460px, 72%);
   margin: 14px auto 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--nav-ink, #0b1220) 24%, transparent),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      color-mix(in srgb, var(--nav-ink, #0b1220) 24%, transparent),
+      transparent);
 }
 
 .apg__cards {
@@ -91,11 +75,9 @@
   border: 1px solid var(--nav-whiteBorder, rgba(11, 18, 32, 0.1));
   padding: 18px;
   background:
-    linear-gradient(
-      140deg,
+    linear-gradient(140deg,
       color-mix(in srgb, var(--r-5, #f6f8f1) 70%, white),
-      color-mix(in srgb, var(--r-8, #edf2f8) 70%, white)
-    );
+      color-mix(in srgb, var(--r-8, #edf2f8) 70%, white));
   box-shadow: 0 10px 24px rgba(11, 18, 32, 0.06);
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
   display: flex;
@@ -166,11 +148,9 @@
   border-radius: var(--radius, 16px);
   border: 1px solid var(--nav-whiteBorder, rgba(11, 18, 32, 0.1));
   background:
-    linear-gradient(
-      145deg,
+    linear-gradient(145deg,
       color-mix(in srgb, var(--r-6, #f4f0e7) 80%, white),
-      color-mix(in srgb, var(--r-5, #f6f8f1) 86%, white)
-    );
+      color-mix(in srgb, var(--r-5, #f6f8f1) 86%, white));
   padding: clamp(22px, 2.6vw, 36px);
   box-shadow: 0 10px 28px rgba(11, 18, 32, 0.07);
 }
@@ -215,11 +195,9 @@
   font-size: 14px;
   font-weight: 700;
   color: white;
-  background: linear-gradient(
-    120deg,
-    var(--brand-green, #3f8f6c),
-    var(--brand-blue, #3e74c9)
-  );
+  background: linear-gradient(120deg,
+      var(--brand-green, #3f8f6c),
+      var(--brand-blue, #3e74c9));
   box-shadow: 0 10px 22px rgba(44, 84, 137, 0.24);
 }
 
@@ -245,35 +223,27 @@
 }
 
 .apg-stat.tone-a {
-  background: linear-gradient(
-    140deg,
-    color-mix(in srgb, var(--r-3, #2d6752) 86%, black),
-    color-mix(in srgb, var(--r-4, #2c5489) 78%, black)
-  );
+  background: linear-gradient(140deg,
+      color-mix(in srgb, var(--r-3, #2d6752) 86%, black),
+      color-mix(in srgb, var(--r-4, #2c5489) 78%, black));
 }
 
 .apg-stat.tone-b {
-  background: linear-gradient(
-    140deg,
-    color-mix(in srgb, var(--brand-blue, #3e74c9) 78%, black),
-    color-mix(in srgb, var(--r-4, #2c5489) 85%, black)
-  );
+  background: linear-gradient(140deg,
+      color-mix(in srgb, var(--brand-blue, #3e74c9) 78%, black),
+      color-mix(in srgb, var(--r-4, #2c5489) 85%, black));
 }
 
 .apg-stat.tone-c {
-  background: linear-gradient(
-    140deg,
-    color-mix(in srgb, var(--brand-green, #3f8f6c) 84%, black),
-    color-mix(in srgb, var(--r-3, #2d6752) 92%, black)
-  );
+  background: linear-gradient(140deg,
+      color-mix(in srgb, var(--brand-green, #3f8f6c) 84%, black),
+      color-mix(in srgb, var(--r-3, #2d6752) 92%, black));
 }
 
 .apg-stat.tone-d {
-  background: linear-gradient(
-    140deg,
-    color-mix(in srgb, var(--r-4, #2c5489) 82%, black),
-    color-mix(in srgb, var(--brand-green, #3f8f6c) 70%, black)
-  );
+  background: linear-gradient(140deg,
+      color-mix(in srgb, var(--r-4, #2c5489) 82%, black),
+      color-mix(in srgb, var(--brand-green, #3f8f6c) 70%, black));
 }
 
 .apg-stat__icon {
@@ -362,5 +332,32 @@
   .apg::after {
     top: 68px;
     letter-spacing: 0.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .apg {
+    padding: 40px 0 50px;
+  }
+
+  .apg__title {
+    font-size: clamp(26px, 8vw, 32px);
+  }
+
+  .apg-about {
+    padding: 20px;
+  }
+
+  .apg-about__title {
+    font-size: clamp(24px, 8vw, 32px);
+  }
+
+  .apg-stat__value {
+    font-size: 32px;
+  }
+
+  .apg-stat {
+    min-height: 130px;
+    padding: 14px;
   }
 }

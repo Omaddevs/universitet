@@ -34,6 +34,9 @@ export default function Navbar() {
     const isLegacyStaffPage =
         location.pathname === "/our-staff" || location.pathname === "/department-community";
 
+    // ✅ Admissions page lar
+    const isAdmissionsPage = location.pathname.startsWith("/admissions");
+
     const overlayPages = ["/our-staff"];
     const overlayMode = overlayPages.includes(location.pathname);
 
@@ -81,9 +84,9 @@ export default function Navbar() {
                 "PHD AND DSC PROGRAMMES",
             ],
             research: ["Centers", "Publications", "Labs", "Projects"],
-            admissions: ["How to apply", "Tuition fees", "Scholarships", "FAQ"],
+            admissions: ["IAU Scientific council", "Research Publications", "Research Projects", "Research Partners", "German-Uzbek Chain on Central  Asian Agricultural Economics (GUCAE)"],
             life: ["Dormitory", "Clubs", "Sports", "Services"],
-            news: ["OUR STAFF", "Upcoming Events", "Announcements"],
+            news: ["ABOUT UNIVERSITY", "OUR STAFF", "Upcoming Events", "Announcements"],
         }),
         []
     );
@@ -99,8 +102,14 @@ export default function Navbar() {
         navigate("/staff");
     };
 
+    const isScientificCouncilPage = location.pathname.startsWith("/research/scientific-council");
+    const isResearchProjectsPage = location.pathname.startsWith("/research/research-projects");
+
+    const isAboutPage = location.pathname === "/about";
+    const isContactPage = location.pathname === "/contact";
+
     const solidWhiteMode =
-  isStaffListPage || isStaffDetailPage || isLegacyStaffPage;
+        isStaffListPage || isStaffDetailPage || isLegacyStaffPage || isAdmissionsPage || isScientificCouncilPage || isResearchProjectsPage || isAboutPage || isContactPage;
 
     return (
         <header
@@ -213,11 +222,88 @@ export default function Navbar() {
                                 </button>
 
                                 <div className="navx-ddMenu">
-                                    {dropdowns.about.map((x) => (
-                                        <a key={x} href="#" onClick={() => setOpenDD(null)}>
-                                            {x}
-                                        </a>
-                                    ))}
+                                    {dropdowns.about.map((x) => {
+                                        if (x === "PRE-FOUNDATION") {
+                                            return (
+                                                <button
+                                                    key={x}
+                                                    type="button"
+                                                    className="navx-ddAction"
+                                                    onClick={() => {
+                                                        closeAll();
+                                                        navigate("/admissions/pre-foundation");
+                                                    }}
+                                                >
+                                                    {x}
+                                                </button>
+                                            );
+                                        }
+                                        if (x === "FOUNDATION") {
+                                            return (
+                                                <button
+                                                    key={x}
+                                                    type="button"
+                                                    className="navx-ddAction"
+                                                    onClick={() => {
+                                                        closeAll();
+                                                        navigate("/admissions/foundation");
+                                                    }}
+                                                >
+                                                    {x}
+                                                </button>
+                                            );
+                                        }
+                                        if (x === "UNDERGRADUATE") {
+                                            return (
+                                                <button
+                                                    key={x}
+                                                    type="button"
+                                                    className="navx-ddAction"
+                                                    onClick={() => {
+                                                        closeAll();
+                                                        navigate("/admissions/undergraduate");
+                                                    }}
+                                                >
+                                                    {x}
+                                                </button>
+                                            );
+                                        }
+                                        if (x === "POSTGRADUATE") {
+                                            return (
+                                                <button
+                                                    key={x}
+                                                    type="button"
+                                                    className="navx-ddAction"
+                                                    onClick={() => {
+                                                        closeAll();
+                                                        navigate("/admissions/postgraduate");
+                                                    }}
+                                                >
+                                                    {x}
+                                                </button>
+                                            );
+                                        }
+                                        if (x === "PHD AND DSC PROGRAMMES") {
+                                            return (
+                                                <button
+                                                    key={x}
+                                                    type="button"
+                                                    className="navx-ddAction"
+                                                    onClick={() => {
+                                                        closeAll();
+                                                        navigate("/admissions/phd");
+                                                    }}
+                                                >
+                                                    {x}
+                                                </button>
+                                            );
+                                        }
+                                        return (
+                                            <a key={x} href="#" onClick={() => setOpenDD(null)}>
+                                                {x}
+                                            </a>
+                                        );
+                                    })}
                                 </div>
                             </div>
 
@@ -253,11 +339,43 @@ export default function Navbar() {
                                     Research <IoChevronDownOutline />
                                 </button>
                                 <div className="navx-ddMenu">
-                                    {dropdowns.admissions.map((x) => (
-                                        <a key={x} href="#" onClick={() => setOpenDD(null)}>
-                                            {x}
-                                        </a>
-                                    ))}
+                                    {dropdowns.admissions.map((x) => {
+                                        if (x === "IAU Scientific council") {
+                                            return (
+                                                <button
+                                                    key={x}
+                                                    type="button"
+                                                    className="navx-ddAction"
+                                                    onClick={() => {
+                                                        closeAll();
+                                                        navigate("/research/scientific-council");
+                                                    }}
+                                                >
+                                                    {x}
+                                                </button>
+                                            );
+                                        }
+                                        if (x === "Research Projects") {
+                                            return (
+                                                <button
+                                                    key={x}
+                                                    type="button"
+                                                    className="navx-ddAction"
+                                                    onClick={() => {
+                                                        closeAll();
+                                                        navigate("/research/research-projects");
+                                                    }}
+                                                >
+                                                    {x}
+                                                </button>
+                                            );
+                                        }
+                                        return (
+                                            <a key={x} href="#" onClick={() => setOpenDD(null)}>
+                                                {x}
+                                            </a>
+                                        );
+                                    })}
                                 </div>
                             </div>
 
@@ -293,6 +411,21 @@ export default function Navbar() {
 
                                 <div className="navx-ddMenu">
                                     {dropdowns.news.map((x) => {
+                                        if (x === "ABOUT UNIVERSITY") {
+                                            return (
+                                                <button
+                                                    key={x}
+                                                    type="button"
+                                                    className="navx-ddAction"
+                                                    onClick={() => {
+                                                        closeAll();
+                                                        navigate("/about");
+                                                    }}
+                                                >
+                                                    {x}
+                                                </button>
+                                            );
+                                        }
                                         if (x === "OUR STAFF") {
                                             return (
                                                 <button
@@ -315,9 +448,9 @@ export default function Navbar() {
                                 </div>
                             </div>
 
-                            <a className="navx-link" href="#" onClick={() => setOpenDD(null)}>
+                            <button className="navx-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }} onClick={() => { setOpenDD(null); navigate("/contact"); }}>
                                 Contact us
-                            </a>
+                            </button>
                         </div>
 
                         <div className="navx-cta">
@@ -346,11 +479,8 @@ export default function Navbar() {
                 <div className="navx-mPanel">
                     <div className="navx-mTop">
                         <div className="navx-mBrand">
-                            <span className="navx-brand-mark" />
-                            <span className="navx-brand-text">
-                                <span>New</span>
-                                <span>Uzbekistan</span>
-                                <span>University</span>
+                            <span style={{ fontSize: "17px", fontWeight: "800", color: "rgba(255,255,255,0.95)", letterSpacing: "0.2px" }}>
+                                International Agriculture University
                             </span>
                         </div>
 
@@ -372,20 +502,97 @@ export default function Navbar() {
                     <div className="navx-mLinks">
                         <details>
                             <summary>
-                                About NewUU <IoChevronDownOutline />
+                                Programmes <IoChevronDownOutline />
                             </summary>
                             <div className="navx-mDD">
-                                {dropdowns.about.map((x) => (
-                                    <a key={x} href="#" onClick={() => setMobileOpen(false)}>
-                                        {x}
-                                    </a>
-                                ))}
+                                {dropdowns.about.map((x) => {
+                                    if (x === "PRE-FOUNDATION") {
+                                        return (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-mDDbtn"
+                                                onClick={() => {
+                                                    setMobileOpen(false);
+                                                    navigate("/admissions/pre-foundation");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        );
+                                    }
+                                    if (x === "FOUNDATION") {
+                                        return (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-mDDbtn"
+                                                onClick={() => {
+                                                    setMobileOpen(false);
+                                                    navigate("/admissions/foundation");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        );
+                                    }
+                                    if (x === "UNDERGRADUATE") {
+                                        return (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-mDDbtn"
+                                                onClick={() => {
+                                                    setMobileOpen(false);
+                                                    navigate("/admissions/undergraduate");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        );
+                                    }
+                                    if (x === "POSTGRADUATE") {
+                                        return (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-mDDbtn"
+                                                onClick={() => {
+                                                    setMobileOpen(false);
+                                                    navigate("/admissions/postgraduate");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        );
+                                    }
+                                    if (x === "PHD AND DSC PROGRAMMES") {
+                                        return (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-mDDbtn"
+                                                onClick={() => {
+                                                    setMobileOpen(false);
+                                                    navigate("/admissions/phd");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        );
+                                    }
+                                    return (
+                                        <a key={x} href="#" onClick={() => setMobileOpen(false)}>
+                                            {x}
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </details>
 
                         <details>
                             <summary>
-                                Research <IoChevronDownOutline />
+                                Students Life <IoChevronDownOutline />
                             </summary>
                             <div className="navx-mDD">
                                 {dropdowns.research.map((x) => (
@@ -398,20 +605,52 @@ export default function Navbar() {
 
                         <details>
                             <summary>
-                                Admissions <IoChevronDownOutline />
+                                Research <IoChevronDownOutline />
                             </summary>
                             <div className="navx-mDD">
-                                {dropdowns.admissions.map((x) => (
-                                    <a key={x} href="#" onClick={() => setMobileOpen(false)}>
-                                        {x}
-                                    </a>
-                                ))}
+                                {dropdowns.admissions.map((x) => {
+                                    if (x === "IAU Scientific council") {
+                                        return (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-mDDbtn"
+                                                onClick={() => {
+                                                    setMobileOpen(false);
+                                                    navigate("/research/scientific-council");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        );
+                                    }
+                                    if (x === "Research Projects") {
+                                        return (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-mDDbtn"
+                                                onClick={() => {
+                                                    setMobileOpen(false);
+                                                    navigate("/research/research-projects");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        );
+                                    }
+                                    return (
+                                        <a key={x} href="#" onClick={() => setMobileOpen(false)}>
+                                            {x}
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </details>
 
                         <details>
                             <summary>
-                                Student life <IoChevronDownOutline />
+                                Festivals <IoChevronDownOutline />
                             </summary>
                             <div className="navx-mDD">
                                 {dropdowns.life.map((x) => (
@@ -424,10 +663,25 @@ export default function Navbar() {
 
                         <details>
                             <summary>
-                                News & Events <IoChevronDownOutline />
+                                About Us <IoChevronDownOutline />
                             </summary>
                             <div className="navx-mDD">
                                 {dropdowns.news.map((x) => {
+                                    if (x === "ABOUT UNIVERSITY") {
+                                        return (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-mDDbtn"
+                                                onClick={() => {
+                                                    setMobileOpen(false);
+                                                    navigate("/about");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        );
+                                    }
                                     if (x === "OUR STAFF") {
                                         return (
                                             <button
@@ -449,9 +703,9 @@ export default function Navbar() {
                             </div>
                         </details>
 
-                        <a className="navx-mLink" href="#" onClick={() => setMobileOpen(false)}>
+                        <button className="navx-mLink" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }} onClick={() => { setMobileOpen(false); navigate("/contact"); }}>
                             Contact us
-                        </a>
+                        </button>
                     </div>
 
                     <div className="navx-mActions">
@@ -461,10 +715,10 @@ export default function Navbar() {
 
                         <div className="navx-mContacts">
                             <a href="mailto:info@newuu.uz">
-                                <IoMailOutline /> info@newuu.uz
+                                <IoMailOutline /> info@iau.uz
                             </a>
                             <a href="tel:+998712024111">
-                                <IoCallOutline /> +998 (71) 202-41-11
+                                <IoCallOutline /> +998 (99) 981-09-19
                             </a>
                         </div>
                     </div>

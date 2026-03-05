@@ -7,36 +7,49 @@ import {
   IoFlaskOutline,
   IoBookOutline,
 } from "react-icons/io5";
-import Campus from "../images/campus.PNG";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import { useNavigate } from "react-router-dom";
+import HeroVideo from "../images/hero.mp4";
+import leftRibbon from "../images/left-ribbon.png";
+import rightRibbon from "../images/right-ribbon.png";
 
 const cards = [
+  {
+    title: "Pre-Foundation",
+    sub: "Browse the pre-foundation courses",
+    icon: <IoSchoolOutline />,
+    tone: "teal",
+    link: "/admissions/pre-foundation",
+  },
+  {
+    title: "Foundation",
+    sub: "Browse the foundation programs",
+    icon: <IoBookOutline />,
+    tone: "blue",
+    link: "/admissions/foundation",
+  },
   {
     title: "Undergraduate",
     sub: "Browse the undergraduate degrees",
     icon: <IoSchoolOutline />,
-    tone: "teal",
-    from: "right",
+    tone: "green",
+    link: "/admissions/undergraduate",
   },
   {
-    title: "Graduate",
-    sub: "Browse the graduate degrees",
+    title: "Postgraduate",
+    sub: "Browse the postgraduate degrees",
     icon: <IoRibbonOutline />,
-    tone: "blue",
-    from: "left",
+    tone: "blue2",
+    link: "/admissions/postgraduate",
   },
   {
-    title: "Phd and DSc Programmes",
+    title: "PhD and DSc Programmes",
     sub: "Browse the programs",
     icon: <IoFlaskOutline />,
-    tone: "green",
-    from: "right",
-  },
-  {
-    title: "Courses",
-    sub: "Browse the courses",
-    icon: <IoBookOutline />,
-    tone: "blue2",
-    from: "bottom",
+    tone: "teal",
+    link: "/admissions/phd",
   },
 ];
 
@@ -85,57 +98,11 @@ const btnPop = {
   },
 };
 
-const cardsWrap = {
-  hidden: { opacity: 1 },
-  show: {
-    opacity: 1,
-    transition: { when: "beforeChildren", staggerChildren: 0.14, delayChildren: 0.22 },
-  },
-};
 
-function cardVariant(from) {
-  if (from === "left") {
-    return {
-      hidden: { opacity: 0, x: -36, y: 10, scale: 0.98, filter: "blur(10px)" },
-      show: {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-        transition: { duration: 0.85, ease: easePro },
-      },
-    };
-  }
-  if (from === "right") {
-    return {
-      hidden: { opacity: 0, x: 36, y: 10, scale: 0.98, filter: "blur(10px)" },
-      show: {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-        transition: { duration: 0.85, ease: easePro },
-      },
-    };
-  }
-  if (from === "bottom") {
-    return {
-      hidden: { opacity: 0, y: 30, scale: 0.98, filter: "blur(10px)" },
-      show: {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-        transition: { duration: 0.85, ease: easePro },
-      },
-    };
-  }
-  return fadeUp;
-}
 
 export default function Header() {
+  const navigate = useNavigate();
+
   return (
     <motion.section
       className="hero"
@@ -143,12 +110,19 @@ export default function Header() {
       initial="hidden"
       animate="show"
     >
+      <img src={leftRibbon} alt="Left Ribbon" className="hero-ribbon hero-ribbon-left" />
+      <img src={rightRibbon} alt="Right Ribbon" className="hero-ribbon hero-ribbon-right" />
+
       <motion.div className="hero-bg" variants={fadeDown}>
-        <img
-          src={Campus}
-          alt="International Agriculture University campus"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="hero-bg-image"
-        />
+        >
+          <source src={HeroVideo} type="video/mp4" />
+        </video>
       </motion.div>
 
       <motion.div
@@ -171,32 +145,51 @@ export default function Header() {
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.18 }}
+            onClick={() => navigate('/about')}
           >
             More about us <IoArrowForwardOutline />
           </motion.button>
 
-          <motion.div className="hero-stack" variants={cardsWrap}>
-            {cards.map((c) => (
-              <motion.button
-                key={c.title}
-                className={`hero-card ${c.tone}`}
-                type="button"
-                variants={cardVariant(c.from)}
-                whileHover={{ y: -4, scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-                transition={{ duration: 0.18 }}
-              >
-                <div className="hero-card-ic">{c.icon}</div>
-                <div className="hero-card-txt">
-                  <div className="hero-card-title">{c.title}</div>
-                  <div className="hero-card-sub">{c.sub}</div>
-                </div>
+          <motion.div className="hero-stack-carousel" variants={fadeUp}>
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={14}
+              slidesPerView={1.2}
+              breakpoints={{
+                560: { slidesPerView: 2.2 },
+                760: { slidesPerView: 3.2 },
+                1180: { slidesPerView: 4 },
+              }}
+              loop={true}
+              speed={7000} // makes it smooth and continuous
+              autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false }}
+              allowTouchMove={false}
+              className="hero-swiper"
+            >
+              {cards.map((c, i) => (
+                <SwiperSlide key={i}>
+                  <button
+                    className={`hero-card ${c.tone}`}
+                    type="button"
+                    onClick={() => {
+                      if (c.link && c.link !== "#") {
+                        navigate(c.link);
+                      }
+                    }}
+                  >
+                    <div className="hero-card-ic">{c.icon}</div>
+                    <div className="hero-card-txt">
+                      <div className="hero-card-title">{c.title}</div>
+                      <div className="hero-card-sub">{c.sub}</div>
+                    </div>
 
-                <div className="hero-card-arrow">
-                  <IoArrowForwardOutline />
-                </div>
-              </motion.button>
-            ))}
+                    <div className="hero-card-arrow">
+                      <IoArrowForwardOutline />
+                    </div>
+                  </button>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </motion.div>
         </div>
       </div>

@@ -12,49 +12,49 @@ import {
 
 const programCards = [
   {
-    title: "Undergraduate",
-    count: "9 programs",
+    title: "Pre-Foundation",
+    count: "",
     icon: <IoSchoolOutline />,
   },
   {
-    title: "Graduate",
-    count: "6 programs",
+    title: "Foundation",
+    count: "",
     icon: <IoRibbonOutline />,
   },
   {
-    title: "Phd and DSc Programmes",
-    count: "11 programs",
+    title: "Undergraduate",
+    count: "",
     icon: <IoFlaskOutline />,
   },
   {
-    title: "Courses",
-    count: "3 programs",
+    title: "Graduate",
+    count: "",
     icon: <IoBookOutline />,
   },
 ];
 
 const statTiles = [
   {
-    value: "1302",
+    value: "1000+",
     label: "Students",
     icon: <IoSchoolOutline />,
     tone: "tone-a",
   },
   {
-    value: "200",
+    value: "100+",
     label: "Staff",
     icon: <IoPeopleOutline />,
     tone: "tone-b",
   },
   {
-    value: "3",
-    label: "Schools",
+    value: "5",
+    label: "Programmes",
     icon: <IoBusinessOutline />,
     tone: "tone-c",
   },
   {
-    value: "69",
-    label: "Faculty",
+    value: "11",
+    label: "Faculties",
     icon: <IoLibraryOutline />,
     tone: "tone-d",
   },
@@ -90,7 +90,7 @@ export default function AcademicsProgram() {
 
         <div className="apg__bottom">
           <article className="apg-about">
-            <p className="apg-about__label">Section</p>
+            <p className="apg-about__label">IAU</p>
 
             <h3 className="apg-about__title">
               About International

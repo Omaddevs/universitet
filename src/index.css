@@ -1,12 +1,24 @@
-html, body, #root { height: 100%; }
-body { margin: 0; }
+html,
+body,
+#root {
+  height: 100%;
+}
 
-.page{
+body {
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+}
+
+
+.page {
   width: 100%;
   max-width: none;
   margin: 0;
 }
 
-*{
+* {
   font-family: "MuseoSansCyrl-500", sans-serif;
 }

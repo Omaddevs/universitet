@@ -1,9 +1,8 @@
 import "./Section.css";
 import { motion } from "framer-motion";
-import President from "../images/president.jpg"; // chap rasm
-import Campus from "../images/campus.PNG"; // o‘ng fon rasm
-import Pattern from "../images/sectionImage.jpg"; // 1-rasm ornament
-import sectionLogo from "../images/navbarLogo.PNG";
+import President from "../images/president.jpg"; // o'ng rasm
+import Gerb from "../images/gerb.png"; // chapdagi emblema
+import Pattern from "../images/sectionImage.jpg"; // fon uchun
 
 export default function VisionSection() {
   const easePro = [0.22, 1, 0.36, 1];
@@ -16,7 +15,7 @@ export default function VisionSection() {
     },
   };
 
-  const leftImg = {
+  const leftPanel = {
     hidden: { opacity: 0, x: -34, y: 12, filter: "blur(10px)" },
     show: {
       opacity: 1,
@@ -27,7 +26,7 @@ export default function VisionSection() {
     },
   };
 
-  const rightPanel = {
+  const rightImg = {
     hidden: { opacity: 0, x: 34, y: 12, filter: "blur(10px)" },
     show: {
       opacity: 1,
@@ -35,16 +34,6 @@ export default function VisionSection() {
       y: 0,
       filter: "blur(0px)",
       transition: { duration: 0.9, ease: easePro, delay: 0.05 },
-    },
-  };
-
-  const content = {
-    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
-    show: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.85, ease: easePro },
     },
   };
 
@@ -59,33 +48,39 @@ export default function VisionSection() {
     >
       <div className="vision-container">
         <motion.div className="vision-card" variants={wrap}>
-          {/* LEFT IMAGE */}
-          <motion.div className="vision-left" variants={leftImg}>
-            <img src={President} alt="President" />
+          {/* LEFT SIDE: Content */}
+          <motion.div className="vision-left" variants={leftPanel}>
+            <span className="quote-icon quote-top">“</span>
+
+            <h2 className="vision-title">
+              International Agriculture<br />University in Uzbekistan
+            </h2>
+
+            <p className="vision-desc">
+              The International Agricultural University, established by the
+              Resolution of the President of the Republic of Uzbekistan
+              PQ-237, currently operates as an International State University.
+              Graduates of the university receive a diploma from the British
+              University of RAU, which is recognized in Uzbekistan.
+            </p>
+
+            <span className="quote-icon quote-bottom">”</span>
+
+            <div className="vision-author">
+              <img src={Gerb} alt="Gerb" className="vision-gerb" />
+              <div className="vision-author-info">
+                <h4>Shavkat Mirziyoyev</h4>
+                <span>O‘zbekiston Respublikasi Prezidenti</span>
+              </div>
+            </div>
           </motion.div>
 
-          {/* RIGHT SIDE */}
-          <motion.div
-            className="vision-right"
-            style={{ backgroundImage: `url(${Campus})` }}
-            variants={rightPanel}
-          >
-            <div className="vision-overlay" />
-
-            <motion.div className="vision-content" variants={content}>
-              <img src={sectionLogo} alt="Section Logo" className="vision-logo" />
-
-              <p>
-                "O‘zbekiston Respublikasi Prezidentining PQ-237 qaroriga ko‘ra
-                tashkil etilgan Xalqaro qishloq xo‘jaligi universiteti bugungi kunda
-                Xalqaro Davlat universiteti sifatida faoliyat olib bormoqda.
-                Universitet bitiruvchilari Buyuk Britaniya universiteti RAUning
-                diplomiga ega bo‘lishadi, ushbu diplom Uzbekistonda tan olinadi"
-              </p>
-
-              <h4>Shavkat Mirziyoyev</h4>
-              <span>President of the Republic Uzbekistan</span>
-            </motion.div>
+          {/* RIGHT SIDE: Image */}
+          <motion.div className="vision-right" variants={rightImg}>
+            <div className="vision-image-wrapper">
+              <div className="flag-border"></div>
+              <img src={President} alt="President" />
+            </div>
           </motion.div>
         </motion.div>
       </div>
