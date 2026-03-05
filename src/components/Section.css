@@ -41,27 +41,30 @@
   font-family: Georgia, serif;
   line-height: 1;
   position: absolute;
+  /* Adjusting font weight to be slightly bolder for the image match */
+  font-weight: 900;
+  font-style: italic;
 }
 
 .quote-top {
-  top: 40px;
-  left: -40px;
-  /* pull quote marks out slightly */
+  top: -10px;
+  left: -50px;
 }
 
 .quote-bottom {
-  bottom: 80px;
-  right: 60px;
+  bottom: 0px;
+  right: -20px;
   transform: scaleY(-1) scaleX(-1);
-  /* flip vertically and horizontally */
 }
 
 .vision-title {
   font-size: 42px;
   font-weight: 800;
   color: #1a202c;
-  margin-bottom: 24px;
-  line-height: 1.2;
+  margin-bottom: 30px;
+  line-height: 1.35;
+  position: relative;
+  max-width: 90%;
 }
 
 .vision-desc {

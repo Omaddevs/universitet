@@ -47,14 +47,14 @@ const statTiles = [
     tone: "tone-b",
   },
   {
-    value: "5",
-    label: "Programmes",
+    value: "2",
+    label: "Faculties",
     icon: <IoBusinessOutline />,
     tone: "tone-c",
   },
   {
-    value: "11",
-    label: "Faculties",
+    value: "13",
+    label: "Programmes",
     icon: <IoLibraryOutline />,
     tone: "tone-d",
   },

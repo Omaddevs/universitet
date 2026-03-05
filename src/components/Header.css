@@ -206,6 +206,10 @@
 
 
 @media (max-width: 760px) {
+  .hero-ribbon {
+    display: none;
+  }
+
   .hero-container {
     padding: 32px 16px 48px;
   }

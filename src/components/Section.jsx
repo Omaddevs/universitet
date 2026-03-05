@@ -50,21 +50,13 @@ export default function VisionSection() {
         <motion.div className="vision-card" variants={wrap}>
           {/* LEFT SIDE: Content */}
           <motion.div className="vision-left" variants={leftPanel}>
-            <span className="quote-icon quote-top">“</span>
-
-            <h2 className="vision-title">
-              International Agriculture<br />University in Uzbekistan
-            </h2>
-
-            <p className="vision-desc">
-              The International Agricultural University, established by the
-              Resolution of the President of the Republic of Uzbekistan
-              PQ-237, currently operates as an International State University.
-              Graduates of the university receive a diploma from the British
-              University of RAU, which is recognized in Uzbekistan.
-            </p>
-
-            <span className="quote-icon quote-bottom">”</span>
+            <div style={{ position: "relative", display: "inline-block" }}>
+              <span className="quote-icon quote-top">“</span>
+              <h2 className="vision-title">
+                Our main goal is to develop agriculture based on science-based methods and best practices
+              </h2>
+              <span className="quote-icon quote-bottom">”</span>
+            </div>
 
             <div className="vision-author">
               <img src={Gerb} alt="Gerb" className="vision-gerb" />

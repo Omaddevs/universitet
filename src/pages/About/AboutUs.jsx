@@ -31,7 +31,7 @@ export default function AboutUs() {
                          <div className="about-uni-card">
                               <h2>About University</h2>
                               <p>
-                                   The International Agriculture University was established in 2022 by decree of the President of the Republic of Uzbekistan, in partnership with the Royal Agricultural University, a renowned British academic institution, operating under the patronage of the King Charles III. Graduates of the International Agriculture University will attain not only exceptional knowledge and skills in Tashkent, but also a diploma from the prestigious British university.
+                                   In accordance with Resolution No. PQ-237 of the President of the Republic of Uzbekistan dated 7 May 2022 ‘On Measures for the Establishment of the International Agriculture University’, the International Agriculture University was founded in 2022 in cooperation with the Royal Agricultural University of the United Kingdom.
                               </p>
                               <button className="about-btn">
                                    See programs <IoArrowForwardOutline />
@@ -57,36 +57,36 @@ export default function AboutUs() {
 
                          <div className="about-stat-card stat-teal">
                               <FaGraduationCap className="stat-icon-top" />
-                              <h3>1 305</h3>
+                              <h3>900+</h3>
                               <p>Students</p>
                               <FaGraduationCap className="stat-icon-bg" />
                          </div>
 
                          <div className="about-stat-card stat-blue">
                               <FaUserTie className="stat-icon-top" />
-                              <h3>201</h3>
+                              <h3>100+</h3>
                               <p>Staff</p>
                               <FaUserTie className="stat-icon-bg" />
                          </div>
 
                          <div className="about-stat-card stat-green">
                               <FaBuilding className="stat-icon-top" />
-                              <h3>4</h3>
-                              <p>Schools</p>
+                              <h3>2</h3>
+                              <p>Faculties</p>
                               <FaBuilding className="stat-icon-bg" />
                          </div>
 
                          <div className="about-stat-card stat-indigo">
                               <FaBookOpen className="stat-icon-top" />
-                              <h3>70</h3>
-                              <p>Faculty</p>
+                              <h3>13</h3>
+                              <p>Programs</p>
                               <FaBookOpen className="stat-icon-bg" />
                          </div>
 
                     </div>
 
                     {/* PRESIDENT ROW */}
-                    <div className="about-president-card">
+                    {/* <div className="about-president-card">
                          <div className="president-text-side">
                               <h2>International Agriculture<br />University in Uzbekistan</h2>
                               <p>
@@ -99,7 +99,7 @@ export default function AboutUs() {
                               <div className="diagonal-overlay"></div>
                               <img src={presidentImg} alt="President of Uzbekistan" />
                          </div>
-                    </div>
+                    </div> */}
 
                </div>
 

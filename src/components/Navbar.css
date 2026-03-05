@@ -128,13 +128,14 @@
 
 /* icon buttons */
 .navx-iconBtn {
+  display: none;
   width: 34px;
   height: 34px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, .16);
   background: rgba(255, 255, 255, .06);
   color: rgba(255, 255, 255, .86);
-  display: grid;
+  /* display: grid; */
   place-items: center;
   cursor: pointer;
   transition: .2s ease;
