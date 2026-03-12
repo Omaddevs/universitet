@@ -329,9 +329,62 @@
   display: block;
 }
 
-/* ✅ a ham, button ham bir xil */
 .navx-ddMenu a,
-.navx-ddMenu button {
+.navx-ddMenu button,
+.navx-ddSubMenuContainer>a {
+  display: block;
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navx-ddMenu a:hover,
+.navx-ddMenu button:hover,
+.navx-ddSubMenuContainer>a:hover {
+  background: rgba(255, 255, 255, .08);
+}
+
+/* nested menu */
+.navx-ddSubMenuContainer {
+  position: relative;
+}
+
+.navx-subChev {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.navx-ddSubMenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 10px;
+  min-width: 200px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, rgba(61, 121, 184, 0.98) 0%, rgba(33, 175, 143, 0.98) 100%);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  display: none;
+  color: #ffffff;
+}
+
+.navx-ddSubMenuContainer.open .navx-ddSubMenu {
+  display: block;
+}
+
+.navx-ddSubMenu a {
   display: block;
   width: 100%;
   padding: 10px 10px;
@@ -345,8 +398,7 @@
   cursor: pointer;
 }
 
-.navx-ddMenu a:hover,
-.navx-ddMenu button:hover {
+.navx-ddSubMenu a:hover {
   background: rgba(255, 255, 255, .08);
 }
 
@@ -444,15 +496,17 @@
   box-shadow: none;
 }
 
-/* SCROLLED paytda dropdown oq bo‘lsin, text qora */
-.navx.is-scrolled .navx-ddMenu {
+.navx.is-scrolled .navx-ddMenu,
+.navx.is-scrolled .navx-ddSubMenu {
   background: rgba(255, 255, 255, .96);
   border-color: rgba(11, 18, 32, .10);
   color: rgba(11, 18, 32, .88);
 }
 
 .navx.is-scrolled .navx-ddMenu a:hover,
-.navx.is-scrolled .navx-ddMenu button:hover {
+.navx.is-scrolled .navx-ddMenu button:hover,
+.navx.is-scrolled .navx-ddSubMenuContainer>a:hover,
+.navx.is-scrolled .navx-ddSubMenu a:hover {
   background: rgba(11, 18, 32, .05);
 }
 
@@ -630,6 +684,45 @@
   background: rgba(255, 255, 255, .08);
 }
 
+/* mobile sub menu styles */
+.navx-mSubDetails {
+  border: none !important;
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+}
+
+.navx-mSubDetails summary {
+  color: rgba(255, 255, 255, .78);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(0, 0, 0, .12);
+  font-size: 14px;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navx-mSubDetails summary:hover {
+  background: rgba(255, 255, 255, .08);
+}
+
+.navx-mSubDD {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 0 6px 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  margin-left: 10px;
+}
+
+.navx-mSubDD a {
+  background: rgba(0, 0, 0, 0.2);
+}
+
 /* OUR STAFF mobile button */
 .navx-mDDbtn {
   width: 100%;
@@ -798,6 +891,7 @@
 
 /* dropdown menu ham oq bo‘lsin */
 .navx.navx--solid .navx-ddMenu,
+.navx.navx--solid .navx-ddSubMenu,
 .navx.navx--solid .navx-langMenu {
   background: rgba(255, 255, 255, .96);
   border-color: rgba(11, 18, 32, .10);
@@ -805,12 +899,16 @@
 
 .navx.navx--solid .navx-ddMenu a,
 .navx.navx--solid .navx-ddMenu button,
+.navx.navx--solid .navx-ddSubMenuContainer>a,
+.navx.navx--solid .navx-ddSubMenu a,
 .navx.navx--solid .navx-langMenu button {
   color: rgba(11, 18, 32, .86);
 }
 
 .navx.navx--solid .navx-ddMenu a:hover,
 .navx.navx--solid .navx-ddMenu button:hover,
+.navx.navx--solid .navx-ddSubMenuContainer>a:hover,
+.navx.navx--solid .navx-ddSubMenu a:hover,
 .navx.navx--solid .navx-langMenu button:hover {
   background: rgba(11, 18, 32, .05);
 }

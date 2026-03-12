@@ -22,6 +22,7 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [langOpen, setLangOpen] = useState(false);
     const [openDD, setOpenDD] = useState(null);
+    const [openSubDD, setOpenSubDD] = useState(null);
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const location = useLocation();
@@ -58,6 +59,7 @@ export default function Navbar() {
             if (!navRef.current.contains(e.target)) {
                 setLangOpen(false);
                 setOpenDD(null);
+                setOpenSubDD(null);
             }
         };
         document.addEventListener("mousedown", onDoc);
@@ -85,7 +87,35 @@ export default function Navbar() {
             ],
             research: ["Centers", "Publications", "Labs", "Projects"],
             admissions: ["IAU Scientific council", "Research Publications", "Research Projects", "Research Partners", "German-Uzbek Chain on Central  Asian Agricultural Economics (GUCAE)"],
-            life: ["Dormitory", "Clubs", "Sports", "Services"],
+            life: {
+                title: "LIFE SCIENCE FESTIVAL",
+                items: [
+                    {
+                        name: "LIFE SCIENCE FESTIVAL - 2025",
+                        subItems: [
+                            "SUMMARY OF EVENT 2025",
+                            "PHOTO GALLERY 2025",
+                            "PRESS RELEASE 2025"
+                        ]
+                    },
+                    {
+                        name: "LIFE SCIENCE FESTIVAL - 2024",
+                        subItems: []
+                    },
+                    {
+                        name: "LIFE SCIENCE FESTIVAL - 2023",
+                        subItems: []
+                    },
+                    {
+                        name: "22 REASONS TO ATTEND",
+                        subItems: []
+                    },
+                    {
+                        name: "FREQUENTLY ASKED QUESTIONS",
+                        subItems: []
+                    }
+                ]
+            },
             news: ["ABOUT UNIVERSITY", "OUR STAFF", "Upcoming Events", "Announcements"],
         }),
         []
@@ -94,6 +124,7 @@ export default function Navbar() {
     const closeAll = () => {
         setLangOpen(false);
         setOpenDD(null);
+        setOpenSubDD(null);
     };
 
     const goStaff = () => {
@@ -385,15 +416,39 @@ export default function Navbar() {
                                     onClick={() => {
                                         setLangOpen(false);
                                         setOpenDD((v) => (v === "life" ? null : "life"));
+                                        if (openDD === "life") setOpenSubDD(null);
                                     }}
                                 >
                                     Festivals <IoChevronDownOutline />
                                 </button>
-                                <div className="navx-ddMenu">
-                                    {dropdowns.life.map((x) => (
-                                        <a key={x} href="#" onClick={() => setOpenDD(null)}>
-                                            {x}
-                                        </a>
+                                <div className="navx-ddMenu navx-festivals-menu">
+                                    {dropdowns.life.items.map((x) => (
+                                        <div key={x.name} className={`navx-ddSubMenuContainer ${openSubDD === x.name ? "open" : ""}`}>
+                                            <a href="#" onClick={(e) => {
+                                                e.preventDefault();
+                                                if (x.subItems && x.subItems.length === 0) {
+                                                    setOpenDD(null);
+                                                    setOpenSubDD(null);
+                                                } else {
+                                                    setOpenSubDD(prev => prev === x.name ? null : x.name);
+                                                }
+                                            }} className="navx-ddAction">
+                                                {x.name} {x.subItems && x.subItems.length > 0 && <IoChevronForwardOutline className={`navx-subChev ${openSubDD === x.name ? "open" : ""}`} />}
+                                            </a>
+                                            {x.subItems && x.subItems.length > 0 && (
+                                                <div className="navx-ddSubMenu">
+                                                    {x.subItems.map(subItem => (
+                                                        <a key={subItem} href="#" onClick={(e) => {
+                                                            e.preventDefault();
+                                                            setOpenDD(null);
+                                                            setOpenSubDD(null);
+                                                        }}>
+                                                            {subItem}
+                                                        </a>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
                                     ))}
                                 </div>
                             </div>
@@ -653,10 +708,21 @@ export default function Navbar() {
                                 Festivals <IoChevronDownOutline />
                             </summary>
                             <div className="navx-mDD">
-                                {dropdowns.life.map((x) => (
-                                    <a key={x} href="#" onClick={() => setMobileOpen(false)}>
-                                        {x}
-                                    </a>
+                                {dropdowns.life.items.map((x) => (
+                                    <details key={x.name} className="navx-mSubDetails">
+                                        <summary>
+                                            {x.name} {x.subItems && x.subItems.length > 0 && <IoChevronDownOutline />}
+                                        </summary>
+                                        {x.subItems && x.subItems.length > 0 && (
+                                            <div className="navx-mSubDD">
+                                                {x.subItems.map(subItem => (
+                                                    <a key={subItem} href="#" onClick={() => setMobileOpen(false)}>
+                                                        {subItem}
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </details>
                                 ))}
                             </div>
                         </details>
