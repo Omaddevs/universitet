@@ -62,7 +62,7 @@ export default function VisionSection() {
               <img src={Gerb} alt="Gerb" className="vision-gerb" />
               <div className="vision-author-info">
                 <h4>Shavkat Mirziyoyev</h4>
-                <span>O‘zbekiston Respublikasi Prezidenti</span>
+                <span>President of the Republic of Uzbekistan</span>
               </div>
             </div>
           </motion.div>

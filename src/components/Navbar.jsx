@@ -85,7 +85,17 @@ export default function Navbar() {
                 "POSTGRADUATE",
                 "PHD AND DSC PROGRAMMES",
             ],
-            research: ["Centers", "Publications", "Labs", "Projects"],
+            research: [
+                "ACADEMIC CALENDAR FOR 2025/2026",
+                "INTERNATIONAL STUDENTS",
+                "STUDENT HANDBOOK",
+                "PRESENTATION FOR APPLICANTS",
+                "CAREER SERVICES",
+                "IAU CLUBS",
+                "STUDENTS CREATIVITY",
+                "INTERVIEWS",
+                "KELAJAKKA QADAM",
+            ],
             admissions: ["IAU Scientific council", "Research Publications", "Research Projects", "Research Partners", "German-Uzbek Chain on Central  Asian Agricultural Economics (GUCAE)"],
             life: {
                 title: "LIFE SCIENCE FESTIVAL",
@@ -100,11 +110,19 @@ export default function Navbar() {
                     },
                     {
                         name: "LIFE SCIENCE FESTIVAL - 2024",
-                        subItems: []
+                        subItems: [
+                            "SUMMARY OF EVENT 2024",
+                            "PHOTO GALLERY 2024",
+                            "PRESS RELEASE 2024"
+                        ]
                     },
                     {
                         name: "LIFE SCIENCE FESTIVAL - 2023",
-                        subItems: []
+                        subItems: [
+                            "SUMMARY OF EVENT 2023",
+                            "PHOTO GALLERY 2023",
+                            "PRESS RELEASE 2023"
+                        ]
                     },
                     {
                         name: "22 REASONS TO ATTEND",
@@ -139,8 +157,13 @@ export default function Navbar() {
     const isAboutPage = location.pathname === "/about";
     const isContactPage = location.pathname === "/contact";
 
+    const isFestivalsPage = location.pathname.startsWith("/festivals");
+    const isAcademicCalendarPage = location.pathname.startsWith("/student-life/academic-calendar");
+    const isStudentHandbookPage = location.pathname.startsWith("/student-life/student-handbook");
+    const isLatestNewsPage = location.pathname.startsWith("/latest-news");
+    const isNewsDetailPage = location.pathname.startsWith("/news/");
     const solidWhiteMode =
-        isStaffListPage || isStaffDetailPage || isLegacyStaffPage || isAdmissionsPage || isScientificCouncilPage || isResearchProjectsPage || isAboutPage || isContactPage;
+        isStaffListPage || isStaffDetailPage || isLegacyStaffPage || isAdmissionsPage || isScientificCouncilPage || isResearchProjectsPage || isAboutPage || isContactPage || isFestivalsPage || isAcademicCalendarPage || isStudentHandbookPage || isLatestNewsPage || isNewsDetailPage;
 
     return (
         <header
@@ -350,9 +373,35 @@ export default function Navbar() {
                                 </button>
                                 <div className="navx-ddMenu">
                                     {dropdowns.research.map((x) => (
-                                        <a key={x} href="#" onClick={() => setOpenDD(null)}>
-                                            {x}
-                                        </a>
+                                        x === "ACADEMIC CALENDAR FOR 2025/2026" ? (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-ddAction"
+                                                onClick={() => {
+                                                    closeAll();
+                                                    navigate("/student-life/academic-calendar");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        ) : x === "STUDENT HANDBOOK" ? (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-ddAction"
+                                                onClick={() => {
+                                                    closeAll();
+                                                    navigate("/student-life/student-handbook");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        ) : (
+                                            <a key={x} href="#" onClick={() => setOpenDD(null)}>
+                                                {x}
+                                            </a>
+                                        )
                                     ))}
                                 </div>
                             </div>
@@ -427,8 +476,13 @@ export default function Navbar() {
                                             <a href="#" onClick={(e) => {
                                                 e.preventDefault();
                                                 if (x.subItems && x.subItems.length === 0) {
-                                                    setOpenDD(null);
-                                                    setOpenSubDD(null);
+                                                    if (x.name === "FREQUENTLY ASKED QUESTIONS") {
+                                                        closeAll();
+                                                        navigate("/festivals/faq");
+                                                    } else {
+                                                        setOpenDD(null);
+                                                        setOpenSubDD(null);
+                                                    }
                                                 } else {
                                                     setOpenSubDD(prev => prev === x.name ? null : x.name);
                                                 }
@@ -438,13 +492,17 @@ export default function Navbar() {
                                             {x.subItems && x.subItems.length > 0 && (
                                                 <div className="navx-ddSubMenu">
                                                     {x.subItems.map(subItem => (
-                                                        <a key={subItem} href="#" onClick={(e) => {
-                                                            e.preventDefault();
-                                                            setOpenDD(null);
-                                                            setOpenSubDD(null);
+                                                        <button key={subItem} className="navx-subItemBtn" onClick={() => {
+                                                            closeAll();
+                                                            if (subItem === "SUMMARY OF EVENT 2025") {
+                                                                navigate("/festivals/summary-2025");
+                                                            }
+                                                            if (subItem === "SUMMARY OF EVENT 2024") {
+                                                                navigate("/festivals/summary-2024");
+                                                            }
                                                         }}>
                                                             {subItem}
-                                                        </a>
+                                                        </button>
                                                     ))}
                                                 </div>
                                             )}
@@ -503,14 +561,17 @@ export default function Navbar() {
                                 </div>
                             </div>
 
-                            <button className="navx-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }} onClick={() => { setOpenDD(null); navigate("/contact"); }}>
-                                Contact us
-                            </button>
+                             <button className="navx-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }} onClick={() => { setOpenDD(null); navigate("/latest-news"); }}>
+                                 Latest News
+                             </button>
+                             <button className="navx-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }} onClick={() => { setOpenDD(null); navigate("/contact"); }}>
+                                 Contact us
+                             </button>
                         </div>
 
                         <div className="navx-cta">
                             <button className="navx-apply" type="button">
-                                Apply now <IoChevronForwardOutline className="navx-applyArrow" />
+                                Register <IoChevronForwardOutline className="navx-applyArrow" />
                             </button>
                         </div>
 
@@ -651,9 +712,35 @@ export default function Navbar() {
                             </summary>
                             <div className="navx-mDD">
                                 {dropdowns.research.map((x) => (
-                                    <a key={x} href="#" onClick={() => setMobileOpen(false)}>
-                                        {x}
-                                    </a>
+                                    x === "ACADEMIC CALENDAR FOR 2025/2026" ? (
+                                        <button
+                                            key={x}
+                                            type="button"
+                                            className="navx-mDDbtn"
+                                            onClick={() => {
+                                                setMobileOpen(false);
+                                                navigate("/student-life/academic-calendar");
+                                            }}
+                                        >
+                                            {x}
+                                        </button>
+                                    ) : x === "STUDENT HANDBOOK" ? (
+                                        <button
+                                            key={x}
+                                            type="button"
+                                            className="navx-mDDbtn"
+                                            onClick={() => {
+                                                setMobileOpen(false);
+                                                navigate("/student-life/student-handbook");
+                                            }}
+                                        >
+                                            {x}
+                                        </button>
+                                    ) : (
+                                        <a key={x} href="#" onClick={() => setMobileOpen(false)}>
+                                            {x}
+                                        </a>
+                                    )
                                 ))}
                             </div>
                         </details>
@@ -709,20 +796,41 @@ export default function Navbar() {
                             </summary>
                             <div className="navx-mDD">
                                 {dropdowns.life.items.map((x) => (
-                                    <details key={x.name} className="navx-mSubDetails">
-                                        <summary>
-                                            {x.name} {x.subItems && x.subItems.length > 0 && <IoChevronDownOutline />}
-                                        </summary>
-                                        {x.subItems && x.subItems.length > 0 && (
-                                            <div className="navx-mSubDD">
-                                                {x.subItems.map(subItem => (
-                                                    <a key={subItem} href="#" onClick={() => setMobileOpen(false)}>
-                                                        {subItem}
-                                                    </a>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </details>
+                                    x.name === "FREQUENTLY ASKED QUESTIONS" ? (
+                                        <button
+                                            key={x.name}
+                                            className="navx-mSubBtn navx-mSubBtn--full"
+                                            onClick={() => {
+                                                setMobileOpen(false);
+                                                navigate("/festivals/faq");
+                                            }}
+                                        >
+                                            {x.name}
+                                        </button>
+                                    ) : (
+                                        <details key={x.name} className="navx-mSubDetails">
+                                            <summary>
+                                                {x.name} {x.subItems && x.subItems.length > 0 && <IoChevronDownOutline />}
+                                            </summary>
+                                            {x.subItems && x.subItems.length > 0 && (
+                                                <div className="navx-mSubDD">
+                                                    {x.subItems.map(subItem => (
+                                                        <button key={subItem} className="navx-mSubBtn" onClick={() => {
+                                                            setMobileOpen(false);
+                                                            if (subItem === "SUMMARY OF EVENT 2025") {
+                                                                navigate("/festivals/summary-2025");
+                                                            }
+                                                            if (subItem === "SUMMARY OF EVENT 2024") {
+                                                                navigate("/festivals/summary-2024");
+                                                            }
+                                                        }}>
+                                                            {subItem}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </details>
+                                    )
                                 ))}
                             </div>
                         </details>
@@ -769,14 +877,17 @@ export default function Navbar() {
                             </div>
                         </details>
 
-                        <button className="navx-mLink" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }} onClick={() => { setMobileOpen(false); navigate("/contact"); }}>
-                            Contact us
-                        </button>
+                         <button className="navx-mLink" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }} onClick={() => { setMobileOpen(false); navigate("/latest-news"); }}>
+                             Latest News
+                         </button>
+                         <button className="navx-mLink" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }} onClick={() => { setMobileOpen(false); navigate("/contact"); }}>
+                             Contact us
+                         </button>
                     </div>
 
                     <div className="navx-mActions">
                         <button className="navx-apply wide" type="button">
-                            Apply now <IoChevronForwardOutline className="navx-applyArrow" />
+                            Register <IoChevronForwardOutline className="navx-applyArrow" />
                         </button>
 
                         <div className="navx-mContacts">

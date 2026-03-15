@@ -9,27 +9,32 @@ import {
   IoSchoolOutline,
   IoBusinessOutline,
 } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const programCards = [
   {
     title: "Pre-Foundation",
     count: "",
     icon: <IoSchoolOutline />,
+    link: "/admissions/pre-foundation",
   },
   {
     title: "Foundation",
     count: "",
     icon: <IoRibbonOutline />,
+    link: "/admissions/foundation",
   },
   {
     title: "Undergraduate",
     count: "",
     icon: <IoFlaskOutline />,
+    link: "/admissions/undergraduate",
   },
   {
-    title: "Graduate",
+    title: "Postgraduate",
     count: "",
     icon: <IoBookOutline />,
+    link: "/admissions/postgraduate",
   },
 ];
 
@@ -81,9 +86,9 @@ export default function AcademicsProgram() {
               <h3 className="apg-card__title">{card.title}</h3>
               <p className="apg-card__count">{card.count}</p>
 
-              <a className="apg-card__more" href="/">
+              <Link className="apg-card__more" to={card.link}>
                 See more <IoChevronForwardOutline />
-              </a>
+              </Link>
             </article>
           ))}
         </div>
@@ -104,9 +109,9 @@ export default function AcademicsProgram() {
               innovation, and global professional opportunities.
             </p>
 
-            <a className="apg-about__btn" href="/">
+            <Link className="apg-about__btn" to="/about">
               More about us <IoChevronForwardOutline />
-            </a>
+            </Link>
           </article>
 
           <div className="apg-stats">

@@ -1,15 +1,16 @@
 // src/components/NewsSection/NewsSection.jsx
 import "./NewsSection.css";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   IoCalendarOutline,
   IoEyeOutline,
   IoChevronForwardOutline,
 } from "react-icons/io5";
 import image1 from "../images/newsBig.jpg";
-import image2 from "../images/image2.jpg";
-import image3 from "../images/image3.jpg";
-import image4 from "../images/image4.jpg";
+import image2 from "../images/news2.jpg";
+import image3 from "../images/news3.jpg";
+import image4 from "../images/news4.jpg";
 import image5 from "../images/events.jpg";
 
 export default function NewsSection() {
@@ -83,31 +84,31 @@ export default function NewsSection() {
       id: 1,
       img: image2,
       title:
-        "Spiritual and Enlightenment Hour at the International Agriculture University – with the Rector",
-      date: "6 February, 2026",
-      views: "99",
+        "Strengthening University Governance through International Collaboration​",
+      date: "4 February, 2026",
+      views: "93",
     },
     {
       id: 2,
       img: image3,
       title:
-        "Spiritual and Enlightenment Hour at the International Agriculture University – with the Rector",
-      date: "5 February, 2026",
-      views: "89",
+        " Enlightenment — the strongest shield against ignorance!​",
+      date: "6 February, 2026",
+      views: "112",
     },
     {
       id: 3,
       img: image4,
       title:
-        "Spiritual and Enlightenment Hour at the International Agriculture University – with the Rector",
-      date: "3 February, 2026",
-      views: "110",
+        "A meaningful and useful master class was held at our university for senior students with the participation of Brian Kingswell, who visited from a foreign country.​",
+      date: "8 February, 2026",
+      views: "120",
     },
     {
       id: 4,
       img: image5,
       title:
-        "Spiritual and Enlightenment Hour at the International Agriculture University – with the Rector",
+        "The intellectual game 'Zakovat' was held!",
       date: "3 February, 2026",
       views: "121",
     },
@@ -115,6 +116,7 @@ export default function NewsSection() {
 
   return (
     <motion.section
+      id="latest-news"
       className="newsx"
       variants={wrap}
       initial="hidden"
@@ -128,15 +130,15 @@ export default function NewsSection() {
             University <span>News</span>
           </h2>
 
-          <a className="newsx-more" href="/">
+          <Link to="/latest-news" className="newsx-more">
             See more <IoChevronForwardOutline />
-          </a>
+          </Link>
         </motion.div>
 
         <div className="newsx-grid newsx-grid--noSide">
           {/* FEATURED */}
           <motion.article className="newsx-feature" variants={fadeLeft}>
-            <a className="newsx-media" href="/" aria-label={featured.title}>
+            <Link className="newsx-media" to="/news/1" aria-label={featured.title}>
               <img src={featured.img} alt={featured.title} />
               <div className="newsx-metaBar">
                 <span className="newsx-chip">
@@ -146,11 +148,11 @@ export default function NewsSection() {
                   <IoEyeOutline /> {featured.views}
                 </span>
               </div>
-            </a>
+            </Link>
 
-            <a className="newsx-h3" href="/">
+            <Link className="newsx-h3" to="/news/1">
               {featured.title}
-            </a>
+            </Link>
           </motion.article>
 
           {/* 4 CARDS */}
@@ -165,7 +167,7 @@ export default function NewsSection() {
                     : fadeUp    // pastdan
                 }
               >
-                <a className="newsx-media sm" href="/" aria-label={c.title}>
+                <Link className="newsx-media sm" to={`/news/${c.id}`} aria-label={c.title}>
                   <img src={c.img} alt={c.title} />
                   <div className="newsx-metaBar sm">
                     <span className="newsx-chip">
@@ -175,11 +177,11 @@ export default function NewsSection() {
                       <IoEyeOutline /> {c.views}
                     </span>
                   </div>
-                </a>
+                </Link>
 
-                <a className="newsx-h4" href="/" title={c.title}>
+                <Link className="newsx-h4" to={`/news/${c.id}`} title={c.title}>
                   {c.title}
-                </a>
+                </Link>
               </motion.article>
             ))}
           </motion.div>

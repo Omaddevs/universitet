@@ -138,17 +138,31 @@ export default function Header() {
             SCIENCE-BASED, PRACTICE-ORIENTED
           </motion.h1>
 
-          <motion.button
-            className="hero-btn"
-            type="button"
-            variants={btnPop}
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.18 }}
-            onClick={() => navigate('/about')}
-          >
-            More about us <IoArrowForwardOutline />
-          </motion.button>
+          <div className="hero-btn-group">
+            <motion.button
+              className="hero-btn"
+              type="button"
+              variants={btnPop}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.18 }}
+              onClick={() => navigate('/')}
+            >
+              Apply Now <IoArrowForwardOutline />
+            </motion.button>
+
+            {/* <motion.button
+              className="hero-btn hero-btn--apply"
+              type="button"
+              variants={btnPop}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.18 }}
+              onClick={() => navigate('/admissions/undergraduate')}
+            >
+              Apply Now <IoArrowForwardOutline />
+            </motion.button> */}
+          </div>
 
           <motion.div className="hero-stack-carousel" variants={fadeUp}>
             <Swiper

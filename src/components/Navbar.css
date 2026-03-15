@@ -414,8 +414,8 @@
   padding: 0 16px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, .20);
-  background: linear-gradient(180deg, rgba(96, 165, 250, .38), rgba(34, 211, 238, .18));
-  color: rgba(255, 255, 255, .95);
+  background: linear-gradient(135deg, #4a7ec7 0%, #1eb894 100%);
+  color: #fff;
   font-weight: 900;
   letter-spacing: .2px;
   display: flex;
@@ -423,6 +423,7 @@
   gap: 10px;
   cursor: pointer;
   transition: .2s ease;
+  box-shadow: 0 4px 16px rgba(30, 184, 148, 0.35);
 }
 
 .navx-apply:hover {
@@ -517,9 +518,9 @@
 }
 
 .navx.is-scrolled .navx-apply {
-  border-color: rgba(11, 18, 32, .12);
-  color: rgba(11, 18, 32, .86);
-  background: linear-gradient(180deg, rgba(96, 165, 250, .22), rgba(34, 211, 238, .10));
+  background: linear-gradient(135deg, #4a7ec7 0%, #1eb894 100%);
+  border-color: rgba(255, 255, 255, .20);
+  color: #fff;
 }
 
 .navx.is-scrolled .navx-burger {
@@ -737,8 +738,44 @@
   cursor: pointer;
 }
 
-.navx-mDDbtn:hover {
+.navx-mDDbtn:hover,
+.navx-subItemBtn:hover,
+.navx-mSubBtn:hover {
   background: rgba(255, 255, 255, .08);
+}
+
+.navx-subItemBtn {
+  display: block;
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.navx-mSubBtn {
+  width: 100%;
+  color: rgba(255, 255, 255, .78);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(0, 0, 0, .2);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.navx.is-scrolled .navx-subItemBtn {
+  color: rgba(11, 18, 32, .88);
+}
+.navx.is-scrolled .navx-subItemBtn:hover {
+  background: rgba(11, 18, 32, .05);
 }
 
 .navx-mLink {
@@ -915,9 +952,9 @@
 
 /* Apply button */
 .navx.navx--solid .navx-apply {
-  border-color: rgba(11, 18, 32, .12);
-  color: rgba(11, 18, 32, .86);
-  background: linear-gradient(180deg, rgba(96, 165, 250, .22), rgba(34, 211, 238, .10));
+  background: linear-gradient(135deg, #4a7ec7 0%, #1eb894 100%);
+  border-color: rgba(255, 255, 255, .20);
+  color: #fff;
 }
 
 /* LOGO masalasi:

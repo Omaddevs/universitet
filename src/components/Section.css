@@ -53,7 +53,7 @@
 
 .quote-bottom {
   bottom: 0px;
-  right: -20px;
+  right: 150px;
   transform: scaleY(-1) scaleX(-1);
 }
 
