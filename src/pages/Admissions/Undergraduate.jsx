@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./AdmissionsShared.css";
 import { Link } from "react-router-dom";
 import heroImg from "../../images/campus.PNG";
-import agriImg from "../../images/image2.jpg"; // Placeholder
-import businessImg from "../../images/image3.jpg"; // Placeholder
+import agriImg from "../../iau-images/3.png"; // Placeholder
+import businessImg from "../../iau-images/4.png"; // Placeholder
 import bgVideo from "../../all-bg-videos/iau-bg.mp4";
-
+import image5 from "../../iau-images/5.png";
+import image6 from "../../iau-images/6.png";
 export default function Undergraduate() {
      const [activeTab, setActiveTab] = useState("courseContent");
 
@@ -78,7 +79,7 @@ export default function Undergraduate() {
                                                   <div className="module-info">
                                                        <h4>BSc(Hons) Agro-Economics</h4>
                                                        <hr className="module-divider" />
-                                                       <button className="module-link">See more →</button>
+                                                       <Link to="/admissions/agro-economics" className="module-link" style={{ textDecoration: 'none' }}>See more →</Link>
                                                   </div>
                                              </div>
 
@@ -91,33 +92,33 @@ export default function Undergraduate() {
                                                   <div className="module-info">
                                                        <h4>BSc(Hons) Agro-Logistics</h4>
                                                        <hr className="module-divider" />
-                                                       <button className="module-link">See more →</button>
+                                                       <Link to="/admissions/agro-logistics" className="module-link" style={{ textDecoration: 'none' }}>See more →</Link>
                                                   </div>
                                              </div>
 
                                              {/* Card 3 */}
                                              <div className="module-card">
                                                   <div className="module-img-box">
-                                                       <img src={agriImg} alt="BSc(Hons) Food Safety Management" />
+                                                       <img src={image5} alt="BSc(Hons) Food Safety Management" />
                                                        <div className="module-strip blue"></div>
                                                   </div>
                                                   <div className="module-info">
                                                        <h4>BSc(Hons) Food Safety Management</h4>
                                                        <hr className="module-divider" />
-                                                       <button className="module-link">See more →</button>
+                                                       <Link to="/admissions/food-safety" className="module-link" style={{ textDecoration: 'none' }}>See more →</Link>
                                                   </div>
                                              </div>
 
                                              {/* Card 4 */}
                                              <div className="module-card">
                                                   <div className="module-img-box">
-                                                       <img src={businessImg} alt="BSc(Hons) Smart Sustainable Agriculture" />
+                                                       <img src={image6} alt="BSc(Hons) Smart Sustainable Agriculture" />
                                                        <div className="module-strip solid-blue"></div>
                                                   </div>
                                                   <div className="module-info">
                                                        <h4>BSc(Hons) Smart Sustainable Agriculture</h4>
                                                        <hr className="module-divider" />
-                                                       <button className="module-link">See more →</button>
+                                                       <Link to="/admissions/smart-agriculture" className="module-link" style={{ textDecoration: 'none' }}>See more →</Link>
                                                   </div>
                                              </div>
                                         </div>

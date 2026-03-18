@@ -40,7 +40,7 @@ const programCards = [
 
 const statTiles = [
   {
-    value: "1000+",
+    value: "900+",
     label: "Students",
     icon: <IoSchoolOutline />,
     tone: "tone-a",

@@ -10,12 +10,12 @@ import {
     IoLogoInstagram,
     IoLogoYoutube,
     IoLogoFacebook,
-    IoLogoTwitter,
     IoChevronDownOutline,
     IoChevronForwardOutline,
     IoMenuOutline,
     IoCloseOutline,
 } from "react-icons/io5";
+import { FaTelegramPlane } from "react-icons/fa";
 import navbarLogo from "../images/navbarLogo.PNG";
 
 export default function Navbar() {
@@ -96,7 +96,7 @@ export default function Navbar() {
                 "INTERVIEWS",
                 "KELAJAKKA QADAM",
             ],
-            admissions: ["IAU Scientific council", "Research Publications", "Research Projects", "Research Partners", "German-Uzbek Chain on Central  Asian Agricultural Economics (GUCAE)"],
+            admissions: ["IAU SCIENTIFIC COUNCIl", "GERMAN-UZBEK CHAIN ON CENTRAL ASIAN AGRICULTURAL ECONOMICS (GUCAE)"],
             life: {
                 title: "LIFE SCIENCE FESTIVAL",
                 items: [
@@ -104,37 +104,37 @@ export default function Navbar() {
                         name: "LIFE SCIENCE FESTIVAL - 2025",
                         subItems: [
                             "SUMMARY OF EVENT 2025",
-                            "PHOTO GALLERY 2025",
-                            "PRESS RELEASE 2025"
+                            // "PHOTO GALLERY 2025",
+                            // "PRESS RELEASE 2025"
                         ]
                     },
                     {
                         name: "LIFE SCIENCE FESTIVAL - 2024",
                         subItems: [
                             "SUMMARY OF EVENT 2024",
-                            "PHOTO GALLERY 2024",
-                            "PRESS RELEASE 2024"
+                            // "PHOTO GALLERY 2024",
+                            // "PRESS RELEASE 2024"
                         ]
                     },
                     {
                         name: "LIFE SCIENCE FESTIVAL - 2023",
                         subItems: [
                             "SUMMARY OF EVENT 2023",
-                            "PHOTO GALLERY 2023",
-                            "PRESS RELEASE 2023"
+                            // "PHOTO GALLERY 2023",
+                            // "PRESS RELEASE 2023"
                         ]
                     },
                     {
                         name: "22 REASONS TO ATTEND",
                         subItems: []
                     },
-                    {
-                        name: "FREQUENTLY ASKED QUESTIONS",
-                        subItems: []
-                    }
+                    // {
+                    //     name: "FREQUENTLY ASKED QUESTIONS",
+                    //     subItems: []
+                    // }
                 ]
             },
-            news: ["ABOUT UNIVERSITY", "OUR STAFF", "Upcoming Events", "Announcements"],
+            news: ["ABOUT UNIVERSITY", "OUR STAFF"],
         }),
         []
     );
@@ -153,6 +153,7 @@ export default function Navbar() {
 
     const isScientificCouncilPage = location.pathname.startsWith("/research/scientific-council");
     const isResearchProjectsPage = location.pathname.startsWith("/research/research-projects");
+    const isGucaePage = location.pathname.startsWith("/research/gucae");
 
     const isAboutPage = location.pathname === "/about";
     const isContactPage = location.pathname === "/contact";
@@ -163,7 +164,7 @@ export default function Navbar() {
     const isLatestNewsPage = location.pathname.startsWith("/latest-news");
     const isNewsDetailPage = location.pathname.startsWith("/news/");
     const solidWhiteMode =
-        isStaffListPage || isStaffDetailPage || isLegacyStaffPage || isAdmissionsPage || isScientificCouncilPage || isResearchProjectsPage || isAboutPage || isContactPage || isFestivalsPage || isAcademicCalendarPage || isStudentHandbookPage || isLatestNewsPage || isNewsDetailPage;
+        isStaffListPage || isStaffDetailPage || isLegacyStaffPage || isAdmissionsPage || isScientificCouncilPage || isResearchProjectsPage || isGucaePage || isAboutPage || isContactPage || isFestivalsPage || isAcademicCalendarPage || isStudentHandbookPage || isLatestNewsPage || isNewsDetailPage;
 
     return (
         <header
@@ -181,8 +182,8 @@ export default function Navbar() {
                                 <IoMailOutline /> info@iau.uz
                             </a>
                             <span className="navx-sep" />
-                            <a className="navx-top-link" href="tel:+998998810919">
-                                <IoCallOutline /> +998 (99) 981-09-19
+                            <a className="navx-top-link" href="tel:+998555170071">
+                                <IoCallOutline /> +998 (55) 517 00 71
                             </a>
                         </div>
 
@@ -212,8 +213,8 @@ export default function Navbar() {
                             <a className="navx-iconA" href="#" aria-label="Facebook">
                                 <IoLogoFacebook />
                             </a>
-                            <a className="navx-iconA" href="#" aria-label="Twitter">
-                                <IoLogoTwitter />
+                            <a className="navx-iconA" href="#" aria-label="Telegram">
+                                <FaTelegramPlane />
                             </a>
 
                             <div className={`navx-lang ${langOpen ? "open" : ""}`}>
@@ -450,6 +451,21 @@ export default function Navbar() {
                                                 </button>
                                             );
                                         }
+                                        if (x === "GERMAN-UZBEK CHAIN ON CENTRAL ASIAN AGRICULTURAL ECONOMICS (GUCAE)") {
+                                            return (
+                                                <button
+                                                    key={x}
+                                                    type="button"
+                                                    className="navx-ddAction"
+                                                    onClick={() => {
+                                                        closeAll();
+                                                        navigate("/research/gucae");
+                                                    }}
+                                                >
+                                                    {x}
+                                                </button>
+                                            );
+                                        }
                                         return (
                                             <a key={x} href="#" onClick={() => setOpenDD(null)}>
                                                 {x}
@@ -479,6 +495,9 @@ export default function Navbar() {
                                                     if (x.name === "FREQUENTLY ASKED QUESTIONS") {
                                                         closeAll();
                                                         navigate("/festivals/faq");
+                                                    } else if (x.name === "22 REASONS TO ATTEND") {
+                                                        closeAll();
+                                                        navigate("/festivals/22-reasons");
                                                     } else {
                                                         setOpenDD(null);
                                                         setOpenSubDD(null);
@@ -499,6 +518,9 @@ export default function Navbar() {
                                                             }
                                                             if (subItem === "SUMMARY OF EVENT 2024") {
                                                                 navigate("/festivals/summary-2024");
+                                                            }
+                                                            if (subItem === "SUMMARY OF EVENT 2023") {
+                                                                navigate("/festivals/summary-2023");
                                                             }
                                                         }}>
                                                             {subItem}
@@ -561,12 +583,12 @@ export default function Navbar() {
                                 </div>
                             </div>
 
-                             <button className="navx-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }} onClick={() => { setOpenDD(null); navigate("/latest-news"); }}>
-                                 Latest News
-                             </button>
-                             <button className="navx-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }} onClick={() => { setOpenDD(null); navigate("/contact"); }}>
-                                 Contact us
-                             </button>
+                            <button className="navx-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }} onClick={() => { setOpenDD(null); navigate("/latest-news"); }}>
+                                Latest News
+                            </button>
+                            <button className="navx-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }} onClick={() => { setOpenDD(null); navigate("/contact"); }}>
+                                Contact us
+                            </button>
                         </div>
 
                         <div className="navx-cta">
@@ -781,6 +803,21 @@ export default function Navbar() {
                                             </button>
                                         );
                                     }
+                                    if (x === "GERMAN-UZBEK CHAIN ON CENTRAL ASIAN AGRICULTURAL ECONOMICS (GUCAE)") {
+                                        return (
+                                            <button
+                                                key={x}
+                                                type="button"
+                                                className="navx-mDDbtn"
+                                                onClick={() => {
+                                                    setMobileOpen(false);
+                                                    navigate("/research/gucae");
+                                                }}
+                                            >
+                                                {x}
+                                            </button>
+                                        );
+                                    }
                                     return (
                                         <a key={x} href="#" onClick={() => setMobileOpen(false)}>
                                             {x}
@@ -807,6 +844,17 @@ export default function Navbar() {
                                         >
                                             {x.name}
                                         </button>
+                                    ) : x.name === "22 REASONS TO ATTEND" ? (
+                                        <button
+                                            key={x.name}
+                                            className="navx-mSubBtn navx-mSubBtn--full"
+                                            onClick={() => {
+                                                setMobileOpen(false);
+                                                navigate("/festivals/22-reasons");
+                                            }}
+                                        >
+                                            {x.name}
+                                        </button>
                                     ) : (
                                         <details key={x.name} className="navx-mSubDetails">
                                             <summary>
@@ -822,6 +870,9 @@ export default function Navbar() {
                                                             }
                                                             if (subItem === "SUMMARY OF EVENT 2024") {
                                                                 navigate("/festivals/summary-2024");
+                                                            }
+                                                            if (subItem === "SUMMARY OF EVENT 2023") {
+                                                                navigate("/festivals/summary-2023");
                                                             }
                                                         }}>
                                                             {subItem}
@@ -877,12 +928,12 @@ export default function Navbar() {
                             </div>
                         </details>
 
-                         <button className="navx-mLink" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }} onClick={() => { setMobileOpen(false); navigate("/latest-news"); }}>
-                             Latest News
-                         </button>
-                         <button className="navx-mLink" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }} onClick={() => { setMobileOpen(false); navigate("/contact"); }}>
-                             Contact us
-                         </button>
+                        <button className="navx-mLink" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }} onClick={() => { setMobileOpen(false); navigate("/latest-news"); }}>
+                            Latest News
+                        </button>
+                        <button className="navx-mLink" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }} onClick={() => { setMobileOpen(false); navigate("/contact"); }}>
+                            Contact us
+                        </button>
                     </div>
 
                     <div className="navx-mActions">

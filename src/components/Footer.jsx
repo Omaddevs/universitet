@@ -7,6 +7,7 @@ import {
   IoChevronForwardOutline,
 } from "react-icons/io5";
 import footerLogo from "../images/navbarLogo.PNG";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const easePro = [0.22, 1, 0.36, 1];
@@ -171,19 +172,19 @@ export default function Footer() {
             <h4 className="footx-h4">Academics</h4>
             <ul className="footx-links">
               <li>
-                <a href="#">Pre-Foundation</a>
+                <Link to="/admissions/pre-foundation">Pre-Foundation</Link>
               </li>
               <li>
-                <a href="#">Foundation</a>
+                <Link to="/admissions/foundation">Foundation</Link>
               </li>
               <li>
-                <a href="#">Undergraduate</a>
+                <Link to="/admissions/undergraduate">Undergraduate</Link>
               </li>
               <li>
-                <a href="#">Postgarduate</a>
+                <Link to="/admissions/postgraduate">Postgraduate</Link>
               </li>
               <li>
-                <a href="#">PhD & DSc</a>
+                <Link to="/admissions/phd">PhD & DSc</Link>
               </li>
             </ul>
           </motion.div>
@@ -200,11 +201,11 @@ export default function Footer() {
                 <span>info@iau.uz</span>
               </a>
 
-              <a className="footx-contactRow" href="tel:+998712024111">
+              <a className="footx-contactRow" href="tel:+998555170071">
                 <span className="footx-ic">
                   <IoCallOutline />
                 </span>
-                <span>+998 (99) 981-09-19</span>
+                <span>+998 (55) 517 00 71</span>
               </a>
 
               <div className="footx-contactRow noLink">
@@ -230,7 +231,7 @@ export default function Footer() {
             reserved.
           </span>
 
-          
+
         </motion.div>
       </motion.section>
     </motion.footer>

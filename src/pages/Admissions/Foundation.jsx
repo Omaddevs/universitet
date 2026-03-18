@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./AdmissionsShared.css";
 import { Link } from "react-router-dom";
 import heroImg from "../../images/campus.PNG";
-import agriImg from "../../images/image2.jpg"; // Placeholder
-import businessImg from "../../images/image3.jpg"; // Placeholder
+import agriImg from "../../iau-images/1.png"; // Placeholder
+import businessImg from "../../iau-images/2.png"; // Placeholder
 import bgVideo from "../../all-bg-videos/iau-bg.mp4";
 
 export default function Foundation() {
@@ -77,7 +77,7 @@ export default function Foundation() {
                                                   <div className="module-info">
                                                        <h4>Agriculture Modules</h4>
                                                        <hr className="module-divider" />
-                                                       <button className="module-link">See more →</button>
+                                                       <Link to="/admissions/agriculture" className="module-link" style={{ textDecoration: 'none' }}>See more →</Link>
                                                   </div>
                                              </div>
 
@@ -89,7 +89,7 @@ export default function Foundation() {
                                                   <div className="module-info">
                                                        <h4>Business Management Modules</h4>
                                                        <hr className="module-divider" />
-                                                       <button className="module-link">See more →</button>
+                                                       <Link to="/admissions/business-management" className="module-link" style={{ textDecoration: 'none' }}>See more →</Link>
                                                   </div>
                                              </div>
                                         </div>

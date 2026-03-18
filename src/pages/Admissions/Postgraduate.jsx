@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./AdmissionsShared.css";
 import { Link } from "react-router-dom";
 import heroImg from "../../images/campus.PNG";
-import agriImg from "../../images/image2.jpg"; // Placeholder
-import businessImg from "../../images/image3.jpg"; // Placeholder
+import image7 from "../../iau-images/7.png"; // Placeholder
+import image8 from "../../iau-images/8.png"; // Placeholder
 import bgVideo from "../../all-bg-videos/iau-bg.mp4";
 
 export default function Postgraduate() {
@@ -72,26 +72,26 @@ export default function Postgraduate() {
                                              {/* Card 1 */}
                                              <div className="module-card">
                                                   <div className="module-img-box">
-                                                       <img src={agriImg} alt="BSc(Hons) Agro-Economics" />
+                                                       <img src={image7} alt="MSc Sustainable Agriculture and Food Security" />
                                                        <div className="module-strip blue"></div>
                                                   </div>
                                                   <div className="module-info">
-                                                       <h4>BSc(Hons) Agro-Economics</h4>
+                                                       <h4>MSc Sustainable Agriculture and Food Security</h4>
                                                        <hr className="module-divider" />
-                                                       <button className="module-link">See more →</button>
+                                                       <Link to="/admissions/msc-sustainable-agriculture" className="module-link" style={{ textDecoration: 'none' }}>See more →</Link>
                                                   </div>
                                              </div>
 
                                              {/* Card 2 */}
                                              <div className="module-card">
                                                   <div className="module-img-box">
-                                                       <img src={businessImg} alt="BSc(Hons) Agro-Logistics" />
+                                                       <img src={image8} alt="MSc Agri-Business Management" />
                                                        <div className="module-strip solid-blue"></div>
                                                   </div>
                                                   <div className="module-info">
-                                                       <h4>BSc(Hons) Agro-Logistics</h4>
+                                                       <h4>MSc Agri-Business Management</h4>
                                                        <hr className="module-divider" />
-                                                       <button className="module-link">See more →</button>
+                                                       <Link to="/admissions/msc-agri-business" className="module-link" style={{ textDecoration: 'none' }}>See more →</Link>
                                                   </div>
                                              </div>
                                         </div>

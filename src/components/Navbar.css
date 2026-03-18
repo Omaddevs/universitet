@@ -247,7 +247,7 @@
 /* desktop links */
 .navx-links {
   position: absolute;
-  left: 50%;
+  left: 52%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
@@ -467,11 +467,13 @@
 /* switch colors */
 .navx.is-scrolled .navx-top-link,
 .navx.is-scrolled .navx-iconA,
-.navx.is-scrolled .navx-iconBtn {
+.navx.is-scrolled .navx-iconBtn,
+.navx.is-scrolled .navx-langBtn {
   color: rgba(11, 18, 32, .86);
 }
 
-.navx.is-scrolled .navx-iconBtn {
+.navx.is-scrolled .navx-iconBtn,
+.navx.is-scrolled .navx-langBtn {
   background: rgba(11, 18, 32, .04);
   border-color: rgba(11, 18, 32, .10);
 }

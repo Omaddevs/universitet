@@ -1,5 +1,6 @@
 import "./Header.css";
 import { motion } from "framer-motion";
+import "./Header.css";
 import {
   IoArrowForwardOutline,
   IoSchoolOutline,
@@ -135,7 +136,7 @@ export default function Header() {
       <div className="hero-container">
         <div className="hero-content">
           <motion.h1 className="hero-title-center" variants={fadeUp}>
-            SCIENCE-BASED, PRACTICE-ORIENTED
+            SCIENCE-BASED, <span style={{ color: "#F9F8F3", WebkitTextFillColor: "#F9F8F3" }}>PRACTICE-ORIENTED</span>
           </motion.h1>
 
           <div className="hero-btn-group">
