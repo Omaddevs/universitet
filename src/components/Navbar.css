@@ -44,7 +44,7 @@
 
 /* container rule */
 .navx-container {
-  width: min(1600px, 100%);
+  width: min(1920px, 100%);
   margin: 0 auto;
   padding: 10px 40px 8px;
 }
