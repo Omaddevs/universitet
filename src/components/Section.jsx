@@ -50,13 +50,11 @@ export default function VisionSection() {
         <motion.div className="vision-card" variants={wrap}>
           {/* LEFT SIDE: Content */}
           <motion.div className="vision-left" variants={leftPanel}>
-            <div style={{ position: "relative", display: "inline-block" }}>
+            <h2 className="vision-title">
               <span className="quote-icon quote-top">“</span>
-              <h2 className="vision-title">
-                Our main goal is to develop agriculture based on science-based methods and best practices
-              </h2>
+              Our main goal is to develop agriculture based on science-based methods and best practices
               <span className="quote-icon quote-bottom">”</span>
-            </div>
+            </h2>
 
             <div className="vision-author">
               <img src={Gerb} alt="Gerb" className="vision-gerb" />
