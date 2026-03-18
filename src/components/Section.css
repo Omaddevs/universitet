@@ -52,8 +52,8 @@
 }
 
 .quote-bottom {
-  bottom: 0px;
-  right: 340px;
+  bottom: -20px;
+  right: -40px;
   transform: scaleY(-1) scaleX(-1);
 }
 
@@ -149,14 +149,6 @@
 }
 
 /* RESPONSIVE */
-
-@media (min-width: 1920px) and (min-height: 1000px) {
-  .quote-bottom {
-    bottom: 0px;
-    right: 190px;
-    transform: scaleY(-1) scaleX(-1);
-  }
-}
 
 @media(max-width: 992px) {
   .vision-card {

@@ -52,8 +52,11 @@ export default function VisionSection() {
           <motion.div className="vision-left" variants={leftPanel}>
             <h2 className="vision-title">
               <span className="quote-icon quote-top">“</span>
-              Our main goal is to develop agriculture based on science-based methods and best practices
-              <span className="quote-icon quote-bottom">”</span>
+              Our main goal is to develop agriculture based on science-based methods and best{" "}
+              <span style={{ position: "relative", whiteSpace: "nowrap" }}>
+                practices
+                <span className="quote-icon quote-bottom">”</span>
+              </span>
             </h2>
 
             <div className="vision-author">
