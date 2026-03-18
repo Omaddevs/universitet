@@ -226,3 +226,10 @@
     top: 10px;
   }
 }
+
+@media (min-width: 1920px) and (min-height: 1000px) {
+  .hero-bg-image {
+    width: 1920px;
+    height: 1080px;
+  }
+}
