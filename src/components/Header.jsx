@@ -1,6 +1,6 @@
+import React from "react";
 import "./Header.css";
 import { motion } from "framer-motion";
-import "./Header.css";
 import {
   IoArrowForwardOutline,
   IoSchoolOutline,

@@ -96,7 +96,7 @@ export default function Navbar() {
                 "INTERVIEWS",
                 "KELAJAKKA QADAM",
             ],
-            admissions: ["IAU SCIENTIFIC COUNCIl", "GERMAN-UZBEK CHAIN ON CENTRAL ASIAN AGRICULTURAL ECONOMICS (GUCAE)"],
+            admissions: ["IAU SCIENTIFIC COUNCIL", "GERMAN-UZBEK CHAIN ON CENTRAL ASIAN AGRICULTURAL ECONOMICS (GUCAE)"],
             life: {
                 title: "LIFE SCIENCE FESTIVAL",
                 items: [
@@ -204,16 +204,16 @@ export default function Navbar() {
                                 <IoSearchOutline />
                             </button>
 
-                            <a className="navx-iconA" href="#" aria-label="Instagram">
+                            <a className="navx-iconA" href="instagram.com/iau_uz?igsh=MW1qeTZ5N3YyazhneA==" aria-label="Instagram">
                                 <IoLogoInstagram />
                             </a>
-                            <a className="navx-iconA" href="#" aria-label="YouTube">
+                            <a className="navx-iconA" href="https://www.youtube.com/@iau_2022?si=wpViWkIgyDb5xzc-" aria-label="YouTube">
                                 <IoLogoYoutube />
                             </a>
-                            <a className="navx-iconA" href="#" aria-label="Facebook">
+                            <a className="navx-iconA" href="https://www.facebook.com/iau.uz?mibextid=qi2Omg&rdid=SykNsNKJUEFOsEIh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FWND1PuA6C6xFT8mU%2F%3Fmibextid%3Dqi2Omg#" aria-label="Facebook">
                                 <IoLogoFacebook />
                             </a>
-                            <a className="navx-iconA" href="#" aria-label="Telegram">
+                            <a className="navx-iconA" href="https://t.me/iau_uz" aria-label="Telegram">
                                 <FaTelegramPlane />
                             </a>
 
@@ -421,7 +421,7 @@ export default function Navbar() {
                                 </button>
                                 <div className="navx-ddMenu">
                                     {dropdowns.admissions.map((x) => {
-                                        if (x === "IAU Scientific council") {
+                                        if (x === "IAU SCIENTIFIC COUNCIL") {
                                             return (
                                                 <button
                                                     key={x}
@@ -773,7 +773,7 @@ export default function Navbar() {
                             </summary>
                             <div className="navx-mDD">
                                 {dropdowns.admissions.map((x) => {
-                                    if (x === "IAU Scientific council") {
+                                    if (x === "IAU SCIENTIFIC COUNCIL") {
                                         return (
                                             <button
                                                 key={x}

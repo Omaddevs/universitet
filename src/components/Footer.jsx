@@ -146,26 +146,20 @@ export default function Footer() {
           </motion.div>
 
           {/* Quick links */}
-          {/* <motion.div className="footx-col" variants={fadeUp}>
-            <h4 className="footx-h4">Quick Links</h4>
+          <motion.div className="footx-col" variants={fadeUp}>
+            <h4 className="footx-h4">Research</h4>
             <ul className="footx-links">
               <li>
-                <a href="#">About NewUU</a>
+                <Link to="/research/scientific-council">IAU Scientific Council</Link>
               </li>
               <li>
-                <a href="#">Admissions</a>
+                <Link to="/research/research-projects">Research Projects</Link>
               </li>
               <li>
-                <a href="#">News & Events</a>
-              </li>
-              <li>
-                <a href="#">Student Life</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
+                <Link to="/research/gucae">German-Uzbek Chain (GUCAE)</Link>
               </li>
             </ul>
-          </motion.div> */}
+          </motion.div>
 
           {/* Academics */}
           <motion.div className="footx-col" variants={fadeUp}>

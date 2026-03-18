@@ -33,9 +33,9 @@ export default function AboutUs() {
                               <p>
                                    In accordance with Resolution No. PQ-237 of the President of the Republic of Uzbekistan dated 7 May 2022 ‘On Measures for the Establishment of the International Agriculture University’, the International Agriculture University was founded in 2022 in cooperation with the Royal Agricultural University of the United Kingdom.
                               </p>
-                              <button className="about-btn">
+                              {/* <button className="about-btn">
                                    See programs <IoArrowForwardOutline />
-                              </button>
+                              </button> */}
                               <img src={cityImg} alt="City Silhouette" className="about-city-img" />
                          </div>
 
