@@ -29,6 +29,11 @@
     width: 1920px;
     height: 1080px;
   }
+
+  .hero-overlay {
+    width: 1920px;
+    height: 1080px;
+  }
 }
 
 .hero-overlay {
@@ -46,13 +51,16 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 5; /* Keeping it above video */
+  z-index: 5;
+  /* Keeping it above video */
   height: clamp(300px, 50vh, 500px);
   width: auto;
   object-fit: contain;
   pointer-events: none;
-  mix-blend-mode: screen; /* Removes black/dark background from the PNG if any */
-  opacity: 0.15; /* Ensures they act as faint watermarks */
+  mix-blend-mode: screen;
+  /* Removes black/dark background from the PNG if any */
+  opacity: 0.15;
+  /* Ensures they act as faint watermarks */
 }
 
 .hero-ribbon-left {
