@@ -58,7 +58,7 @@
 }
 
 .vision-title {
-  font-size: 42px;
+  font-size: clamp(32px, 3.5vw, 64px);
   font-weight: 800;
   color: #1a202c;
   margin-bottom: 30px;
@@ -68,7 +68,7 @@
 }
 
 .vision-desc {
-  font-size: 18px;
+  font-size: clamp(16px, 1.25vw, 22px);
   color: #4a5568;
   line-height: 1.6;
   margin-bottom: 40px;
@@ -88,14 +88,14 @@
 }
 
 .vision-author-info h4 {
-  font-size: 20px;
+  font-size: clamp(18px, 1.3vw, 26px);
   font-weight: 700;
   color: #1a202c;
   margin: 0 0 4px 0;
 }
 
 .vision-author-info span {
-  font-size: 14px;
+  font-size: clamp(14px, 1vw, 18px);
   color: #718096;
 }
 

@@ -48,7 +48,7 @@
   font-weight: 800;
   letter-spacing: -0.6px;
   line-height: 1.05;
-  font-size: clamp(28px, 2.6vw, 44px);
+  font-size: clamp(28px, 3.2vw, 64px);
   color: var(--nav-ink);
 }
 
@@ -182,7 +182,7 @@
   font-weight: 900;
   letter-spacing: -0.3px;
   line-height: 1.18;
-  font-size: 26px;
+  font-size: clamp(20px, 1.8vw, 36px);
 }
 
 .newsx-h3:hover {
@@ -204,7 +204,7 @@
   letter-spacing: -0.2px;
   line-height: 1.28;
   /* ✅ biroz kengroq */
-  font-size: 16px;
+  font-size: clamp(15px, 1.1vw, 22px);
   /* ✅ kichikroq */
 }
 
