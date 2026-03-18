@@ -1,42 +1,25 @@
 import "./OurStaff.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
+const teamMenu = [
+  { label: "University Staff", href: "/staff" },
+  { label: "Rectorate", href: "/staff/rectorate" },
+  { label: "Deans", href: "/staff/deans" },
+  { label: "Heads of Departments", href: "/staff/heads" },
+  { label: "Academic Staff", href: "/staff/academic-staff" },
+];
 import staffHero from "../../images/campus.png"; // xohlasang o'zing rasm qo'yasan
 
-const DEPARTMENTS = [
-  {
-    title: "Department of Control and Execution Control",
-    avatars: ["https://i.pravatar.cc/80?img=32"],
-  },
-  {
-    title: "Information Analysis and Strategic Development Department",
-    avatars: ["https://i.pravatar.cc/80?img=12"],
-  },
-  {
-    title: "Department of Media Relations",
-    avatars: [
-      "https://i.pravatar.cc/80?img=15",
-      "https://i.pravatar.cc/80?img=22",
-      "https://i.pravatar.cc/80?img=25",
-      "https://i.pravatar.cc/80?img=28",
-    ],
-  },
-  {
-    title: "International Cooperation Department",
-    avatars: ["https://i.pravatar.cc/80?img=18"],
-  },
-  {
-    title:
-      "Department of Human Resources, Recruitment and Operations with Foreign",
-    avatars: ["https://i.pravatar.cc/80?img=35"],
-  },
-  {
-    title: "Legal Department",
-    avatars: ["https://i.pravatar.cc/80?img=40"],
-  },
-];
+import departmentsData from "../../data/departments.json";
+
+const DEPARTMENTS = departmentsData.map(dep => ({
+  title: dep.title,
+  avatars: dep.members.slice(0, 4).map(m => m.photoUrl),
+}));
 
 export default function OurStaff() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const goDepartment = (title) => {
     navigate("/department-community", { state: { title } });
@@ -130,20 +113,16 @@ export default function OurStaff() {
               <div className="os-sideCard">
                 <div className="os-sideTitle">Our team</div>
 
-                <Link className="os-sideLink active" to="/our-staff">
-                  <span className="os-sideMark" />
-                  University Staff
-                </Link>
-
-                <a className="os-sideLink" href="#">
-                  Academic Community
-                </a>
-                <a className="os-sideLink" href="#">
-                  Other separate organizations
-                </a>
-                <a className="os-sideLink" href="#">
-                  University structure
-                </a>
+                {teamMenu.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className={`os-sideLink ${location.pathname === item.href ? "active" : ""}`}
+                  >
+                    <span className="os-sideMark" />
+                    {item.label}
+                  </Link>
+                ))}
               </div>
 
               <div className="os-sidePhoto">

@@ -6,26 +6,26 @@
       {
         "name": "Munira Aminova",
         "position": "Rector",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2023/05/Munira-Aminova.png"
+        "email": "#",
+        "photoUrl": "/staffs/Rectorate/Munira Aminova.png"
       },
       {
         "name": "Abdulla Primov",
         "position": "Vice Rector for Scientific Research, Innovation and Spirituality",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/01/Abdulla-aka.png"
+        "email": "#",
+        "photoUrl": "/staffs/Rectorate/Abdulla Primov.png"
       },
       {
         "name": "Anvar Tursunov",
         "position": "Vice Rector for Academic affairs",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/03/IMG_8356-scaled.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Rectorate/Anvar Tursunov.png"
       },
       {
         "name": "Sunnatilla Rashidov",
         "position": "Vice Rector for Finance and Economic affairs",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2026/01/yangi.png"
+        "email": "#",
+        "photoUrl": "/staffs/Rectorate/Sunnatilla Rashidov.png"
       }
     ]
   },
@@ -36,20 +36,20 @@
       {
         "name": "Jakhongir Alimov",
         "position": "Dean of Faculty of Agro-Science and Business",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/01/Alimov.png"
+        "email": "#",
+        "photoUrl": "/staffs/Deans/Jakhongir Alimov.png"
       },
       {
         "name": "Jurij Renkas",
         "position": "Dean of the Faculty of Agro-Economics",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2026/01/DSC01318.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Deans/Jurij Renkas.png"
       },
       {
         "name": "Farkhod Egamberdiyev",
         "position": "Deputy Dean",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/03/Farkhod-scaled-e1745925230390.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Deans/Farkhod Egamberdiyev.png"
       }
     ]
   },
@@ -58,52 +58,64 @@
     "title": "Heads of Departments",
     "members": [
       {
-        "name": "Sa’dullayeva Asalxon Muzaffarovna",
-        "position": "Head of HR Department",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/10/Asalkhon-Sadullayeva.jpg"
+        "name": "Asrorbek Maxamadjonov",
+        "position": "Head of Digital Learning Technologies Department",
+        "email": "#",
+        "photoUrl": "/staffs/Heads of Departments/Asrorbek Maxmudjanov.png"
       },
       {
         "name": "Bekhzod Kodirkhonov",
         "position": "Head of Agriculture Department",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/03/Ulugbek-scaled.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Heads of Departments/Bekhzod Kodirkhonov.png"
       },
       {
         "name": "Dr. Abdusattarov Bakhtiyorjon",
         "position": "Head of Department of Master's and Scientific Research",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/01/Baxtiyor-aka.png"
+        "email": "#",
+        "photoUrl": "/staffs/Heads of Departments/Dr. Abdusattarov Bakhtiyorjon.png"
       },
       {
         "name": "Dr. Bekhzod Toshmatov",
         "position": "Head of Agrobusiness Management Department",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/03/IMG_7822-scaled.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Heads of Departments/Dr. Bekhzod Toshmatov.png"
+      },
+      {
+        "name": "Sa’dullayeva Asalxon Muzaffarovna",
+        "position": "Head of HR Department",
+        "email": "#",
+        "photoUrl": "https://iau.uz/wp-content/uploads/2024/10/Asalkhon-Sadullayeva.jpg"
       },
       {
         "name": "Dr. Slawomir Wroblewski",
         "position": "Head of International Department",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/01/Slawomir.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Dr. Slawomir Wroblewski.png"
       },
       {
         "name": "Javlonbek Asrakulov",
         "position": "Head of AgroBusiness Department",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/10/Javlon-Asrakulov.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Heads of Departments/Javlonbek Asrakulov.png"
       },
       {
         "name": "Maxmayoqub Choriev",
         "position": "Head of International Economics Department",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/photo_2025-12-18_17-13-15.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Heads of Departments/Maxmayoqub Choriev.png"
       },
       {
         "name": "Ravshan Asamov",
         "position": "Head of the Department of Spirituality and Enlightenment, associate professor PHD,DSC",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2026/01/DSC02137.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Heads of Departments/Ravshan Asamov.png"
+      },
+      {
+        "name": "Dilshodbek Jumayev",
+        "position": "",
+        "email": "#",
+        "photoUrl": "/staffs/Heads of Departments/Dilshodbek Jumayev.png"
       }
     ]
   },
@@ -114,134 +126,134 @@
       {
         "name": "Carlos Martinez",
         "position": "Associate Professor",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/06/0H2A9877-scaled-e1717740693275.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Carlos Martinez.png"
       },
       {
         "name": "Dr. Bekhzod Egamberdiev",
         "position": "Associate Professor",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/01/Begzod.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Dr. Bekhzod Egamberdiev.png"
       },
       {
         "name": "Dr. Dinara Muzafarova",
         "position": "Associate Professor",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/08/photo_2024-08-30_10-18-06-1-e1724995800463.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Dr. Dinara Muzafarova.png"
       },
       {
         "name": "Dr. Gabriel Ogunmola",
         "position": "Associate Professor",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/DSC08944.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Dr. Gabriel Ogunmola.png"
       },
       {
         "name": "Dr. Grace Mukupa",
         "position": "Associate Professor",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/Screenshot-2025-12-18-at-17.12.56.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Dr. Grace Mukupa.png"
       },
       {
         "name": "Dr. Sergei Yazvenko",
         "position": "Professor",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2023/04/Sergei.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Dr. Sergei Yazvenko.png"
       },
       {
         "name": "Gulasal Razzaqova",
         "position": "Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/Screenshot-2025-12-18-at-17.53.11.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Gulasal Razzaqova.png"
       },
       {
         "name": "Imomjon Khamidov",
         "position": "Senior Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/10/Imomjon.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Imomjon Khamidov.png"
       },
       {
         "name": "Ishani Kaul",
         "position": "Senior Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/Screenshot-2025-12-18-at-16.46.15.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Ishani Kaul.png"
       },
       {
         "name": "Jasurbek Abdushukurov",
         "position": "Project Manager",
-        "email": "",
+        "email": "#",
         "photoUrl": "https://iau.uz/wp-content/uploads/2026/01/jasurbek.png"
       },
       {
         "name": "Madinaxon Askaraliyeva",
         "position": "Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/06/IMG_0529-scaled-e1717739888924.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Madinaxon Askaraliyeva.png"
       },
       {
         "name": "Mavluda Satieva",
         "position": "Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/Screenshot-2025-12-18-at-17.54.06.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Mavluda Satieva.png"
       },
       {
         "name": "Muhamad Umar",
         "position": "Senior Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2023/03/umar.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Muhamad Umar.png"
       },
       {
         "name": "Sardorbek Zoirov",
         "position": "Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/photo_2025-12-18_17-11-48.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Sardorbek Zoirov.png"
       },
       {
         "name": "Shakhnoza Khalimjanova",
         "position": "Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2024/10/Shakhnoza-Khalimjanova.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Shakhnoza Khalimjanova.png"
       },
       {
         "name": "Shakhnozaxon Davlatova",
         "position": "Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/Screenshot-2025-12-18-at-17.21.11.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Shakhnozaxon Davlatova.png"
       },
       {
         "name": "Shakhzoda Karimova",
         "position": "Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/Screenshot-2025-12-18-at-17.23.47.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Shakhzoda Karimova.png"
       },
       {
         "name": "Teacher",
         "position": "Lecturer",
-        "email": "",
+        "email": "#",
         "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/images.png"
       },
       {
         "name": "Ulug'bek Qurbonov",
         "position": "Senior Lecturer",
-        "email": "",
+        "email": "#",
         "photoUrl": "https://iau.uz/wp-content/uploads/2023/04/Ulugbek-aka.png"
       },
       {
         "name": "Ulugbek Yusupov",
         "position": "Associate Professor",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2026/01/DSC02099.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Ulugbek Yusupov.png"
       },
       {
         "name": "Vladislava Abushaeva",
         "position": "Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/12/Screenshot-2025-12-18-at-17.15.40.png"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Vladislava Abushaeva.png"
       },
       {
         "name": "Yokutkhon Naimkhonova",
         "position": "Senior Lecturer",
-        "email": "",
-        "photoUrl": "https://iau.uz/wp-content/uploads/2025/05/photo_2025-04-01_20-58-00-e1746689155460.jpg"
+        "email": "#",
+        "photoUrl": "/staffs/Academic Staff/Yokutkhon Naimkhonova.png"
       }
     ]
   }

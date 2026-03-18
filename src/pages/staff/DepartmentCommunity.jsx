@@ -1,17 +1,19 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams, useLocation } from "react-router-dom";
 import departments from "../../data/departments.json";
 import StaffCard from "../../components/staff/StaffCard";
 import "./DepartmentCommunity.css";
 
 const teamMenu = [
-  { label: "University Staff", active: true, href: "/staff" },
-  { label: "Academic Community", active: false, href: "#" },
-  { label: "Other separate organizations", active: false, href: "#" },
-  { label: "University structure", active: false, href: "#" },
+  { label: "University Staff", href: "/staff" },
+  { label: "Rectorate", href: "/staff/rectorate" },
+  { label: "Deans", href: "/staff/deans" },
+  { label: "Heads of Departments", href: "/staff/heads" },
+  { label: "Academic Staff", href: "/staff/academic-staff" },
 ];
 
 export default function DepartmentCommunity() {
   const { deptId } = useParams();
+  const location = useLocation();
   const department = departments.find((item) => item.id === deptId);
 
   if (!department) {
@@ -38,27 +40,16 @@ export default function DepartmentCommunity() {
               <div className="dcp-sideCard">
                 <h2 className="dcp-sideTitle">Our team</h2>
 
-                {teamMenu.map((item) =>
-                  item.href.startsWith("/") ? (
-                    <Link
-                      key={item.label}
-                      to={item.href}
-                      className={`dcp-sideLink ${item.active ? "is-active" : ""}`}
-                    >
-                      <span className="dcp-sideMark" />
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className={`dcp-sideLink ${item.active ? "is-active" : ""}`}
-                    >
-                      <span className="dcp-sideMark" />
-                      {item.label}
-                    </a>
-                  )
-                )}
+                {teamMenu.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className={`dcp-sideLink ${location.pathname === item.href ? "is-active" : ""}`}
+                  >
+                    <span className="dcp-sideMark" />
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </aside>
           </div>

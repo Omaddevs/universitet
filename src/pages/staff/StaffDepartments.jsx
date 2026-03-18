@@ -1,16 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import departments from "../../data/departments.json";
 import DepartmentCard from "../../components/staff/DepartmentCard";
 import "./StaffDepartments.css";
 
 const teamMenu = [
-  { label: "University Staff", active: true, href: "/staff" },
-  { label: "Academic Community", active: false, href: "#" },
-  { label: "Other separate organizations", active: false, href: "#" },
-  { label: "University structure", active: false, href: "#" },
+  { label: "University Staff", href: "/staff" },
+  { label: "Rectorate", href: "/staff/rectorate" },
+  { label: "Deans", href: "/staff/deans" },
+  { label: "Heads of Departments", href: "/staff/heads" },
+  { label: "Academic Staff", href: "/staff/academic-staff" },
 ];
 
 export default function StaffDepartments() {
+  const location = useLocation();
   return (
     <main className="sdp-page">
       <section className="sdp-hero">
@@ -41,27 +43,16 @@ export default function StaffDepartments() {
               <div className="sdp-sideCard">
                 <h2 className="sdp-sideTitle">Our team</h2>
 
-                {teamMenu.map((item) =>
-                  item.href.startsWith("/") ? (
-                    <Link
-                      key={item.label}
-                      to={item.href}
-                      className={`sdp-sideLink ${item.active ? "is-active" : ""}`}
-                    >
-                      <span className="sdp-sideMark" />
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className={`sdp-sideLink ${item.active ? "is-active" : ""}`}
-                    >
-                      <span className="sdp-sideMark" />
-                      {item.label}
-                    </a>
-                  )
-                )}
+                {teamMenu.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className={`sdp-sideLink ${location.pathname === item.href ? "is-active" : ""}`}
+                  >
+                    <span className="sdp-sideMark" />
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </aside>
           </div>

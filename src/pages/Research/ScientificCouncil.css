@@ -78,17 +78,18 @@
      background-color: #f1f5f9;
      padding: 6px;
      border-radius: 8px;
-     width: 400px;
+     width: 100%;
+     max-width: 400px;
 }
 
 .sc-tab {
-     padding: 10px 16px;
+     padding: 10px 8px;
      font-size: 0.95rem;
      border-radius: 6px;
      cursor: pointer;
      color: #64748b;
      font-weight: 500;
-     width: 150px;
+     flex: 1;
      text-align: center;
 }
 
@@ -224,6 +225,11 @@
 }
 
 @media (max-width: 768px) {
+     .sc-title {
+          font-size: 1.6rem;
+          padding: 0 15px;
+     }
+
      .sc-container {
           flex-direction: column;
      }

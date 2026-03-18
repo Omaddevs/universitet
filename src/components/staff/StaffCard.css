@@ -7,12 +7,12 @@
   border: 1px solid var(--nav-whiteBorder, rgba(11, 18, 32, 0.1));
   background: #fff;
   box-shadow: 0 14px 36px rgba(11, 18, 32, 0.08);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .stc-photoWrap {
   padding: 14px 0 14px 14px;
-  
+  position: relative;
 }
 
 .stc-photo {
@@ -57,34 +57,39 @@
   font-weight: 600;
 }
 
-.stc-email {
-  margin-top: 4px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  width: fit-content;
-  padding: 9px 12px;
-  border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--brand-blue, #3e74c9) 26%, white);
-  background: color-mix(in srgb, var(--r-8, #edf2f8) 85%, white);
-  color: color-mix(in srgb, var(--nav-ink, #0b1220) 90%, white);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.stc-email:hover {
-  background: color-mix(in srgb, var(--r-9, #c0d2e9) 42%, white);
-}
-
-.stc-emailIcon {
-  width: 28px;
-  height: 28px;
-  border-radius: 10px;
+.stc-email-float {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  transform: translate(50%, -50%);
+  z-index: 10;
   display: grid;
   place-items: center;
-  background: color-mix(in srgb, var(--brand-blue, #3e74c9) 16%, white);
-  color: var(--brand-blue, #3e74c9);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1); /* light outer ring */
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stc-email-float:hover {
+  transform: translate(50%, -50%) scale(1.05);
+  box-shadow: 0 4px 12px rgba(44, 161, 129, 0.2);
+}
+
+.stc-email-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #2CA181; /* user requested teal */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
 }
 
 @media (max-width: 760px) {
@@ -95,6 +100,10 @@
 
   .stc-photoWrap {
     padding: 14px 14px 0;
+  }
+
+  .stc-email-float {
+    right: 14px; /* match the new right padding */
   }
 
   .stc-photo {
