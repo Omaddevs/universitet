@@ -24,16 +24,8 @@ const SocialNetworks = () => {
 
      return (
           <section className="social-networks-section">
-               {/* Background Icons (Faded) */}
-               <div className="sn-bg-icons">
-                    <FiPlayCircle className="sn-bg-icon sn-icon-1" />
-                    <FaRegHeart className="sn-bg-icon sn-icon-2" />
-                    <FaRegPaperPlane className="sn-bg-icon sn-icon-3" />
-                    <BsChatText className="sn-bg-icon sn-icon-4" />
-                    <FaRegCommentDots className="sn-bg-icon sn-icon-5" />
-                    <FiPlayCircle className="sn-bg-icon sn-icon-6" />
-                    <FaRegHeart className="sn-bg-icon sn-icon-7" />
-               </div>
+               {/* Background Icons (Faded Pattern) */}
+               <div className="sn-bg-icons"></div>
 
                <div className="sn-container">
                     <div className="sn-text-content">
@@ -49,15 +41,15 @@ const SocialNetworks = () => {
                               <div
                                    key={idx}
                                    className="sn-phone-card"
-                                   style={{ transform: `translateY(${net.offset})` }}
                               >
                                    <div className="sn-phone-screen">
+                                        <div className="sn-notch"></div>
                                         <img src={net.img} alt={`${net.name} page`} className="sn-screen-img" />
-                                        <div className="sn-button-overlay">
-                                             <a href={net.url} target="_blank" rel="noopener noreferrer" className="sn-action-btn" style={{ textDecoration: 'none' }}>
-                                                  {net.icon} {net.name}
-                                             </a>
-                                        </div>
+                                   </div>
+                                   <div className="sn-button-overlay">
+                                        <a href={net.url} target="_blank" rel="noopener noreferrer" className="sn-action-btn" style={{ textDecoration: 'none' }}>
+                                             {net.icon} {net.name}
+                                        </a>
                                    </div>
                               </div>
                          ))}
