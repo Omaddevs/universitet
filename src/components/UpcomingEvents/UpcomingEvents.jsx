@@ -1,47 +1,53 @@
-import { useTranslation } from "react-i18next";
 import "./UpcomingEvents.css";
 import { IoChevronForwardOutline, IoLocationOutline } from "react-icons/io5";
-const events = [{
-  id: 1,
-  title: "First Central Asia Conference on Sports Science invites extended abstract submissions",
-  place: "New Uzbekistan University",
-  dateFrom: "28 April",
-  dateTo: "30 April",
-  year: "2026",
-  time: "09:00"
-}, {
-  id: 2,
-  title: "International workshop on smart agriculture and climate-resilient farming systems",
-  place: "New Uzbekistan University",
-  dateFrom: "02 May",
-  dateTo: "04 May",
-  year: "2026",
-  time: "10:00"
-}, {
-  id: 3,
-  title: "Open lecture series for prospective students and partner institutions",
-  place: "New Uzbekistan University",
-  dateFrom: "10 May",
-  dateTo: "12 May",
-  year: "2026",
-  time: "11:00"
-}];
+
+const events = [
+  {
+    id: 1,
+    title: "First Central Asia Conference on Sports Science invites extended abstract submissions",
+    place: "New Uzbekistan University",
+    dateFrom: "28 April",
+    dateTo: "30 April",
+    year: "2026",
+    time: "09:00",
+  },
+  {
+    id: 2,
+    title: "International workshop on smart agriculture and climate-resilient farming systems",
+    place: "New Uzbekistan University",
+    dateFrom: "02 May",
+    dateTo: "04 May",
+    year: "2026",
+    time: "10:00",
+  },
+  {
+    id: 3,
+    title: "Open lecture series for prospective students and partner institutions",
+    place: "New Uzbekistan University",
+    dateFrom: "10 May",
+    dateTo: "12 May",
+    year: "2026",
+    time: "11:00",
+  },
+];
+
 export default function UpcomingEvents() {
-  const {
-    t
-  } = useTranslation();
-  return <section className="upev" aria-label="Upcoming Events">
+  return (
+    <section className="upev" aria-label="Upcoming Events">
       <div className="upev__container">
         <div className="upev__head">
-          <h2 className="upev__title">{t("upcoming")}<span>{t("events")}</span>
+          <h2 className="upev__title">
+            Upcoming <span>Events</span>
           </h2>
 
-          <a className="upev__more" href="/">{t("see_more")}<IoChevronForwardOutline />
+          <a className="upev__more" href="/">
+            See more <IoChevronForwardOutline />
           </a>
         </div>
 
         <div className="upev__row">
-          {events.map(event => <article className="upev-card" key={event.id}>
+          {events.map((event) => (
+            <article className="upev-card" key={event.id}>
               <div className="upev-card__left">
                 <h3 className="upev-card__title">{event.title}</h3>
 
@@ -57,10 +63,12 @@ export default function UpcomingEvents() {
                 <p className="upev-card__year">{event.year}</p>
                 <p className="upev-card__time">{event.time}</p>
               </div>
-            </article>)}
+            </article>
+          ))}
         </div>
 
-        <p className="upev__label">{t("section")}</p>
+        <p className="upev__label">Section</p>
       </div>
-    </section>;
+    </section>
+  );
 }

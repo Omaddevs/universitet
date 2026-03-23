@@ -1,19 +1,24 @@
-import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import "./AdmissionsShared.css";
 import "./Agri.css";
 import { Link } from "react-router-dom";
 import bgVideo from "../../all-bg-videos/iau-bg.mp4";
 import baxtiyorImg from "../../images/baxtiyor.png";
+
 export default function MScSustainableAgriculture() {
-  const {
-    t
-  } = useTranslation();
-  const [activeTab, setActiveTab] = useState("courseContent");
-  return <div className="admissions-page">
+     const [activeTab, setActiveTab] = useState("courseContent");
+
+     return (
+          <div className="admissions-page">
                {/* PAGE HEADER */}
                <div className="admissions-hero">
-                    <video className="admissions-hero-video" autoPlay loop muted playsInline>
+                    <video
+                         className="admissions-hero-video"
+                         autoPlay
+                         loop
+                         muted
+                         playsInline
+                    >
                          <source src={bgVideo} type="video/mp4" />
                     </video>
                     <div className="hero-overlay"></div>
@@ -21,13 +26,13 @@ export default function MScSustainableAgriculture() {
                          <div className="breadcrumbs">
                               <Link to="/">🏠</Link>
                               <span className="separator">&gt;</span>
-                              <span>{t("admissions")}</span>
+                              <span>Admissions</span>
                               <span className="separator">&gt;</span>
-                              <Link to="/admissions/postgraduate">{t("postgraduate")}</Link>
+                              <Link to="/admissions/postgraduate">Postgraduate</Link>
                               <span className="separator">&gt;</span>
-                              <span className="current">{t("msc_sustainable_agriculture_an")}</span>
+                              <span className="current">MSc Sustainable Agriculture and Food Security</span>
                          </div>
-                         <h1>{t("msc_sustainable_agriculture_an")}</h1>
+                         <h1>MSc Sustainable Agriculture and Food Security</h1>
                     </div>
                </div>
 
@@ -39,50 +44,138 @@ export default function MScSustainableAgriculture() {
                          {/* TABS */}
                          <div className="tabs-container">
                               <div className="tabs-list">
-                                   <button className={`tab-btn ${activeTab === "courseContent" ? "active" : ""}`} onClick={() => setActiveTab("courseContent")}>{t("course_content")}</button>
-                                   <button className={`tab-btn ${activeTab === "modules" ? "active" : ""}`} onClick={() => setActiveTab("modules")}>{t("modules")}</button>
-                                   <button className={`tab-btn ${activeTab === "entryRequirements" ? "active" : ""}`} onClick={() => setActiveTab("entryRequirements")}>{t("entry_requirements")}</button>
-                                   <button className={`tab-btn ${activeTab === "fees" ? "active" : ""}`} onClick={() => setActiveTab("fees")}>{t("fees")}</button>
+                                   <button
+                                        className={`tab-btn ${activeTab === "courseContent" ? "active" : ""}`}
+                                        onClick={() => setActiveTab("courseContent")}
+                                   >
+                                        Course content
+                                   </button>
+                                   <button
+                                        className={`tab-btn ${activeTab === "modules" ? "active" : ""}`}
+                                        onClick={() => setActiveTab("modules")}
+                                   >
+                                        Modules
+                                   </button>
+                                   <button
+                                        className={`tab-btn ${activeTab === "entryRequirements" ? "active" : ""}`}
+                                        onClick={() => setActiveTab("entryRequirements")}
+                                   >
+                                        Entry requirements
+                                   </button>
+                                   <button
+                                        className={`tab-btn ${activeTab === "fees" ? "active" : ""}`}
+                                        onClick={() => setActiveTab("fees")}
+                                   >
+                                        Fees
+                                   </button>
                                    {/* <button
                                         className={`tab-btn ${activeTab === "scholarships" ? "active" : ""}`}
                                         onClick={() => setActiveTab("scholarships")}
-                                    >
+                                   >
                                         Scholarships
-                                    </button> */}
+                                   </button> */}
                               </div>
                          </div>
 
                          {/* TAB CONTENT */}
                          <div className="tab-content-box">
-                              {activeTab === "courseContent" && <div className="content-pane fade-in">
-                                        <h2>{t("course_content")}</h2>
-                                        <p>{t("the_msc_sustainable_agricultur")}</p>
-                                   </div>}
+                              {activeTab === "courseContent" && (
+                                   <div className="content-pane fade-in">
+                                        <h2>Course content</h2>
+                                        <p>
+                                             The MSc Sustainable Agriculture and Food Security programme has been selected specifically to address the sustainability requirements in Uzbekistan’s Agriculture Development Strategy.  While supporting the transition of agriculture towards sustainable production systems is a global priority, the needs are acute in Uzbekistan and Middle Asia due to the increasingly extreme environmental conditions being accelerated by climate change.
 
-                              {activeTab === "modules" && <div className="content-pane fade-in">
-                                        <h2>{t("modules")}</h2>
-                                        <p>{t("throughout_the_programme__stud_1")}</p>
-                                        <h3>{t("core_modules")}</h3>
-                                        <p>{t("u4413___research_skills")}<br></br>{t("u4414___dissertation")}<br></br>{t("new___sustainable_agricultural")}<br></br>{t("new___international_rural_deve")}<br></br>{t("new___leadership_and_business")}<br></br>{t("new___applied_natural_and_envi")}<br></br>{t("new___english_for_academic_pur")}<br></br>
+                                             Developments in our understanding of how to farm sustainably through embracing the complexity of integrated systems offer many opportunities to improve both environmental and food security in Uzbekistan and across the region. Students completing this programme will thus gain a comprehensive appreciation of the wide range of new and innovative approaches to sustainable farming systems that combine crops and livestock with active management of the natural environment. In addition to the subject-specific material, all Masters students will have the opportunity to learn about entrepreneurship and business management.
+
+                                             The programme attracts students from a wide range of backgrounds, experiences and ages. The diversity of the participants is an important dynamic in this programme and plays a key role in discussing and addressing the Sustainable Development Goals (SDG) related to food and farming. This diversity encourages new and alternative ways of rethinking agricultural and food systems, improving livelihoods and protecting the environment. Students within the programme learn key competencies that are relevant to public administration, international development/funding agencies, research and business sectors.
+                                        </p>
+                                   </div>
+                              )}
+
+                              {activeTab === "modules" && (
+                                   <div className="content-pane fade-in">
+                                        <h2>Modules</h2>
+                                        <p>
+                                             Throughout the programme, students will develop critical skills in observation, thinking and analysis to engage with the development of technology and innovation in agriculture and food. This will be enhanced by access to practical knowledge and commercial expertise acquired through contact with farm managers, organisations, employers and entrepreneurs.
+                                        </p>
+                                        <h3>
+                                             Core Modules
+                                        </h3>
+                                        <p>
+                                             U4413 – Research Skills<br></br>
+                                             U4414 – Dissertation<br></br>
+                                             New – Sustainable Agricultural Systems<br></br>
+                                             New – International Rural Development and Food Security<br></br>
+                                             New – Leadership and Business Strategy<br></br>
+                                             New – Applied Natural and Environmental Science<br></br>
+                                             New – English for Academic Purposes<br></br>
                                         </p>
 
-                                        <h2>{t("careers_and_graduate_destinati")}</h2>
-                                        <p>{t("this_degree_programme_has_been_1")}</p>
-                                   </div>}
+                                        <h2>
+                                             Careers and graduate destinations
+                                        </h2>
+                                        <p>
+                                             This degree programme has been established in response to the Uzbekistan Government’s recognition of skills shortages in sustainable agriculture and food security, focussing on new knowledge about sustainable production systems and new approaches to addressing food justice and security. This will be of particular relevance to many agri-food professionals seeking to improve their skills and qualifications. A part-time route will be offered to meet the needs of these candidates.
 
-                              {activeTab === "entryRequirements" && <div className="content-pane fade-in">
-                                        <h2>{t("entry_requirements")}</h2>
-                                        <p>{t("the_following_standard_univers_3")}</p>
-                                   </div>}
+                                             The degree will also be of interest to recent graduates in agriculture and agri-business who want to improve their knowledge and career potential. Graduates of this programme will have a wide range of career opportunities within agri-business, agri-environment, agriculture and food policy and production. This programme educates and trains professionals of the future with the specific skills required to gain access to these careers. This programme will be particularly attractive to students who wish to pursue a specialist career (e.g., as an organic or regenerative farmer or technical adviser).
 
-                              {activeTab === "fees" && <div className="content-pane fade-in">
-                                        <h2>{t("fees")}</h2>
-                                        <p>{t("tuition_fees_uzb_44_800_000_uz")}</p>
-                                        <p>{t("tuition_fees_international_5_5_1")}</p>
-                                        <p>{t("duration_1_year___full_time__")}<br></br>
+                                             Studying sustainable agriculture and food security also develops the skills needed for other advanced careers in associated areas such as accountancy, land administration, law and the media. Alternatively, students may qualify for progression to postgraduate research either at the IAU or RAU or elsewhere.
+
+                                             Graduates are likely to enter production, policy, and research and consultancy careers in the agricultural and food quality sector, within:
+
+                                             The agricultural industry, as a farmer or agricultural consultant
+                                             The food industry
+                                             International organisations - United Nations (UN), Food and Agriculture Organization (FAO) etc
+                                             Government departments
+                                             NGOs internationally
+                                             Research institutes
                                         </p>
-                                        <p>{t("tuition_fees_cover_the_cost_of")}</p>
-                                   </div>}
+                                   </div>
+                              )}
+
+                              {activeTab === "entryRequirements" && (
+                                   <div className="content-pane fade-in">
+                                        <h2>Entry requirements</h2>
+                                        <p>
+                                             The following standard University entry requirements will be appropriate for the MSc Sustainable Agriculture and Food Security programme:
+
+                                             1. A minimum of GPA 3.0 which is equivalent to a 2.1 honours degree from a UK university.
+
+                                             Mature candidates with significant relevant work experience and lower academic qualifications may also be considered for entry, following an interview with the programme managers.
+
+                                             2. IELTS Academic (UKVI version) min. overall 6, band score is the conditional entry case for the postgraduate students. The candidates for the postgraduate degree with an overall  band score 6.5 are considered unconditionally accepted students.
+
+                                             60 - 78 – TOEFL
+                                             B2 Level – CEFR (Common European Framework of Reference)
+                                             120-125 scores on Duolingo English Test
+                                             Please note that University offers a Corinium Language Associates examination (developed on demand to test candidates of the International Agriculture University) for those who don’t have the above-mentioned certificates on a paid basis.
+
+                                             OR: Obtained first degree in an English-speaking country;
+
+                                             Obtained first degree from the International Agriculture University, Tashkent;
+
+                                             Pass RAU internal integrated English language proficiency (EAP reading and writing) test with 60%.
+                                        </p>
+                                   </div>
+                              )}
+
+                              {activeTab === "fees" && (
+                                   <div className="content-pane fade-in">
+                                        <h2>Fees</h2>
+                                        <p>
+                                             Tuition Fees Uzb 44.800.000 UZS per course
+                                        </p>
+                                        <p>
+                                             Tuition Fees International 5.550 USD per course
+                                        </p>
+                                        <p>
+                                             Duration 1 year – full time & 2 year – part time<br></br>
+                                        </p>
+                                        <p>
+                                             Tuition fees cover the cost of a student’s academic studies. This usually includes teaching costs, registration and examination fees (not repeat or trailing modules, re-sit fees or coursework resubmission). Any costs associated with work placements will be the student’s responsibility.
+                                        </p>
+                                   </div>
+                              )}
 
                               {/* {activeTab === "scholarships" && (
                                    <div className="content-pane fade-in">
@@ -91,7 +184,7 @@ export default function MScSustainableAgriculture() {
                                              The International Agriculture University offers scholarships and grants for local students. Grantees will have an opportunity to study postgraduate or undergraduate courses with 0 tuition fee, covered by the Ministry of Agriculture. Currently, local students of the International Agriculture University are able to apply for scholarships from the Ministry of Agriculture and more.
                                         </p>
                                    </div>
-                               )} */}
+                              )} */}
                          </div>
 
                          {/* BOTTOM ROW: PROFILE & APPLICATIONS */}
@@ -105,15 +198,15 @@ export default function MScSustainableAgriculture() {
                                    </a>
                                    <img src={baxtiyorImg} alt="Dr. Abdusattarov Bakhtiyorjon" />
                                    <div className="profile-info">
-                                        <h4>{t("dr__abdusattarov_bakhtiyorjon")}</h4>
-                                        <p>{t("head_of_department_of_master_s")}</p>
+                                        <h4>Dr. Abdusattarov Bakhtiyorjon</h4>
+                                        <p>Head of Department of Master's and Scientific Research</p>
                                    </div>
                               </div>
 
                               {/* APPLICATIONS OPEN BOX */}
                               <div className="applications-box">
-                                   <h3>{t("applications_for_fall_2026_are")}</h3>
-                                   <button className="apply-btn">{t("start_your_application_")}</button>
+                                   <h3>Applications for Fall 2026 are now open!</h3>
+                                   <button className="apply-btn">Start Your Application →</button>
                               </div>
                          </div>
                     </div>
@@ -121,27 +214,28 @@ export default function MScSustainableAgriculture() {
                     {/* RIGHT SIDEBAR */}
                     <div className="admissions-sidebar">
                          <div className="sidebar-box">
-                              <h3>{t("admissions")}</h3>
+                              <h3>Admissions</h3>
                               <ul className="sidebar-links">
                                    <li>
-                                        <Link to="/admissions/pre-foundation" className="active-link">{t("pre_foundation")}</Link>
+                                        <Link to="/admissions/pre-foundation" className="active-link">Pre-Foundation</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/foundation">{t("foundation")}</Link>
+                                        <Link to="/admissions/foundation">Foundation</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/undergraduate">{t("undergraduate")}</Link>
+                                        <Link to="/admissions/undergraduate">Undergraduate</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/postgraduate" className="active-link">{t("postgraduate")}</Link>
+                                        <Link to="/admissions/postgraduate" className="active-link">Postgraduate</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/phd">{t("phd_and_dsc_programmes")}</Link>
+                                        <Link to="/admissions/phd">PhD and DSc Programmes</Link>
                                    </li>
                               </ul>
                          </div>
                     </div>
 
                </div>
-          </div>;
+          </div>
+     );
 }

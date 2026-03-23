@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 // src/pages/Festivals/Summary2025.jsx
 import React, { useEffect } from "react";
 import "./Summary2025.css";
@@ -12,29 +11,37 @@ import img6 from "../../festivals-images/festival-2025-image6.jpg";
 import img7 from "../../festivals-images/festival-2025-image7.jpg";
 import img8 from "../../festivals-images/festival-2025-image8.jpg";
 const Summary2025 = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  const images = [img1, img2, img3, img4, img5, img6, img7, img8];
-  return <div className="summary-page">
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+
+    return (
+        <div className="summary-page">
             <div className="summary-banner">
-                <h1>{t("life_science_festival_2025")}</h1>
+                <h1>Life Science Festival 2025</h1>
             </div>
 
             <div className="summary-content">
-                <h2>{t("summary")}</h2>
+                <h2>Summary</h2>
 
                 <div className="summary-grid">
-                    {images.map((img, index) => <div key={index} className="summary-card">
+                    {images.map((img, index) => (
+                        <div key={index} className="summary-card">
                             <img src={img} alt={`Summary Page ${index + 1}`} />
-                        </div>)}
+                        </div>
+                    ))}
                 </div>
 
                 <div className="download-btn-container">
-                    <button className="download-btn">{t("download")}<IoChevronForwardOutline />
+                    <button className="download-btn">
+                        Download <IoChevronForwardOutline />
                     </button>
                 </div>
             </div>
-        </div>;
+        </div>
+    );
 };
+
 export default Summary2025;
