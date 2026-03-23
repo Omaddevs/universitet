@@ -1,24 +1,19 @@
+import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import "./AdmissionsShared.css";
 import "./Agri.css";
 import { Link } from "react-router-dom";
 import bgVideo from "../../all-bg-videos/iau-bg.mp4";
 import begzodImg from "../../images/begzod.png";
-
 export default function SmartSustainableAgriculture() {
-     const [activeTab, setActiveTab] = useState("courseContent");
-
-     return (
-          <div className="admissions-page">
+  const {
+    t
+  } = useTranslation();
+  const [activeTab, setActiveTab] = useState("courseContent");
+  return <div className="admissions-page">
                {/* PAGE HEADER */}
                <div className="admissions-hero">
-                    <video
-                         className="admissions-hero-video"
-                         autoPlay
-                         loop
-                         muted
-                         playsInline
-                    >
+                    <video className="admissions-hero-video" autoPlay loop muted playsInline>
                          <source src={bgVideo} type="video/mp4" />
                     </video>
                     <div className="hero-overlay"></div>
@@ -26,13 +21,13 @@ export default function SmartSustainableAgriculture() {
                          <div className="breadcrumbs">
                               <Link to="/">🏠</Link>
                               <span className="separator">&gt;</span>
-                              <span>Admissions</span>
+                              <span>{t("admissions")}</span>
                               <span className="separator">&gt;</span>
-                              <Link to="/admissions/postgraduate">Postgraduate</Link>
+                              <Link to="/admissions/postgraduate">{t("postgraduate")}</Link>
                               <span className="separator">&gt;</span>
-                              <span className="current">MSc Sustainable Agriculture and Food Security</span>
+                              <span className="current">{t("msc_sustainable_agriculture_an")}</span>
                          </div>
-                         <h1>MSc Sustainable Agriculture and Food Security</h1>
+                         <h1>{t("msc_sustainable_agriculture_an")}</h1>
                     </div>
                </div>
 
@@ -44,30 +39,10 @@ export default function SmartSustainableAgriculture() {
                          {/* TABS */}
                          <div className="tabs-container">
                               <div className="tabs-list">
-                                   <button
-                                        className={`tab-btn ${activeTab === "courseContent" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("courseContent")}
-                                   >
-                                        Course content
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "modules" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("modules")}
-                                   >
-                                        Modules
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "entryRequirements" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("entryRequirements")}
-                                   >
-                                        Entry requirements
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "fees" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("fees")}
-                                   >
-                                        Fees
-                                   </button>
+                                   <button className={`tab-btn ${activeTab === "courseContent" ? "active" : ""}`} onClick={() => setActiveTab("courseContent")}>{t("course_content")}</button>
+                                   <button className={`tab-btn ${activeTab === "modules" ? "active" : ""}`} onClick={() => setActiveTab("modules")}>{t("modules")}</button>
+                                   <button className={`tab-btn ${activeTab === "entryRequirements" ? "active" : ""}`} onClick={() => setActiveTab("entryRequirements")}>{t("entry_requirements")}</button>
+                                   <button className={`tab-btn ${activeTab === "fees" ? "active" : ""}`} onClick={() => setActiveTab("fees")}>{t("fees")}</button>
                                    {/* <button
                                                   className={`tab-btn ${activeTab === "scholarships" ? "active" : ""}`}
                                                   onClick={() => setActiveTab("scholarships")}
@@ -79,143 +54,58 @@ export default function SmartSustainableAgriculture() {
 
                          {/* TAB CONTENT */}
                          <div className="tab-content-box">
-                              {activeTab === "courseContent" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Course content</h2>
-                                        <p>
-                                             The BSc (Hons) Smart Sustainable Agriculture  produces graduates who understand the complexity of modern agriculture and land management and are capable of working within the sector in a variety of roles. Graduates will have been exposed to a range of agricultural practices and will be confident to assist with the practical application of production methods including agronomy, livestock and land management in modern global agriculture.
-                                        </p>
-                                        <p>
-                                             This is a multi-disciplinary degree programme combining the study of management with agricultural processes, giving you an understanding of the economic and business principles that underlie management and its application to agricultural and land-based industries.
-                                        </p>
-                                   </div>
-                              )}
+                              {activeTab === "courseContent" && <div className="content-pane fade-in">
+                                        <h2>{t("course_content")}</h2>
+                                        <p>{t("the_bsc__hons__smart_sustainab")}</p>
+                                        <p>{t("this_is_a_multi_disciplinary_d")}</p>
+                                   </div>}
 
-                              {activeTab === "modules" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Modules</h2>
-                                        <p>
-                                             All our programmes provide practical skills and training opportunities, a focus on innovation and guidance for personal growth and development, insights into global challenges and perspectives, and the development and integration of research-informed teaching. Module content is designed to address the UN’s Sustainable Development Goals, reflecting our shared commitment to the national and global challenges of sustainability, climate change and reduced carbon / net zero aims.<br></br>
+                              {activeTab === "modules" && <div className="content-pane fade-in">
+                                        <h2>{t("modules")}</h2>
+                                        <p>{t("all_our_programmes_provide_pra")}<br></br>
                                         </p>
-                                        <h3>
-                                             Year one
-                                        </h3>
-                                        <p>
-                                             U1007 – Soil and the Environment<br></br>
-                                             New – Data Science and Management<br></br>
-                                             U1422 – Ecosystem Services and Sustainability<br></br>
-                                             U1441 – Applied Animal Science<br></br>
-                                             U1442 – Applied Plant Science<br></br>
-                                             U1001 – English for Academic Purposes II (EAPII)<br></br>
-                                             U1325 – Agriculture and Food Systems<br></br>
-                                             U1445 – Innovation and Technology<br></br>
+                                        <h3>{t("year_one")}</h3>
+                                        <p>{t("u1007___soil_and_the_environme")}<br></br>{t("new___data_science_and_managem")}<br></br>{t("u1422___ecosystem_services_and")}<br></br>{t("u1441___applied_animal_science")}<br></br>{t("u1442___applied_plant_science")}<br></br>{t("u1001___english_for_academic_p")}<br></br>{t("u1325___agriculture_and_food_s")}<br></br>{t("u1445___innovation_and_technol")}<br></br>
                                         </p>
-                                        <h3>
-                                             Year two
-                                        </h3>
+                                        <h3>{t("year_two")}</h3>
                                         <i>
-                                             <h3>
-                                                  Core Modules
-                                             </h3>
+                                             <h3>{t("core_modules")}</h3>
                                         </i>
-                                        <p>
-                                             U2004 – Professional Development<br></br>
-                                             New – Managing Smart Agricultural Systems<br></br>
-                                             U2011 – Introduction to Research Skills<br></br>
-                                             U2373 – Agronomy<br></br>
-                                             U2372 – Animal Health and Welfare<br></br>
-                                             U2349 – The Resilience of Agro-Ecosystems<br></br>
+                                        <p>{t("u2004___professional_developme")}<br></br>{t("new___managing_smart_agricultu")}<br></br>{t("u2011___introduction_to_resear")}<br></br>{t("u2373___agronomy")}<br></br>{t("u2372___animal_health_and_welf")}<br></br>{t("u2349___the_resilience_of_agro")}<br></br>
                                         </p>
                                         <i>
-                                             <h3>
-                                                  Plus any two electives from the list below
-                                             </h3>
+                                             <h3>{t("plus_any_two_electives_from_th")}</h3>
                                         </i>
-                                        <p>
-                                             New – Regenerative Food Systems<br></br>
-                                             New – Fresh Produce Production<br></br>
-                                             New – Grassland and Forage Production<br></br>
-                                             New – Fibre Production (Plant and Animal)<br></br>
-                                             New – Urban and Controlled Environment Systems<br></br>
-                                             New – Precision Agriculture<br></br>
+                                        <p>{t("new___regenerative_food_system")}<br></br>{t("new___fresh_produce_production")}<br></br>{t("new___grassland_and_forage_pro")}<br></br>{t("new___fibre_production__plant")}<br></br>{t("new___urban_and_controlled_env")}<br></br>{t("new___precision_agriculture")}<br></br>
                                         </p>
-                                        <h3>
-                                             Year three
-                                        </h3>
+                                        <h3>{t("year_three")}</h3>
                                         <i>
-                                             <h3>
-                                                  Core Modules
-                                             </h3>
+                                             <h3>{t("core_modules")}</h3>
                                         </i>
-                                        <p>
-                                             U3004 – Research Project / Dissertation<br></br>
-                                             U3330 – Technology and Agroecological Innovation<br></br>
-                                             U3329 – Climate Change and Natural Resource Challenges<br></br>
-                                             U3331 – Food Supply Systems and Policy<br></br>
-                                             U3332 – Specialist Study (Shell Module)<br></br>
+                                        <p>{t("u3004___research_project___dis")}<br></br>{t("u3330___technology_and_agroeco")}<br></br>{t("u3329___climate_change_and_nat")}<br></br>{t("u3331___food_supply_systems_an")}<br></br>{t("u3332___specialist_study__shel")}<br></br>
                                         </p>
                                         <i>
-                                             <h3>
-                                                  Plus any two electives from the list below
-                                             </h3>
+                                             <h3>{t("plus_any_two_electives_from_th")}</h3>
                                         </i>
-                                        <p>
-                                             New – Sustainable Farm Management<br></br>
-                                             New – Agronomy Challenges and Solutions<br></br>
-                                             New – Land Tenure and Governance<br></br>
-                                             New – Livestock System Challenges and Solutions<br></br>
-                                             New – Data Application and Innovation<br></br>
-                                             New – Applied Agri-Finance<br></br>
+                                        <p>{t("new___sustainable_farm_managem")}<br></br>{t("new___agronomy_challenges_and")}<br></br>{t("new___land_tenure_and_governan")}<br></br>{t("new___livestock_system_challen")}<br></br>{t("new___data_application_and_inn")}<br></br>{t("new___applied_agri_finance")}<br></br>
                                         </p>
-                                        <h2>
-                                             Careers and graduate destinations
-                                        </h2>
-                                        <p>
-                                             Upon graduation, students are aware of the importance of the pillars of sustainability, animal welfare and soil management to the success of the agricultural industry and the complex interaction between elements within an enterprise, and how these can be utilised to produce sustainable performance that has a positive impact on the success of the parent business.<br></br>
-                                             You could progress into a range of careers including:<br></br>
-                                             Livestock nutrition<br></br>
-                                             Herd/flock health planning<br></br>
-                                             Biosecurity<br></br>
-                                             Agricultural policy<br></br>
-                                             Research<br></br>
-                                             Farm management<br></br>
-                                             Food and Fibre processing<br></br>
-                                             Food security and safety<br></br>
-                                             Agricultural consultancy<br></br>
+                                        <h2>{t("careers_and_graduate_destinati")}</h2>
+                                        <p>{t("upon_graduation__students_are_1")}<br></br>{t("you_could_progress_into_a_rang")}<br></br>{t("livestock_nutrition")}<br></br>{t("herd_flock_health_planning")}<br></br>{t("biosecurity")}<br></br>{t("agricultural_policy")}<br></br>{t("research")}<br></br>{t("farm_management")}<br></br>{t("food_and_fibre_processing")}<br></br>{t("food_security_and_safety")}<br></br>{t("agricultural_consultancy")}<br></br>
                                         </p>
-                                   </div>
-                              )}
+                                   </div>}
 
-                              {activeTab === "entryRequirements" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Entry requirements</h2>
-                                        <p>
-                                             Students completing successfully the BSc (Hons) Agriculture (Foundation Year) can progress to the BSc Farm Business Management degree. Meanwhile, the following standard University entry requirements will be appropriate for those who didn’t complete the Foundation Year of the current programme:<br></br>
-                                             1. IELTS Academic (UKVI version) min. overall 5.0 with no element below 5.0 or the equivalent of either:<br></br>
-                                             B1 Level – CEFR (Common European Framework of Reference)<br></br>
-                                             85-90 scores on Duolingo English Test<br></br>
-                                             Please note that University offers a Corinium Language Associates examination (developed on demand to test candidates of the International Agriculture University) for those who don’t have the above-mentioned certificates on a paid basis.<br></br>
-                                             2. 104 UCAS Tariff points or the equivalent of either:<br></br>
-                                             Successful completion of Year 2 (Transcript) from a University 4-year degree OR<br></br>
-                                             Successful completion of Year 1 (Transcript) from a University 4-year degree<br></br>
+                              {activeTab === "entryRequirements" && <div className="content-pane fade-in">
+                                        <h2>{t("entry_requirements")}</h2>
+                                        <p>{t("students_completing_successful")}<br></br>{t("1__ielts_academic__ukvi_versio_1")}<br></br>{t("b1_level___cefr__common_europe")}<br></br>{t("85_90_scores_on_duolingo_engli")}<br></br>{t("please_note_that_university_of")}<br></br>{t("2__104_ucas_tariff_points_or_t")}<br></br>{t("successful_completion_of_year")}<br></br>{t("successful_completion_of_year_1")}<br></br>
                                         </p>
-                                   </div>
-                              )}
+                                   </div>}
 
-                              {activeTab === "fees" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Fees</h2>
-                                        <p>
-                                             Tuition Fees Uzb 29 900 000 UZS per year
-                                        </p>
-                                        <p>
-                                             Tuition Fees International 3,700 USD per year
-                                        </p>
-                                        <p>
-                                             Duration 4 years – full time
-                                        </p>
-                                   </div>
-                              )}
+                              {activeTab === "fees" && <div className="content-pane fade-in">
+                                        <h2>{t("fees")}</h2>
+                                        <p>{t("tuition_fees_uzb_29_900_000_uz")}</p>
+                                        <p>{t("tuition_fees_international_3_7")}</p>
+                                        <p>{t("duration_4_years___full_time")}</p>
+                                   </div>}
 
                               {/* {activeTab === "scholarships" && (
                                              <div className="content-pane fade-in">
@@ -238,15 +128,15 @@ export default function SmartSustainableAgriculture() {
                                    </a>
                                    <img src={begzodImg} alt="Bekhzod Kodirkhonov" />
                                    <div className="profile-info">
-                                        <h4>Bekhzod Kodirkhonov</h4>
-                                        <p>Head of Department</p>
+                                        <h4>{t("bekhzod_kodirkhonov")}</h4>
+                                        <p>{t("head_of_department")}</p>
                                    </div>
                               </div>
 
                               {/* APPLICATIONS OPEN BOX */}
                               <div className="applications-box">
-                                   <h3>Applications for Fall 2026 are now open!</h3>
-                                   <button className="apply-btn">Start Your Application →</button>
+                                   <h3>{t("applications_for_fall_2026_are")}</h3>
+                                   <button className="apply-btn">{t("start_your_application_")}</button>
                               </div>
                          </div>
                     </div>
@@ -254,28 +144,27 @@ export default function SmartSustainableAgriculture() {
                     {/* RIGHT SIDEBAR */}
                     <div className="admissions-sidebar">
                          <div className="sidebar-box">
-                              <h3>Admissions</h3>
+                              <h3>{t("admissions")}</h3>
                               <ul className="sidebar-links">
                                    <li>
-                                        <Link to="/admissions/pre-foundation" className="active-link">Pre-Foundation</Link>
+                                        <Link to="/admissions/pre-foundation" className="active-link">{t("pre_foundation")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/foundation">Foundation</Link>
+                                        <Link to="/admissions/foundation">{t("foundation")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/undergraduate" className="active-link">Undergraduate</Link>
+                                        <Link to="/admissions/undergraduate" className="active-link">{t("undergraduate")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/postgraduate">Postgraduate</Link>
+                                        <Link to="/admissions/postgraduate">{t("postgraduate")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/phd">PhD and DSc Programmes</Link>
+                                        <Link to="/admissions/phd">{t("phd_and_dsc_programmes")}</Link>
                                    </li>
                               </ul>
                          </div>
                     </div>
 
                </div>
-          </div>
-     );
+          </div>;
 }

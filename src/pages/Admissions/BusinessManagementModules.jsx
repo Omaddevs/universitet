@@ -1,24 +1,19 @@
+import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import "./AdmissionsShared.css";
 import "./Agri.css";
 import { Link } from "react-router-dom";
 import bgVideo from "../../all-bg-videos/iau-bg.mp4";
 import javlonbekImg from "../../images/javlonbek-asrakulov.png";
-
 export default function BusinessManagementModules() {
-     const [activeTab, setActiveTab] = useState("courseContent");
-
-     return (
-          <div className="admissions-page">
+  const {
+    t
+  } = useTranslation();
+  const [activeTab, setActiveTab] = useState("courseContent");
+  return <div className="admissions-page">
                {/* PAGE HEADER */}
                <div className="admissions-hero">
-                    <video
-                         className="admissions-hero-video"
-                         autoPlay
-                         loop
-                         muted
-                         playsInline
-                    >
+                    <video className="admissions-hero-video" autoPlay loop muted playsInline>
                          <source src={bgVideo} type="video/mp4" />
                     </video>
                     <div className="hero-overlay"></div>
@@ -26,13 +21,13 @@ export default function BusinessManagementModules() {
                          <div className="breadcrumbs">
                               <Link to="/">🏠</Link>
                               <span className="separator">&gt;</span>
-                              <span>Admissions</span>
+                              <span>{t("admissions")}</span>
                               <span className="separator">&gt;</span>
-                              <Link to="/admissions/foundation">Foundation</Link>
+                              <Link to="/admissions/foundation">{t("foundation")}</Link>
                               <span className="separator">&gt;</span>
-                              <span className="current">Business Management Modules</span>
+                              <span className="current">{t("business_management_modules")}</span>
                          </div>
-                         <h1>Business Management Modules</h1>
+                         <h1>{t("business_management_modules")}</h1>
                     </div>
                </div>
 
@@ -44,115 +39,45 @@ export default function BusinessManagementModules() {
                          {/* TABS */}
                          <div className="tabs-container">
                               <div className="tabs-list">
-                                   <button
-                                        className={`tab-btn ${activeTab === "courseContent" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("courseContent")}
-                                   >
-                                        Course content
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "modules" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("modules")}
-                                   >
-                                        Modules
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "entryRequirements" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("entryRequirements")}
-                                   >
-                                        Entry requirements
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "fees" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("fees")}
-                                   >
-                                        Fees
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "scholarships" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("scholarships")}
-                                   >
-                                        Scholarships
-                                   </button>
+                                   <button className={`tab-btn ${activeTab === "courseContent" ? "active" : ""}`} onClick={() => setActiveTab("courseContent")}>{t("course_content")}</button>
+                                   <button className={`tab-btn ${activeTab === "modules" ? "active" : ""}`} onClick={() => setActiveTab("modules")}>{t("modules")}</button>
+                                   <button className={`tab-btn ${activeTab === "entryRequirements" ? "active" : ""}`} onClick={() => setActiveTab("entryRequirements")}>{t("entry_requirements")}</button>
+                                   <button className={`tab-btn ${activeTab === "fees" ? "active" : ""}`} onClick={() => setActiveTab("fees")}>{t("fees")}</button>
+                                   <button className={`tab-btn ${activeTab === "scholarships" ? "active" : ""}`} onClick={() => setActiveTab("scholarships")}>{t("scholarships")}</button>
                               </div>
                          </div>
 
                          {/* TAB CONTENT */}
                          <div className="tab-content-box">
-                              {activeTab === "courseContent" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Course content</h2>
-                                        <p>
-                                             This innovative degree programme with pathway options prepares students to make a difference in the food and agri-supply chain sector by studying the economics, logistics, food safety, management and technology that underpin modern business management, performance improvement, safety and quality control.
+                              {activeTab === "courseContent" && <div className="content-pane fade-in">
+                                        <h2>{t("course_content")}</h2>
+                                        <p>{t("this_innovative_degree_program")}</p>
+                                   </div>}
 
-                                             The programmes aim to develop an enquiring, critical and reflective approach to ideas and issues, enabling successful graduates to contribute proactively across the sector. This could be in the world of private business, in government, or ‘third’ sector organisations, or in the main business-related professions such as banking and finance. Opportunities will also exist for those who seek consultancy or wish to contribute to the wider society within which businesses operate.
+                              {activeTab === "modules" && <div className="content-pane fade-in">
+                                        <h2>{t("modules")}</h2>
+                                        <p>{t("throughout_the_programme__ther")}</p>
+                                        <h3>{t("foundation_year")}</h3>
+                                        <p>{t("u0001___english_for_academic_p")}<br></br>{t("u0007___business_enterprise_sk")}<br></br>{t("u0002___digital_skills")}<br></br>{t("u0004___agri_food_business_and")}<br></br>{t("u0003___sustainable_developmen")}<br></br>{t("u0006___agriculture_and_farmin")}<br></br>
                                         </p>
-                                   </div>
-                              )}
+                                   </div>}
 
-                              {activeTab === "modules" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Modules</h2>
-                                        <p>
-                                             Throughout the programme, there will be engagement with the ways in which the agri-food sector can support the implementation of the UN Sustainable Development Goals and UN Global Compact, as well as how businesses can promote equality, diversity and inclusion.
+                              {activeTab === "entryRequirements" && <div className="content-pane fade-in">
+                                        <h2>{t("entry_requirements")}</h2>
+                                        <p>{t("the_following_standard_univers")}</p>
+                                   </div>}
 
-                                             The business has a critical role in achieving these goals and outcomes, and as future leaders of the agri-food economy, we believe that our students should have the opportunity to understand the benefits to businesses that they provide.
+                              {activeTab === "fees" && <div className="content-pane fade-in">
+                                        <h2>{t("fees")}</h2>
+                                        <p>{t("tuition_fees_uzb_29_900_000_uz")}</p>
+                                        <p>{t("tuition_fees_international_3_7")}</p>
+                                        <p>{t("duration_1_year___full_time")}</p>
+                                   </div>}
 
-                                             These goals and outcomes are mapped to our modules to ensure that at each stage of the programme we are identifying how they can be developed as part of business strategy
-                                        </p>
-                                        <h3>
-                                             Foundation Year
-                                        </h3>
-                                        <p>
-                                             U0001 – English for Academic Purposes I (EAPI)<br></br>
-                                             U0007 – Business Enterprise Skills<br></br>
-                                             U0002 – Digital Skills<br></br>
-                                             U0004 – Agri-food Business and Marketing<br></br>
-                                             U0003 – Sustainable Development<br></br>
-                                             U0006 – Agriculture and Farming<br></br>
-                                        </p>
-                                   </div>
-                              )}
-
-                              {activeTab === "entryRequirements" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Entry requirements</h2>
-                                        <p>
-                                             The following standard University entry requirements will be appropriate for the Foundation Year programme:
-                                             1. IELTS Academic (UKVI version) min. overall 5.0, min. 5.0 in all subscores (5,0 in Writing) or the equivalent of either:
-
-                                             43-58 – PTE 43-58 in all subscores (29-36 in Writing)
-                                             35-45 – TOEFL 16 in all subscores (14 in Writing)
-                                             B1, B2 Level – CEFR (Common European Framework of Reference)
-                                             75-80 scores on Duolingo English Test
-                                             Please note that University offers a Corinium Language Associates examination (developed on demand to test candidates of the International Agriculture University) for those who don’t have the above-mentioned certificates on a paid basis.
-                                        </p>
-                                   </div>
-                              )}
-
-                              {activeTab === "fees" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Fees</h2>
-                                        <p>
-                                             Tuition Fees Uzb 29 900 000 UZS per year
-                                        </p>
-                                        <p>
-                                             Tuition Fees International 3,700 USD per year
-                                        </p>
-                                        <p>
-                                             Duration 1 year – full time
-                                        </p>
-                                   </div>
-                              )}
-
-                              {activeTab === "scholarships" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Scholarships</h2>
-                                        <p>
-                                             The International Agriculture University offers scholarships and grants for local students. Grantees will have an opportunity to study postgraduate or undergraduate courses with 0 tuition fee, covered by the Ministry of Agriculture. Currently, local students of the International Agriculture University are able to apply for scholarships from the Ministry of Agriculture and more.
-                                        </p>
-                                   </div>
-                              )}
+                              {activeTab === "scholarships" && <div className="content-pane fade-in">
+                                        <h2>{t("scholarships")}</h2>
+                                        <p>{t("the_international_agriculture")}</p>
+                                   </div>}
                          </div>
 
                          {/* BOTTOM ROW: PROFILE & APPLICATIONS */}
@@ -166,15 +91,15 @@ export default function BusinessManagementModules() {
                                    </a>
                                    <img src={javlonbekImg} alt="Javlonbek Asrakulov" />
                                    <div className="profile-info">
-                                        <h4>Javlonbek Asrakulov</h4>
-                                        <p>Head of Department</p>
+                                        <h4>{t("javlonbek_asrakulov")}</h4>
+                                        <p>{t("head_of_department")}</p>
                                    </div>
                               </div>
 
                               {/* APPLICATIONS OPEN BOX */}
                               <div className="applications-box">
-                                   <h3>Applications for Fall 2026 are now open!</h3>
-                                   <button className="apply-btn">Start Your Application →</button>
+                                   <h3>{t("applications_for_fall_2026_are")}</h3>
+                                   <button className="apply-btn">{t("start_your_application_")}</button>
                               </div>
                          </div>
                     </div>
@@ -182,28 +107,27 @@ export default function BusinessManagementModules() {
                     {/* RIGHT SIDEBAR */}
                     <div className="admissions-sidebar">
                          <div className="sidebar-box">
-                              <h3>Admissions</h3>
+                              <h3>{t("admissions")}</h3>
                               <ul className="sidebar-links">
                                    <li>
-                                        <Link to="/admissions/pre-foundation" className="active-link">Pre-Foundation</Link>
+                                        <Link to="/admissions/pre-foundation" className="active-link">{t("pre_foundation")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/foundation">Foundation</Link>
+                                        <Link to="/admissions/foundation">{t("foundation")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/undergraduate">Undergraduate</Link>
+                                        <Link to="/admissions/undergraduate">{t("undergraduate")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/postgraduate">Postgraduate</Link>
+                                        <Link to="/admissions/postgraduate">{t("postgraduate")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/phd">PhD and DSc Programmes</Link>
+                                        <Link to="/admissions/phd">{t("phd_and_dsc_programmes")}</Link>
                                    </li>
                               </ul>
                          </div>
                     </div>
 
                </div>
-          </div>
-     );
+          </div>;
 }

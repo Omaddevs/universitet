@@ -1,32 +1,43 @@
+import { useTranslation } from "react-i18next";
 import "./OurStaff.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-
-const teamMenu = [
-  { label: "University Staff", href: "/staff" },
-  { label: "Rectorate", href: "/staff/rectorate" },
-  { label: "Deans", href: "/staff/deans" },
-  { label: "Heads of Departments", href: "/staff/heads" },
-  { label: "Academic Staff", href: "/staff/academic-staff" },
-];
+const teamMenu = [{
+  label: "University Staff",
+  href: "/staff"
+}, {
+  label: "Rectorate",
+  href: "/staff/rectorate"
+}, {
+  label: "Deans",
+  href: "/staff/deans"
+}, {
+  label: "Heads of Departments",
+  href: "/staff/heads"
+}, {
+  label: "Academic Staff",
+  href: "/staff/academic-staff"
+}];
 import staffHero from "../../images/campus.png"; // xohlasang o'zing rasm qo'yasan
 
 import departmentsData from "../../data/departments.json";
-
 const DEPARTMENTS = departmentsData.map(dep => ({
   title: dep.title,
-  avatars: dep.members.slice(0, 4).map(m => m.photoUrl),
+  avatars: dep.members.slice(0, 4).map(m => m.photoUrl)
 }));
-
 export default function OurStaff() {
+  const {
+    t
+  } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-
-  const goDepartment = (title) => {
-    navigate("/department-community", { state: { title } });
+  const goDepartment = title => {
+    navigate("/department-community", {
+      state: {
+        title
+      }
+    });
   };
-
-  return (
-    <main className="os-page">
+  return <main className="os-page">
       {/* HERO */}
       <section className="os-hero">
         <div className="os-hero-bg">
@@ -37,20 +48,18 @@ export default function OurStaff() {
 
         <div className="os-hero-inner">
           <nav className="os-breadcrumb">
-            <Link to="/" className="os-crumb">
-              Home
-            </Link>
+            <Link to="/" className="os-crumb">{t("home")}</Link>
             <span className="os-crumbSep">›</span>
-            <span className="os-crumb">About NewUU</span>
+            <span className="os-crumb">{t("about_newuu")}</span>
             <span className="os-crumbSep">›</span>
-            <span className="os-crumb">Leadership</span>
+            <span className="os-crumb">{t("leadership")}</span>
             <span className="os-crumbSep">›</span>
-            <span className="os-crumb">Our team</span>
+            <span className="os-crumb">{t("our_team")}</span>
             <span className="os-crumbSep">›</span>
-            <span className="os-crumb os-crumbActive">University Staff</span>
+            <span className="os-crumb os-crumbActive">{t("university_staff")}</span>
           </nav>
 
-          <h1 className="os-title">University Staff</h1>
+          <h1 className="os-title">{t("university_staff")}</h1>
         </div>
       </section>
 
@@ -60,81 +69,52 @@ export default function OurStaff() {
           <div className="os-layout">
             {/* LEFT: CARDS */}
             <div className="os-grid">
-              {DEPARTMENTS.map((d, idx) => (
-                <article
-                  className="os-card"
-                  key={idx}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Open ${d.title}`}
-                  onClick={() => goDepartment(d.title)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      goDepartment(d.title);
-                    }
-                  }}
-                >
+              {DEPARTMENTS.map((d, idx) => <article className="os-card" key={idx} role="button" tabIndex={0} aria-label={`Open ${d.title}`} onClick={() => goDepartment(d.title)} onKeyDown={e => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                goDepartment(d.title);
+              }
+            }}>
                   <h3 className="os-cardTitle">{d.title}</h3>
                   <div className="os-cardLine" />
 
                   <div className="os-cardBottom">
                     <div className="os-avatars">
-                      {d.avatars.map((src, i) => (
-                        <img
-                          className="os-avatar"
-                          src={src}
-                          alt="staff"
-                          key={i}
-                        />
-                      ))}
+                      {d.avatars.map((src, i) => <img className="os-avatar" src={src} alt="staff" key={i} />)}
                     </div>
 
-                    <button
-                      className="os-moreBtn"
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation(); // ✅ card clickini to'xtatadi
-                        goDepartment(d.title);
-                      }}
-                    >
-                      See more <span className="os-arrow">→</span>
+                    <button className="os-moreBtn" type="button" onClick={e => {
+                  e.stopPropagation(); // ✅ card clickini to'xtatadi
+                  goDepartment(d.title);
+                }}>{t("see_more")}<span className="os-arrow">→</span>
                     </button>
                   </div>
 
                   {/* pattern background */}
                   <span className="os-pattern" aria-hidden="true" />
-                </article>
-              ))}
+                </article>)}
             </div>
 
             {/* RIGHT: SIDEBAR */}
             <aside className="os-side">
               <div className="os-sideCard">
-                <div className="os-sideTitle">Our team</div>
+                <div className="os-sideTitle">{t("our_team")}</div>
 
-                {teamMenu.map((item) => (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className={`os-sideLink ${location.pathname === item.href ? "active" : ""}`}
-                  >
+                {teamMenu.map(item => <Link key={item.label} to={item.href} className={`os-sideLink ${location.pathname === item.href ? "active" : ""}`}>
                     <span className="os-sideMark" />
                     {item.label}
-                  </Link>
-                ))}
+                  </Link>)}
               </div>
 
               <div className="os-sidePhoto">
                 <div className="os-sidePhotoInner">
                   {/* pastdagi rasmni xohlasang qo'yasan */}
-                  <div className="os-sidePhotoPlaceholder">Photo</div>
+                  <div className="os-sidePhotoPlaceholder">{t("photo")}</div>
                 </div>
               </div>
             </aside>
           </div>
         </div>
       </section>
-    </main>
-  );
+    </main>;
 }

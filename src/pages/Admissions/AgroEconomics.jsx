@@ -1,24 +1,19 @@
+import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import "./AdmissionsShared.css";
 import "./Agri.css";
 import { Link } from "react-router-dom";
 import bgVideo from "../../all-bg-videos/iau-bg.mp4";
 import javlonbekImg from "../../images/javlonbek-asrakulov.png";
-
 export default function AgroEconomics() {
-     const [activeTab, setActiveTab] = useState("courseContent");
-
-     return (
-          <div className="admissions-page">
+  const {
+    t
+  } = useTranslation();
+  const [activeTab, setActiveTab] = useState("courseContent");
+  return <div className="admissions-page">
                {/* PAGE HEADER */}
                <div className="admissions-hero">
-                    <video
-                         className="admissions-hero-video"
-                         autoPlay
-                         loop
-                         muted
-                         playsInline
-                    >
+                    <video className="admissions-hero-video" autoPlay loop muted playsInline>
                          <source src={bgVideo} type="video/mp4" />
                     </video>
                     <div className="hero-overlay"></div>
@@ -26,13 +21,13 @@ export default function AgroEconomics() {
                          <div className="breadcrumbs">
                               <Link to="/">🏠</Link>
                               <span className="separator">&gt;</span>
-                              <span>Admissions</span>
+                              <span>{t("admissions")}</span>
                               <span className="separator">&gt;</span>
-                              <Link to="/admissions/undergraduate">Undergraduate</Link>
+                              <Link to="/admissions/undergraduate">{t("undergraduate")}</Link>
                               <span className="separator">&gt;</span>
-                              <span className="current">BSc (Hons) Agro-Economics</span>
+                              <span className="current">{t("bsc__hons__agro_economics")}</span>
                          </div>
-                         <h1>BSc (Hons) Agro-Economics</h1>
+                         <h1>{t("bsc__hons__agro_economics")}</h1>
                     </div>
                </div>
 
@@ -44,146 +39,56 @@ export default function AgroEconomics() {
                          {/* TABS */}
                          <div className="tabs-container">
                               <div className="tabs-list">
-                                   <button
-                                        className={`tab-btn ${activeTab === "courseContent" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("courseContent")}
-                                   >
-                                        Course content
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "modules" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("modules")}
-                                   >
-                                        Modules
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "entryRequirements" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("entryRequirements")}
-                                   >
-                                        Entry requirements
-                                   </button>
-                                   <button
-                                        className={`tab-btn ${activeTab === "fees" ? "active" : ""}`}
-                                        onClick={() => setActiveTab("fees")}
-                                   >
-                                        Fees
-                                   </button>
+                                   <button className={`tab-btn ${activeTab === "courseContent" ? "active" : ""}`} onClick={() => setActiveTab("courseContent")}>{t("course_content")}</button>
+                                   <button className={`tab-btn ${activeTab === "modules" ? "active" : ""}`} onClick={() => setActiveTab("modules")}>{t("modules")}</button>
+                                   <button className={`tab-btn ${activeTab === "entryRequirements" ? "active" : ""}`} onClick={() => setActiveTab("entryRequirements")}>{t("entry_requirements")}</button>
+                                   <button className={`tab-btn ${activeTab === "fees" ? "active" : ""}`} onClick={() => setActiveTab("fees")}>{t("fees")}</button>
                                    {/* <button
                                         className={`tab-btn ${activeTab === "scholarships" ? "active" : ""}`}
                                         onClick={() => setActiveTab("scholarships")}
-                                   >
+                                    >
                                         Scholarships
-                                   </button> */}
+                                    </button> */}
                               </div>
                          </div>
 
                          {/* TAB CONTENT */}
                          <div className="tab-content-box">
-                              {activeTab === "courseContent" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Course content</h2>
-                                        <p>
-                                             BSc (Hons) Agro-Economics will acquire high-level transferrable skills that will make them highly sought after by employers across the public, private and third sectors, and accelerate them into high earning careers. The pathway will also equip students with practical skills and professional confidence for a successful career in the Government Economic Service, think tanks and consultancy firms or in preparation for postgraduate study and research. Students will develop quantitative and empirical expertise from our team of international researchers and professional economists.
-                                        </p>
-                                   </div>
-                              )}
+                              {activeTab === "courseContent" && <div className="content-pane fade-in">
+                                        <h2>{t("course_content")}</h2>
+                                        <p>{t("bsc__hons__agro_economics_will")}</p>
+                                   </div>}
 
-                              {activeTab === "modules" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Modules</h2>
-                                        <p>
-                                             All our programmes provide practical skills and training opportunities, a focus on innovation and guidance for personal growth and development, insights into global challenges and perspectives, and the development and integration of research-informed teaching. Module content is designed to address the UN’s Sustainable Development Goals, reflecting our shared commitment to the national and global challenges of sustainability, climate change and reduced carbon / net zero aims.
+                              {activeTab === "modules" && <div className="content-pane fade-in">
+                                        <h2>{t("modules")}</h2>
+                                        <p>{t("all_our_programmes_provide_pra")}</p>
+                                        <h3>{t("year_one")}</h3>
+                                        <p>{t("u1021___people_and_organisatio")}<br></br>{t("u1015___business_finance")}<br></br>{t("u1019___global_business_enviro")}<br></br>{t("u1018___principles_of_marketin")}<br></br>{t("u1020___principles_of_economic")}<br></br>{t("u1001___english_for_academic_p")}<br></br>{t("u1022___business_informatics")}<br></br>{t("u1013___introduction_to_the_ag")}<br></br>
                                         </p>
-                                        <h3>
-                                             Year one
-                                        </h3>
-                                        <p>
-                                             U1021 – People and Organisations<br></br>
-                                             U1015 – Business Finance<br></br>
-                                             U1019 – Global Business Environment<br></br>
-                                             U1018 – Principles of Marketing<br></br>
-                                             U1020 – Principles of Economics<br></br>
-                                             U1001 – English for Academic Purposes II (EAPII)<br></br>
-                                             U1022 – Business Informatics<br></br>
-                                             U1013 – Introduction to the Agri-Food Industry<br></br>
+                                        <h3>{t("year_two")}</h3>
+                                        <p>{t("u2030___marketing_management")}<br></br>{t("u2017___practical_e__business")}<br></br>{t("u2011___introduction_to_resear")}<br></br>{t("u2004___personal_and_professio")}<br></br>{t("u2033___environmental_and_natu")}<br></br>{t("u2022___entrepreneurship__intr")}<br></br>{t("u2023___experimental_design_an")}<br></br>{t("u2024___business_strategy")}<br></br>
                                         </p>
-                                        <h3>
-                                             Year two
-                                        </h3>
-                                        <p>
-                                             U2030 – Marketing Management<br></br>
-                                             U2017 – Practical E- Business and E-Commerce<br></br>
-                                             U2011 – Introduction to Research Skills<br></br>
-                                             U2004 – Personal and Professional Development Skills and Employability<br></br>
-                                             U2033 – Environmental and Natural Resource Economics<br></br>
-                                             U2022 – Entrepreneurship, Intrapreneurship and Enterprise Development<br></br>
-                                             U2023 – Experimental Design and Statistical Analysis <br></br>
-                                             U2024 – Business Strategy<br></br>
+                                        <h3>{t("year_three")}</h3>
+                                        <p>{t("u3004___dissertation")}<br></br>{t("u3016___international_business")}<br></br>{t("u3017___smart_food_systems")}<br></br>{t("u3022___econometrics")}<br></br>{t("u3021___corporate_finance")}<br></br>{t("u3023___circular_economy_and_c")}<br></br>{t("u3015___entrepreneurship")}<br></br>
                                         </p>
-                                        <h3>
-                                             Year three
-                                        </h3>
-                                        <p>
-                                             U3004 – Dissertation<br></br>
-                                             U3016 – International Business Issues<br></br>
-                                             U3017 – Smart Food Systems<br></br>
-                                             U3022 – Econometrics<br></br>
-                                             U3021 – Corporate Finance<br></br>
-                                             U3023 – Circular Economy and Circular Business Models<br></br>
-                                             U3015 – Entrepreneurship<br></br>
+                                        <h2>{t("careers_and_graduate_destinati")}</h2>
+                                        <p>{t("upon_graduation__students_are")}</p>
+                                        <p>{t("agricultural_policy")}<br></br>{t("farm_management")}<br></br>{t("enterprise_unit_operator_in_ag")}<br></br>{t("food_security_and_safety")}<br></br>{t("farm_business___agricultural_c")}<br></br>
                                         </p>
-                                        <h2>
-                                             Careers and graduate destinations
-                                        </h2>
-                                        <p>
-                                             Upon graduation, students are aware of the importance of the pillars of sustainability, animal welfare and soil management to the success of the agricultural industry and the complex interaction between elements within an enterprise, and how these can be utilised to produce sustainable performance that has a positive impact on the success of the parent business.
+                                   </div>}
 
-                                             You could progress into a range of careers including:
+                              {activeTab === "entryRequirements" && <div className="content-pane fade-in">
+                                        <h2>{t("entry_requirements")}</h2>
+                                        <p>{t("students_completing_successful")}<br></br><br></br>{t("1__ielts_academic__ukvi_versio")}<br></br>{t("b1_level___cefr__common_europe")}<br></br>{t("85_90_scores_on_duolingo_engli")}<br></br>{t("please_note_that_university_of")}<br></br><br></br>{t("2__104_ucas_tariff_points_or_t")}<br></br>{t("successful_completion_of_year")}<br></br>{t("successful_completion_of_year_1")}<br></br>
                                         </p>
-                                        <p>
-                                             Agricultural policy<br></br>
-                                             Farm management<br></br>
-                                             Enterprise/unit operator in agricultural or production-based enterprises either domestically or internationally.<br></br>
-                                             Food security and safety<br></br>
-                                             Farm business / agricultural consultancy<br></br>
-                                        </p>
-                                   </div>
-                              )}
+                                   </div>}
 
-                              {activeTab === "entryRequirements" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Entry requirements</h2>
-                                        <p>
-                                             Students completing successfully the BSc (Hons) Agriculture (Foundation Year) can progress to the BSc Farm Business Management degree. Meanwhile, the following standard University entry requirements will be appropriate for those who didn’t complete the Foundation Year of the current programme:<br></br><br></br>
-
-                                             1. IELTS Academic (UKVI version) min. overall 6.0 with no element below 5.0 or the equivalent of either:<br></br>
-
-                                             B1 Level – CEFR (Common European Framework of Reference)<br></br>
-                                             85-90 scores on Duolingo English Test<br></br>
-                                             Please note that University offers a Corinium Language Associates examination (developed on demand to test candidates of the International Agriculture University) for those who don’t have the above-mentioned certificates on a paid basis.<br></br><br></br>
-
-                                             2. 104 UCAS Tariff points or the equivalent of either:<br></br>
-
-                                             Successful completion of Year 2 (Transcript) from a University 4-year degree OR<br></br>
-                                             Successful completion of Year 1 (Transcript) from a University 4-year degree<br></br>
-                                        </p>
-                                   </div>
-                              )}
-
-                              {activeTab === "fees" && (
-                                   <div className="content-pane fade-in">
-                                        <h2>Fees</h2>
-                                        <p>
-                                             Tuition Fees Uzb 29 900 000 UZS per year
-                                        </p>
-                                        <p>
-                                             Tuition Fees International 3,700 USD per year
-                                        </p>
-                                        <p>
-                                             Duration 4 years – full time
-                                        </p>
-                                   </div>
-                              )}
+                              {activeTab === "fees" && <div className="content-pane fade-in">
+                                        <h2>{t("fees")}</h2>
+                                        <p>{t("tuition_fees_uzb_29_900_000_uz")}</p>
+                                        <p>{t("tuition_fees_international_3_7")}</p>
+                                        <p>{t("duration_4_years___full_time")}</p>
+                                   </div>}
 
                               {/* {activeTab === "scholarships" && (
                                    <div className="content-pane fade-in">
@@ -192,7 +97,7 @@ export default function AgroEconomics() {
                                              The International Agriculture University offers scholarships and grants for local students. Grantees will have an opportunity to study postgraduate or undergraduate courses with 0 tuition fee, covered by the Ministry of Agriculture. Currently, local students of the International Agriculture University are able to apply for scholarships from the Ministry of Agriculture and more.
                                         </p>
                                    </div>
-                              )} */}
+                               )} */}
                          </div>
 
                          {/* BOTTOM ROW: PROFILE & APPLICATIONS */}
@@ -206,15 +111,15 @@ export default function AgroEconomics() {
                                    </a>
                                    <img src={javlonbekImg} alt="Javlonbek Asrakulov" />
                                    <div className="profile-info">
-                                        <h4>Javlonbek Asrakulov</h4>
-                                        <p>Head of Department</p>
+                                        <h4>{t("javlonbek_asrakulov")}</h4>
+                                        <p>{t("head_of_department")}</p>
                                    </div>
                               </div>
 
                               {/* APPLICATIONS OPEN BOX */}
                               <div className="applications-box">
-                                   <h3>Applications for Fall 2026 are now open!</h3>
-                                   <button className="apply-btn">Start Your Application →</button>
+                                   <h3>{t("applications_for_fall_2026_are")}</h3>
+                                   <button className="apply-btn">{t("start_your_application_")}</button>
                               </div>
                          </div>
                     </div>
@@ -222,28 +127,27 @@ export default function AgroEconomics() {
                     {/* RIGHT SIDEBAR */}
                     <div className="admissions-sidebar">
                          <div className="sidebar-box">
-                              <h3>Admissions</h3>
+                              <h3>{t("admissions")}</h3>
                               <ul className="sidebar-links">
                                    <li>
-                                        <Link to="/admissions/pre-foundation" className="active-link">Pre-Foundation</Link>
+                                        <Link to="/admissions/pre-foundation" className="active-link">{t("pre_foundation")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/foundation">Foundation</Link>
+                                        <Link to="/admissions/foundation">{t("foundation")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/undergraduate" className="active-link">Undergraduate</Link>
+                                        <Link to="/admissions/undergraduate" className="active-link">{t("undergraduate")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/postgraduate">Postgraduate</Link>
+                                        <Link to="/admissions/postgraduate">{t("postgraduate")}</Link>
                                    </li>
                                    <li>
-                                        <Link to="/admissions/phd">PhD and DSc Programmes</Link>
+                                        <Link to="/admissions/phd">{t("phd_and_dsc_programmes")}</Link>
                                    </li>
                               </ul>
                          </div>
                     </div>
 
                </div>
-          </div>
-     );
+          </div>;
 }
