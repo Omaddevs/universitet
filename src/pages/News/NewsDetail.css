@@ -558,3 +558,23 @@
     font-size: 13.5px;
   }
 }
+
+/* ── API loading / error states ─────────────────────────────────────────── */
+.nd-loading {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.nd-error {
+  text-align: center;
+  padding: 60px 20px;
+  color: #c53030;
+}
+
+.nd-error a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #1a6b3a;
+  text-decoration: underline;
+}

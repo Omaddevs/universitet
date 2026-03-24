@@ -163,8 +163,9 @@ export default function Navbar() {
     const isStudentHandbookPage = location.pathname.startsWith("/student-life/student-handbook");
     const isLatestNewsPage = location.pathname.startsWith("/latest-news");
     const isNewsDetailPage = location.pathname.startsWith("/news/");
+    const isEventsPage     = location.pathname.startsWith("/events");
     const solidWhiteMode =
-        isStaffListPage || isStaffDetailPage || isLegacyStaffPage || isAdmissionsPage || isScientificCouncilPage || isResearchProjectsPage || isGucaePage || isAboutPage || isContactPage || isFestivalsPage || isAcademicCalendarPage || isStudentHandbookPage || isLatestNewsPage || isNewsDetailPage;
+        isStaffListPage || isStaffDetailPage || isLegacyStaffPage || isAdmissionsPage || isScientificCouncilPage || isResearchProjectsPage || isGucaePage || isAboutPage || isContactPage || isFestivalsPage || isAcademicCalendarPage || isStudentHandbookPage || isLatestNewsPage || isNewsDetailPage || isEventsPage;
 
     return (
         <header
@@ -188,7 +189,18 @@ export default function Navbar() {
                         </div>
 
                         <div className="navx-top-center">
-
+                            <div className="navx-test-badge">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none">
+                                    <defs>
+                                        <linearGradient id="testBadgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stopColor="#4a7ec7" />
+                                            <stop offset="100%" stopColor="#1eb894" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path fill="url(#testBadgeGrad)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                </svg>
+                                The site works in test mode
+                            </div>
                         </div>
 
                         <div className="navx-top-right">
@@ -937,6 +949,48 @@ export default function Navbar() {
                     </div>
 
                     <div className="navx-mActions">
+                        <div className="navx-mExtras">
+                            <div className={`navx-lang ${langOpen ? "open" : ""}`}>
+                                <button
+                                    type="button"
+                                    className="navx-langBtn"
+                                    onClick={() => {
+                                        closeAll();
+                                        setLangOpen((v) => !v);
+                                    }}
+                                >
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <span className="navx-flag">GB</span>
+                                        <span>English</span>
+                                    </span>
+                                    <IoChevronDownOutline className="navx-chev" />
+                                </button>
+                                <div className="navx-langMenu">
+                                    <button type="button" onClick={() => setLangOpen(false)}>
+                                        UZ — O‘zbek
+                                    </button>
+                                    <button type="button" onClick={() => setLangOpen(false)}>
+                                        RU — Русский
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div className="navx-mSocials">
+                                <a className="navx-iconA" href="instagram.com/iau_uz?igsh=MW1qeTZ5N3YyazhneA==" aria-label="Instagram">
+                                    <IoLogoInstagram />
+                                </a>
+                                <a className="navx-iconA" href="https://www.youtube.com/@iau_2022?si=wpViWkIgyDb5xzc-" aria-label="YouTube">
+                                    <IoLogoYoutube />
+                                </a>
+                                <a className="navx-iconA" href="https://www.facebook.com/iau.uz?mibextid=qi2Omg&rdid=SykNsNKJUEFOsEIh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FWND1PuA6C6xFT8mU%2F%3Fmibextid%3Dqi2Omg#" aria-label="Facebook">
+                                    <IoLogoFacebook />
+                                </a>
+                                <a className="navx-iconA" href="https://t.me/iau_uz" aria-label="Telegram">
+                                    <FaTelegramPlane />
+                                </a>
+                            </div>
+                        </div>
+
                         <button className="navx-apply wide" type="button">
                             Register <IoChevronForwardOutline className="navx-applyArrow" />
                         </button>

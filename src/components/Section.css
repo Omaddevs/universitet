@@ -35,6 +35,17 @@
   justify-content: center;
 }
 
+/* keeps "practices" + closing-quote on same line on wide screens,
+   wraps naturally on mobile without overflow */
+.vision-last-word {
+  position: relative;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .vision-last-word { white-space: normal; }
+}
+
 .quote-icon {
   font-size: 80px;
   color: #009dbb;
@@ -148,9 +159,12 @@
   z-index: 2;
 }
 
-/* RESPONSIVE */
+/* ══════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════ */
 
-@media(max-width: 992px) {
+/* ── ≤ 992px ──────────────────────────────────── */
+@media (max-width: 992px) {
   .vision-card {
     flex-direction: column-reverse;
   }
@@ -171,60 +185,79 @@
   }
 }
 
-@media(max-width: 560px) {
-  .vision-section {
-    padding: 60px 0;
-  }
+/* ── ≤ 768px ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .vision-section   { padding: 60px 0; }
+  .vision-container { padding: 0 20px; }
 
-  .vision-container {
-    padding: 0 16px;
-  }
-
+  /* Scale down indent proportionally */
   .vision-title {
-    font-size: 28px;
+    font-size: clamp(26px, 5vw, 36px);
+    margin-left: 42px;
   }
+  .vision-author { margin-left: 42px; }
 
-  .vision-desc {
-    font-size: 16px;
-  }
-
-  .quote-top {
-    left: -10px;
-    top: 20px;
-  }
+  .quote-icon  { font-size: 68px; }
+  .quote-top   { left: -42px; top: -8px; }
+  .quote-bottom { right: -34px; bottom: -20px; }
 }
 
-@media (max-width: 480px) {
-  .vision-section {
-    padding: 40px 0;
-  }
-
-  .vision-left {
-    padding: 30px 0;
-  }
+/* ── ≤ 560px ──────────────────────────────────── */
+@media (max-width: 560px) {
+  .vision-section   { padding: 48px 0; }
+  .vision-container { padding: 0 16px; }
 
   .vision-title {
-    font-size: 24px;
+    font-size: clamp(22px, 6.5vw, 30px);
+    margin-left: 36px;
+    margin-bottom: 20px;
+  }
+  .vision-author { margin-left: 36px; }
+
+  .quote-icon   { font-size: 56px; }
+  .quote-top    { left: -36px; top: -6px; }
+  .quote-bottom { right: -28px; bottom: -18px; }
+}
+
+/* ── ≤ 480px ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .vision-section   { padding: 36px 0; }
+  .vision-left      { padding: 24px 0 28px; }
+
+  .vision-title {
+    font-size: clamp(20px, 6vw, 26px);
+    margin-left: 30px;
     margin-bottom: 16px;
+    line-height: 1.4;
   }
+  .vision-author    { margin-left: 30px; gap: 12px; }
+  .vision-gerb      { width: 40px; }
 
-  .vision-desc {
-    font-size: 15px;
-    margin-bottom: 24px;
-  }
+  .vision-author-info h4   { font-size: 15px; }
+  .vision-author-info span { font-size: 13px; }
 
-  .vision-image-wrapper {
-    height: 300px;
-  }
+  .quote-icon   { font-size: 46px; }
+  .quote-top    { left: -30px; top: -4px; }
+  .quote-bottom { right: -24px; bottom: -16px; }
 
-  .quote-icon {
-    font-size: 50px;
-  }
+  .vision-image-wrapper { height: 280px; }
+}
 
-  .quote-top {
-    left: -5px;
-    top: 10px;
+/* ── ≤ 360px ──────────────────────────────────── */
+@media (max-width: 360px) {
+  .vision-container { padding: 0 12px; }
+
+  .vision-title {
+    font-size: 18px;
+    margin-left: 26px;
   }
+  .vision-author { margin-left: 26px; }
+
+  .quote-icon   { font-size: 38px; }
+  .quote-top    { left: -26px; top: -2px; }
+  .quote-bottom { right: -20px; bottom: -14px; }
+
+  .vision-image-wrapper { height: 240px; }
 }
 
 @media (min-width: 1920px) and (min-height: 1000px) {

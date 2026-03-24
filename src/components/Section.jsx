@@ -53,7 +53,7 @@ export default function VisionSection() {
             <h2 className="vision-title">
               <span className="quote-icon quote-top">“</span>
               Our main goal is to develop agriculture based on science-based methods and best{" "}
-              <span style={{ position: "relative", whiteSpace: "nowrap" }}>
+              <span className="vision-last-word">
                 practices
                 <span className="quote-icon quote-bottom">”</span>
               </span>

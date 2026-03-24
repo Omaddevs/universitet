@@ -1,11 +1,20 @@
 import { IoMailOutline } from "react-icons/io5";
 import "./StaffCard.css";
 
+const FALLBACK = "https://placehold.co/260x300/e2e8f0/94a3b8?text=IAU";
+
 export default function StaffCard({ member }) {
+  const src = member.photo_src || member.photoUrl || FALLBACK;
   return (
     <article className="stc-card">
       <div className="stc-photoWrap">
-        <img src={member.photoUrl} alt={member.name} className="stc-photo" loading="lazy" />
+        <img
+          src={src}
+          alt={member.name}
+          className="stc-photo"
+          loading="lazy"
+          onError={(e) => { e.target.src = FALLBACK; }}
+        />
         
         {member.email && (
           <a className="stc-email-float" href={member.email === "#" ? "#" : `mailto:${member.email}`}>

@@ -1,5 +1,5 @@
 // src/pages/News/NewsDetail.jsx
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -14,20 +14,50 @@ import {
 } from "react-icons/io5";
 
 import "./NewsDetail.css";
-
-import campusBg from "../../images/campus.PNG";
 import heroBgVid from "../../all-bg-videos/iau-bg.mp4";
-import newsBig from "../../images/newsBig.jpg";
-import slide1 from "../../images/image2.jpg";
-import slide2 from "../../images/image3.jpg";
-import slide3 from "../../images/image4.jpg";
+import { fetchNewsDetail } from "../../api/newsApi";
+
+const PLACEHOLDER_IMG = "https://placehold.co/800x450/1a6b3a/ffffff?text=IAU+News";
 
 export default function NewsDetail() {
   const { id } = useParams();
+  const [news, setNews]       = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError]     = useState(null);
 
-  useEffect(() => { window.scrollTo(0, 0); }, [id]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
-  const galleryImages = [slide1, slide2, slide3];
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+    fetchNewsDetail(id)
+      .then(setNews)
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({ title: news?.title, url: window.location.href });
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert("Link copied to clipboard!");
+    }
+  };
+
+  const coverImg = news?.img || PLACEHOLDER_IMG;
+  const galleryImages = news?.gallery_images ?? [];
+  const slidesSource = galleryImages.length > 0
+    ? [...galleryImages, ...galleryImages]
+    : [];
+
+  // Split body by newlines, filter empty paragraphs
+  const bodyParagraphs = (news?.body || "")
+    .split(/\n\n|\r\n\r\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
 
   return (
     <div className="nd-page">
@@ -44,7 +74,6 @@ export default function NewsDetail() {
         />
         <div className="nd-hero-veil" />
         <div className="nd-hero-inner">
-          {/* Breadcrumb pill */}
           <div className="nd-bc">
             <Link to="/"><IoHome className="nd-bc-home" /></Link>
             <IoChevronForwardOutline className="nd-bc-sep" />
@@ -53,7 +82,7 @@ export default function NewsDetail() {
             <span>Latest News</span>
           </div>
           <h1 className="nd-hero-title">
-            Spiritual and Enlightenment Hour at the International Agriculture University – with the Rector
+            {loading ? "Loading..." : (news?.title ?? "News Not Found")}
           </h1>
         </div>
       </div>
@@ -64,63 +93,99 @@ export default function NewsDetail() {
         {/* LEFT */}
         <div className="nd-left">
 
-          {/* Meta row */}
-          <div className="nd-meta">
-            <div className="nd-meta-group">
-              <span className="nd-meta-item"><IoCalendarOutline /> 12 March, 2026</span>
-              <span className="nd-meta-item"><IoEyeOutline /> 24</span>
+          {loading && (
+            <div className="nd-loading">
+              <div className="news-spinner" />
             </div>
-            <button className="nd-share"><IoShareSocialOutline /> Share</button>
-          </div>
+          )}
 
-          {/* Main image */}
-          <div className="nd-cover">
-            <img src={newsBig} alt="News cover" />
-          </div>
+          {error && (
+            <div className="nd-error">
+              <p>Failed to load article. Please try again.</p>
+              <Link to="/latest-news">← Back to News</Link>
+            </div>
+          )}
 
-          {/* Article text */}
-          <div className="nd-article">
-            <p>
-              An open and sincere meeting with students was organized at the International Agriculture University with the participation of the university rector. Graduating students, faculty members, and responsible officials took part in the event.
-              During the meeting, the rector shared thoughts on the future plans of graduating youth, employment issues, opportunities in the labor market, and paths for professional development. Important information was also provided about the conditions being created to comprehensively support young people and help them fully demonstrate their knowledge and potential.
-              The meeting was held in the format of an open dialogue, and students received detailed answers to the questions that interested them.
-              The event became a strong source of motivation and confidence for the graduating youth. Department of Spirituality and Enlightenment
-            </p>
-          </div>
+          {!loading && !error && news && (
+            <>
+              {/* Meta row */}
+              <div className="nd-meta">
+                <div className="nd-meta-group">
+                  <span className="nd-meta-item">
+                    <IoCalendarOutline /> {news.date}
+                  </span>
+                  <span className="nd-meta-item">
+                    <IoEyeOutline /> {news.views}
+                  </span>
+                </div>
+                <button className="nd-share" onClick={handleShare}>
+                  <IoShareSocialOutline /> Share
+                </button>
+              </div>
 
-          {/* Gallery slider */}
-          <div className="nd-gallery">
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 3200, disableOnInteraction: false }}
-              spaceBetween={12}
-              slidesPerView={1}
-              breakpoints={{
-                480: { slidesPerView: 2 },
-                768: { slidesPerView: 3 },
-                1024: { slidesPerView: 4 },
-              }}
-              loop
-              className="nd-gallery-swiper"
-            >
-              {/* duplicate slides so loop works with 4 images */}
-              {[...galleryImages, ...galleryImages].map((img, i) => (
-                <SwiperSlide key={i}>
-                  <div className="nd-gallery-thumb">
-                    <img src={img} alt="" />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+              {/* Cover image */}
+              <div className="nd-cover">
+                <img
+                  src={coverImg}
+                  alt={news.title}
+                  onError={(e) => { e.target.src = PLACEHOLDER_IMG; }}
+                />
+              </div>
 
+              {/* Article body */}
+              <div className="nd-article">
+                {bodyParagraphs.length > 0
+                  ? bodyParagraphs.map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))
+                  : <p>{news.text}</p>
+                }
+              </div>
+
+              {/* Gallery slider */}
+              {slidesSource.length > 0 && (
+                <div className="nd-gallery">
+                  <Swiper
+                    modules={[Pagination, Autoplay]}
+                    pagination={{ clickable: true }}
+                    autoplay={{ delay: 3200, disableOnInteraction: false }}
+                    spaceBetween={12}
+                    slidesPerView={1}
+                    breakpoints={{
+                      480: { slidesPerView: 2 },
+                      768: { slidesPerView: 3 },
+                      1024: { slidesPerView: 4 },
+                    }}
+                    loop
+                    className="nd-gallery-swiper"
+                  >
+                    {slidesSource.map((item, i) => (
+                      <SwiperSlide key={i}>
+                        <div className="nd-gallery-thumb">
+                          <img
+                            src={item.image}
+                            alt={item.caption || ""}
+                            onError={(e) => { e.target.src = PLACEHOLDER_IMG; }}
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+              )}
+            </>
+          )}
+
+          {!loading && !error && !news && (
+            <div className="nd-error">
+              <p>News article not found.</p>
+              <Link to="/latest-news">← Back to News</Link>
+            </div>
+          )}
         </div>
 
         {/* RIGHT SIDEBAR */}
         <aside className="nd-sidebar">
-
-          {/* Menu box */}
           <div className="nd-sb-menu">
             <div className="nd-sb-title">News &amp; Events</div>
             <ul>
@@ -128,8 +193,6 @@ export default function NewsDetail() {
               <li><Link to="#">Upcoming Events</Link></li>
             </ul>
           </div>
-
-
         </aside>
       </div>
     </div>

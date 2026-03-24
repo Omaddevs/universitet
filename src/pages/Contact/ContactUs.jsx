@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import "./ContactUs.css";
 import {
      IoCall,
@@ -8,12 +8,41 @@ import {
      IoLogoInstagram,
      IoPaperPlane,
      IoLogoFacebook,
-     IoLogoYoutube
+     IoLogoYoutube,
+     IoCheckmarkCircleOutline,
+     IoAlertCircleOutline,
 } from "react-icons/io5";
 
 import bgVideo from "../../all-bg-videos/iau-bg.mp4";
+import { submitContactForm } from "../../api/contactApi";
 
 export default function ContactUs() {
+     const [form, setForm]       = useState({ name: "", phone: "", message: "" });
+     const [sending, setSending] = useState(false);
+     const [success, setSuccess] = useState(null);
+     const [apiError, setApiError] = useState(null);
+
+     const handleChange = (e) => {
+          setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+     };
+
+     const handleSubmit = async (e) => {
+          e.preventDefault();
+          if (!form.name || !form.phone || !form.message) return;
+          setSending(true);
+          setSuccess(null);
+          setApiError(null);
+          try {
+               await submitContactForm(form);
+               setSuccess("Your application has been received. We will contact you shortly.");
+               setForm({ name: "", phone: "", message: "" });
+          } catch (err) {
+               setApiError(err.message || "Something went wrong. Please try again.");
+          } finally {
+               setSending(false);
+          }
+     };
+
      return (
           <div className="contact-page">
                <div className="contact-hero">
@@ -93,25 +122,56 @@ export default function ContactUs() {
                          <div className="contact-card">
                               <h2>Send an application</h2>
 
-                              <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                              {success && (
+                                   <div className="contact-feedback contact-feedback--success">
+                                        <IoCheckmarkCircleOutline /> {success}
+                                   </div>
+                              )}
+                              {apiError && (
+                                   <div className="contact-feedback contact-feedback--error">
+                                        <IoAlertCircleOutline /> {apiError}
+                                   </div>
+                              )}
+
+                              <form className="contact-form" onSubmit={handleSubmit}>
                                    <div className="form-row">
                                         <div className="form-group">
                                              <label>Name:</label>
-                                             <input type="text" placeholder="Enter" />
+                                             <input
+                                                  type="text"
+                                                  name="name"
+                                                  placeholder="Enter"
+                                                  value={form.name}
+                                                  onChange={handleChange}
+                                                  required
+                                             />
                                         </div>
                                         <div className="form-group">
                                              <label>Phone number:</label>
-                                             <input type="text" placeholder="Enter" />
+                                             <input
+                                                  type="text"
+                                                  name="phone"
+                                                  placeholder="Enter"
+                                                  value={form.phone}
+                                                  onChange={handleChange}
+                                                  required
+                                             />
                                         </div>
                                    </div>
 
                                    <div className="form-group" style={{ flex: 1 }}>
                                         <label>Message:</label>
-                                        <textarea placeholder="Enter"></textarea>
+                                        <textarea
+                                             name="message"
+                                             placeholder="Enter"
+                                             value={form.message}
+                                             onChange={handleChange}
+                                             required
+                                        />
                                    </div>
 
-                                   <button type="submit" className="submit-btn">
-                                        Send application
+                                   <button type="submit" className="submit-btn" disabled={sending}>
+                                        {sending ? "Sending…" : "Send application"}
                                    </button>
                               </form>
                          </div>

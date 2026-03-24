@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import NewsSection from "./components/NewsSection";
+import EventsSection from "./components/EventsSection";
 import AcademicsProgram from "./components/AcademicsProgram/AcademicsProgram";
 import PartnersSection from "./components/PartnersSection";
 import UsefulLinks from "./components/UsefulLinks/UsefulLinks";
@@ -39,6 +40,9 @@ import AcademicCalendar from "./pages/StudentLife/AcademicCalendar";
 import StudentHandbook from "./pages/StudentLife/StudentHandbook";
 import LatestNews from "./pages/News/LatestNews";
 import NewsDetail from "./pages/News/NewsDetail";
+import AllEvents from "./pages/Events/AllEvents";
+import EventDetail from "./pages/Events/EventDetail";
+import ChatWidget from "./components/ChatWidget";
 
 function Home() {
   return (
@@ -46,6 +50,7 @@ function Home() {
       <Header />
       <Section />
       <NewsSection />
+      <EventsSection />
       <AcademicsProgram />
       <PartnersSection />
       <UsefulLinks />
@@ -90,12 +95,17 @@ export default function App() {
         <Route path="/student-life/student-handbook" element={<StudentHandbook />} />
         <Route path="/latest-news" element={<LatestNews />} />
         <Route path="/news/:id" element={<NewsDetail />} />
+        <Route path="/events" element={<AllEvents />} />
+        <Route path="/events/:id" element={<EventDetail />} />
         <Route path="/our-staff" element={<Navigate to="/staff" replace />} />
         <Route path="/department-community" element={<Navigate to="/staff" replace />} />
       </Routes>
 
       <SocialNetworks />
       <Footer />
+
+      {/* ── Global Chatbot Widget ── */}
+      <ChatWidget />
     </div>
   );
 }

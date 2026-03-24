@@ -187,3 +187,16 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Loading / Error ─────────────────────────────────── */
+.sdp-loading {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.sdp-error {
+  padding: 40px 0;
+  color: #c53030;
+  font-size: 14px;
+}
